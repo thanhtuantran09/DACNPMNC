@@ -1,0 +1,119 @@
+﻿@model CNPMNC.Models.DIENTHOAI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+<div class="app__container">
+    <div class="grid wide">
+
+     
+        <div class="row sm-gutter app__content">
+           
+
+          
+
+            <div class="col l-12 m-12" style="display: flex; flex-direction: row; justify-content: space-between;">
+                <div class="home-product">
+                    <div class="home-product-1 l-12">
+                        <div class="row l-9 m-12 c-12">
+                            <!-- Product item -->
+                            <div class="col l-12 m-12 c-8" style="display: flex; flex-direction: row;">
+                                <div class="home-product-item-case shadow-box">
+                                    <div class="col l-6">
+                                        <div class="home-product-item__img screen-image" style="padding-top: 0 !important;">
+                                            <img src="@Url.Content(Model.HINHANH1)" alt="" id="main-img">
+                                            <div class="screen-image__cover"></div>
+                                        </div>
+                                        <div class="home-product-item__img-more">
+                                            <img src="@Url.Content(Model.HINHANH1)" alt="" class="product-image-detail" tabindex="1">
+                                            <img src="@Url.Content(Model.HINHANH2)" alt="" class="product-image-detail" tabindex="1">
+                                            <img src="@Url.Content(Model.HINHANH3)" alt="" class="product-image-detail" tabindex="1">
+                                        </div>
+                                    </div>
+                                    <div class="col l-6">
+                                        <div class="home-product-item__detail">
+                                            <h1 class="home-product-item__detail-title">@Html.DisplayFor(modelItem => Model.TENDT)</h1>
+                                            <div class="home-product-item__detail-categories">
+                                                <span>Danh mục: </span> <a href="#">@(Model.HANG==null?"":Model.HANG.TENHANG)</a>
+                                            </div>
+                                            <div class="home-product-item__detail-briefing">
+                                                <div class="home-product-item__detail-rating">
+                                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="home-product-item__detail-briefing-sold ">280 Đã Bán</div>
+                                            </div>
+                                            @*<div class="home-product-item__detail-description">iPhone 14 Pro Max VN/A là dòng sản phẩm cao cấp nhất nằm trong thế hệ iPhone 14 Series mới vừa được ra mắt cùng với nhiều nâng cấp về ngoại hình và tính năng, hứa hẹn sẽ là dòng sản phẩm đột phá trong vài năm trở lại đây của Apple.</div>
+                                            <div class="home-product-item__detail-color">
+                                                <p>Chọn màu:</p>
+                                                <select name="" id="phone-color">
+                                                    <option value="gold">Gold</option>
+                                                    <option value="midnight">Midnight</option>
+                                                    <option value="silver">Silver</option>
+
+                                                </select>
+                                            </div>*@
+                                            <div class="home-product-item__detail-price">
+                                                <del class="home-product-item__detail-old-price">@Html.DisplayFor(modelItem => Model.GIABAN)</del>
+                                                <span class="home-product-item__detail-sale-price">@Html.DisplayFor(modelItem => Model.GIAGIAM)</span>
+                                                <!-- <div class="home-product-item__detail-save">
+                                                    <p>Tiết kiệm: <strong>42.000đ (35%)</strong></p>
+                                                </div> -->
+                                            </div>
+                                            <div class="home-product-item__detail-cart">
+                                                <a href="/ShoppingCart/AddToCart/@Model.DIENTHOAIID" class="home-product-item__detail-cart-button">
+                                                    <i class="home-product-item__detail-cart-icon fas fa-shopping-cart"></i>
+                                                    <p class="home-product-item__detail-cart-order" data-product-id="@Model.DIENTHOAIID">Thêm vào giỏ hàng</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                        <div class="row l-3 m-0 c-0" style="margin-left: 24px;">
+                            <div class="home-product-item-propose">
+                                <h3 class="home-product-item-propose-label">Thông tin bảo hành</h3>
+                                <ul>
+                                    <li>Bảo hành chính hãng 12 tháng tại trung tâm bảo hành uỷ quyền Apple Việt Nam</li>
+                                    <li>Bao xài lỗi 1 đổi 1 trong 30 ngày với lỗi phần cứng do nhà sản xuất.</li>
+                                </ul>
+
+                            </div>
+                            <div class="home-product-item-detail">
+                                <h3 class="home-product-item-propose-label">Thông số kĩ thuật</h3>
+                                <ul>
+                                    @if (ViewBag.ThongSoKiThuat != null)
+                                    {
+
+                                        <li><b>Màn hình:</b> @ViewBag.ThongSoKiThuat.MANHINH</li>
+                                        <li><b>Độ phân giải:</b> @ViewBag.ThongSoKiThuat.DOPHANGIAI</li>
+                                        <li><b>Camera:</b> @ViewBag.ThongSoKiThuat.CAMERA</li>
+                                        <li><b>Hệ điều hành:</b> @ViewBag.ThongSoKiThuat.HEDH</li>
+                                        <li><b>Chíp xửa lý:</b> @ViewBag.ThongSoKiThuat.CHIPXULY</li>
+                                        <li><b>Rom:</b> @ViewBag.ThongSoKiThuat.ROM</li>
+                                        <li><b>Ram:</b> @ViewBag.ThongSoKiThuat.RAM</li>
+                                        <li><b>Mạng di động:</b> @ViewBag.ThongSoKiThuat.MANGDIDONG</li>
+                                        <li><b>Số khe sim:</b> @ViewBag.ThongSoKiThuat.SOKESIM</li>
+                                        <li><b>Dung lượng Pin:</b> @ViewBag.ThongSoKiThuat.PIN</li>
+                                    }
+                                  
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+    </div>
+</div>
+</div>
+</div>
+</div>

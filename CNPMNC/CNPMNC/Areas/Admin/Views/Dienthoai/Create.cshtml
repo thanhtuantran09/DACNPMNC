@@ -1,0 +1,131 @@
+﻿@model CNPMNC.Models.DIENTHOAI
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Create", "Dienthoai", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="home-product">
+        <div class="row sm-gutter">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <!-- Product items -->
+            <div class="home-product-title" style="height: 550px;">
+                <div class="home-product-title-label">
+                    <h2 class="home-product-title-label__heading">Thêm mới điện thoại</h2>
+                </div>
+
+                <div class="home-product-title-contents-sp" style="margin-top: 25px;">
+                    <div class="home-product-input-create-sp">
+                        @Html.LabelFor(model => model.TENDT, htmlAttributes: new { @for = "input" })
+                        @Html.EditorFor(model => model.TENDT, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text",@placeholder = "Nhập tên điện thoại...", @tabindex = "0", @required = true } })
+                        @Html.ValidationMessageFor(model => model.TENDT, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="home-product-input-create-sp">
+                        @Html.LabelFor(model => model.SOLUONGTON, htmlAttributes: new { @for = "input" })
+                        @Html.EditorFor(model => model.SOLUONGTON, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        @Html.ValidationMessageFor(model => model.SOLUONGTON, "", new { @class = "text-danger" })
+                        <p style="color:red;text-align:center">
+                            @if (ViewBag.error2 != null)
+                            {@ViewBag.error2}
+                        </p>
+                    </div>
+                    <div class="home-product-input-create-sp">
+                        @Html.LabelFor(model => model.GIABAN, htmlAttributes: new { @for = "input" })
+                        @Html.EditorFor(model => model.GIABAN, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập giá bán...", @tabindex = "0", @required = true } })
+                        @Html.ValidationMessageFor(model => model.GIABAN, "", new { @class = "text-danger" })
+                        <p style="color:red;text-align:center">
+                            @if (ViewBag.error1 != null)
+                            {@ViewBag.error1}
+                        </p>
+                    </div>
+                </div>
+                <div class="home-product-title-contents-sp" style="margin-top: 25px;">
+                    <div class="home-product-input-create-sp">
+                        @Html.LabelFor(model => model.PHANTRAMGIAM, htmlAttributes: new { @for = "input" })
+                        @Html.EditorFor(model => model.PHANTRAMGIAM, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập tên điện thoại...", @tabindex = "0", @required = true } })
+                        @Html.ValidationMessageFor(model => model.PHANTRAMGIAM, "", new { @class = "text-danger" })
+                        <p style="color:red;text-align:center">
+                            @if (ViewBag.error != null)
+                            {@ViewBag.error}
+                        </p>
+                    </div>
+                    <div class="home-product-input-create-sp">
+                        @Html.LabelFor(model => model.MAUSAC, htmlAttributes: new { @for = "input" })
+                        @Html.EditorFor(model => model.MAUSAC, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        @Html.ValidationMessageFor(model => model.MAUSAC, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="home-product-input-create-sp ">
+                        @Html.LabelFor(model => model.HANGID, htmlAttributes: new { @for = "input" })
+                        @{Html.RenderAction("SelectCate", "Dienthoai"); }
+                        
+                        @Html.ValidationMessageFor(model => model.HANGID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="home-product-title-contents-sp" style="margin-top: 25px;">
+                    <div class="home-product-input-create-sp ">
+                        @Html.LabelFor(model => model.NCCID, htmlAttributes: new { @for = "input" })
+                        @{Html.RenderAction("SelectCateNCC", "Dienthoai"); }
+
+                        @Html.ValidationMessageFor(model => model.NCCID, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="home-product-input-create-sp" style="width: 250px;">
+
+                    </div>
+                    <div class="home-product-input-create-sp" style="width: 250px;">
+
+                    </div>
+                </div>
+                <div class="home-product-title-contents-sp" style="margin-top: 25px;">
+                    <div class="home-product-input-create-sp">
+                        @Html.LabelFor(model => model.HINHANH1, htmlAttributes: new { @for = "input" })
+
+                        <input class="input-qlsp-create" type="file" name="UploadImage1" onchange="ChangeImage(this, document.getElementById('previewImg1'))" />
+                        <img src="@Url.Content(Model.HINHANH1)" alt="" style="width: 50px; height: 50px; margin-top: 10px;" id="previewImg" />
+                        @Html.ValidationMessageFor(model => model.HINHANH1, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="home-product-input-create-sp">
+                        @Html.LabelFor(model => model.HINHANH2, htmlAttributes: new { @for = "input" })
+
+                        <input class="input-qlsp-create" type="file" name="UploadImage2" onchange="ChangeImage(this, document.getElementById('previewImg2'))" />
+                        <img src="@Url.Content(Model.HINHANH2)" alt="" style="width: 50px; height: 50px; margin-top: 10px;" id="previewImg" />
+                        @Html.ValidationMessageFor(model => model.HINHANH2, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="home-product-input-create-sp ">
+                        @Html.LabelFor(model => model.HINHANH3, htmlAttributes: new { @for = "input" })
+
+                        <input class="input-qlsp-create" type="file" name="UploadImage3" onchange="ChangeImage(this, document.getElementById('previewImg3'))" />
+                        <img src="@Url.Content(Model.HINHANH3)" alt="" style="width: 50px; height: 50px; margin-top: 10px;" id="previewImg" />
+                        @Html.ValidationMessageFor(model => model.HINHANH3, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                
+
+                <div class="home-product-title-contents-2" style="margin-top: 25px; justify-content:center;">
+                    <input type="submit" value="Lưu" class="input-qldm-save" />
+                    <div class="button-create-list2">
+                        <a href="@Url.Action("Dienthoai", "Dienthoai")">
+                            <button type="button" class="create-list">Quay về</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+    </div>
+}
+    
+    
+
+
+
+
+

@@ -1,0 +1,110 @@
+﻿@model CNPMNC.Models.DIENTHOAI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+}
+
+<h2 class="title-delete">Xem thông tin</h2>
+
+<div class="delete-form">
+    <h4>Thông tin điện thoại</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOLUONGTON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOLUONGTON)
+        </dd>
+
+        <dt>
+
+            @Html.DisplayNameFor(model => model.HINHANH1)
+        </dt>
+
+        <dd>
+            <img height="150px" width="150px" src="@Url.Content(Model.HINHANH1)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HINHANH2)
+        </dt>
+
+        <dd>
+            <img height="150px" width="150px" src="@Url.Content(Model.HINHANH2)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HINHANH3)
+        </dt>
+
+        <dd>
+            <img height="150px" width="150px" src="@Url.Content(Model.HINHANH3)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIABAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIABAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIAGIAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIAGIAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HANG)
+        </dt>
+
+        <dd>
+            @(Model.HANG==null?"":Model.HANG.TENHANG)
+           
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NCCID)
+        </dt>
+
+        <dd>
+            @(Model.NHACUNGCAP==null?"":Model.NHACUNGCAP.TENNCC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAUSAC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAUSAC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PHANTRAMGIAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHANTRAMGIAM)
+        </dd>
+
+    </dl>
+    <div class="home-product-title-contents-2" @*style="margin-top: 25px; justify-content:center;"*@>
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.DIENTHOAIID }, new { @class = "delete-form_btn-delete" }) |
+        @Html.ActionLink("Trở về", "Dienthoai", "Dienthoai", new { @class = "delete-form_btn-back" })
+    </div>
+</div>

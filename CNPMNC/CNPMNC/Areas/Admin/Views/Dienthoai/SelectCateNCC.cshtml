@@ -1,0 +1,4 @@
+﻿@model CNPMNC.Models.NHACUNGCAP
+
+@Html.DropDownListFor(model => model.NCCID, new SelectList(Model.ListCateNCC.OrderBy(model => model.TENNCC), "NCCID", "TENNCC"),
+    "--Chọn nhà cung cấp--", new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập tên hãng tạo danh mục...", @tabindex = "0",/*--> @required = true <!--*/})

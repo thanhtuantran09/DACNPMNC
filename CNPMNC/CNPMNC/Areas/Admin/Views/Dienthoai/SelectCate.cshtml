@@ -1,0 +1,4 @@
+﻿@model CNPMNC.Models.HANG
+
+@Html.DropDownListFor(model=>model.HANGID, new SelectList(Model.ListCate.OrderBy(model=>model.TENHANG), "HANGID", "TENHANG"),
+    "--Chọn hãng--", new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập tên hãng tạo danh mục...", @tabindex = "0", @required = true })

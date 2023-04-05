@@ -1,0 +1,176 @@
+﻿@model CNPMNC.Models.Cart
+
+@{
+    ViewBag.Title = "ShowToCart";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+<div class="app__container" style="height: 100%;">
+    <div class="grid wide">
+        <div class="row sm-gutter app__content">
+            <div class="col l-12 m-12 c-12">
+                <div class="cart">
+                    <h1>GIỎ HÀNG</h1>
+                    @if (Model != null)
+                    {
+                        <table class="cart-table">
+                            <thead>
+                                <tr>
+
+                                    <th class="product">Sản phẩm</th>
+                                    <th class="product">Hình ảnh</th>
+
+                                    <th class="quantity">Số lượng</th>
+                                    <th class="price">Đơn giá</th>
+                                    <th class="total">Thành tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody class="products-items">
+                                @foreach (var item in Model.Items)
+                                {
+                                    double total = Convert.ToDouble(item.sanpham.GIAGIAM.Value * item.soluong);
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(model => item.sanpham.TENDT)
+                                        </td>
+                                        <td>
+                                            <img src="@Url.Content(item.sanpham.HINHANH1)" style="width:100px;height:100px;" />
+                                        </td>
+                                        <td>
+
+                                            @using (Html.BeginForm("Update_Sl", "ShoppingCart"))
+                                            {
+                                                <input type="hidden" value="@item.sanpham.DIENTHOAIID" name="ID_dienthoai" />
+                                                <input type="number" value="@item.soluong" name="Soluong" />
+                                                <input type="submit" value="Cập nhật" />
+                                            }
+
+                                        </td>
+                                        <p style="color:red;text-align:center">
+                                            @if (ViewBag.Message != null)
+                                            {@ViewBag.Message}
+                                        </p>
+                                        <td>
+                                            @Html.DisplayFor(model => item.sanpham.GIAGIAM)
+                                        </td>
+                                        <td>
+
+                                            @total.ToString("0,0 đ")
+                                        </td>
+                                        <td>
+                                            <a href="/ShoppingCart/RemoveCart/@item.sanpham.DIENTHOAIID" class="back-to-index">Xóa</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="8">Tổng:@Model.Tongtien().ToString("0,0 đ")</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    }
+
+                    <div class="total-cart-cost">
+
+                    </div>
+                    <div class="order">
+                        @using (Html.BeginForm("Checkout", "ShoppingCart"))
+                        {
+                            <label for="button-show" class="checkout-label">Thanh toán</label>
+                            <input type="checkbox" class="button-show-check-out" id="button-show">
+                            <label for="button-show" class="overlay2"></label>
+                            <div class="checkout">
+                                <label for="button-show" class="checkout-close">
+                                    <i class="fas fa-times"></i>
+                                </label>
+                                <div class="checkout-main">
+                                    <div class="checkout-main__header">
+                                        <a href="./index.html" class="logo">
+                                            <h1 class="logo-text">TFT SHOP</h1>
+                                        </a>
+                                        @*<ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="./cartitems.html">Giỏ hàng</a>
+                            </li>
+                            <li class="breadcrumb-item breadcrumb-item-current">Thông tin giao hàng</li>
+                        </ul>*@
+                                    </div>
+                                    <div class="checkout-main-content">
+                                        <h3 class="checkout-main-label" style="margin-bottom: 20px;">Thông tin giao hàng</h3>
+                                        @*<p class="checkout-main-label_text">
+                            Bạn đã có tài khoản?
+                            <a href="">Đăng nhập</a>
+                        </p>*@
+                                        <div class="fieldset">
+                                            <div class="field">
+                                                <input type="text" class="field-input" name="Hovaten" id="" placeholder="Họ và tên" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="fieldset">
+                                            <div class="field">
+                                                <input type="text" class="field-input" name="SDT" id="" placeholder="Số điện thoại" required>
+                                            </div>
+                                        </div>
+                                        <div class="fieldset">
+                                            <div class="field">
+                                                <input type="text" class="field-input" name="Diachi" id="" placeholder="Địa chỉ" required>
+                                            </div>
+                                        </div>
+
+                                        <a for="button-show_checkout" href="#"> <button>Thanh toán</button></a>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        @*<a href="@Url.Action("Checkout","ShoppingCart")"> <button>Thanh toán</button> </a>*@
+
+                    </div>
+                    <a href="@Url.Action("Trangchu","Trangchu")" class="back-to-index">➾ Tiếp tục mua hàng</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+@*@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>Tên điện thoại</tr>
+            <tr>Hình</tr>
+            <tr>Số lượng</tr>
+            <tr>Giá</tr>
+            <tr>Tổng</tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                double total = Convert.ToDouble(item.sanpham.GIAGIAM.Value * item.soluong);
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.sanpham.TENDT);
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item.sanpham.HINHANH1)" style="width:100px;height:100px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.soluong);
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.sanpham.GIAGIAM);
+                    </td>
+                    <td>
+                        Total:@total
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+}
+

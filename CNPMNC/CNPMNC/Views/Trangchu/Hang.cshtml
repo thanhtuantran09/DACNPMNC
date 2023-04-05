@@ -1,0 +1,14 @@
+﻿@model IEnumerable<CNPMNC.Models.HANG>
+
+    @foreach (var hang in Model)
+    {
+        <li class="category-item">
+           
+            <a href="@Url.Action("DienThoai", new { id = hang.HANGID })" class="category-item__link">
+                <img src="@Url.Content(hang.HINH)" alt="" class="channel-entrance-link-img">
+                @Html.DisplayFor(modelItem => hang.TENHANG)
+            </a>
+        </li>
+        
+    }
+

@@ -1,0 +1,22 @@
+﻿@model CNPMNC.Models.Cart
+@{
+    ViewBag.Title = "Chucohang";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+<div class="app__container" style="height: 100%;">
+    <div class="grid wide">
+        <div class="row sm-gutter app__content">
+            <div class="col l-12 m-12 c-12">
+                <div class="cart">
+                    <h1>GIỎ HÀNG</h1>
+                   <h2>Hiện tại chưa có sản phẩm trong giỏ hàng! Bạn vui lòng về<a href="@Url.Action("Trangchu","Trangchu")" class="back-to-index">Trang chủ</a>  để chọn hàng !</h2>
+                                     
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

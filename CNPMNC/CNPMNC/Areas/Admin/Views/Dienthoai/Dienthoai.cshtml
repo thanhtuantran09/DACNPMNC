@@ -1,0 +1,98 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<CNPMNC.Models.DIENTHOAI>
+
+@{
+    ViewBag.Title = "Dienthoai";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+    var stt = 0;
+}
+
+<div class="home-product">
+    <div class="row sm-gutter">
+        <!-- Product items -->
+         <div class="home-product-title">
+
+
+            <div class="home-product-title-label">
+                <h2 class="home-product-title-label__heading">Quản lý các danh mục sản phẩm</h2>
+            </div>
+            <div class="button-create-list">
+                @using (Html.BeginForm("Dienthoai", "Dienthoai", FormMethod.Get))
+                {
+                    @Html.TextBox("SearchString", ViewBag.CrurentFilter as string, new { @class = "input-qldm-create", @type = "text", @placeholder = "Nhập tên hãng muốn tìm...", @tabindex = "0" })
+                    <input type="submit" value="Tìm kiếm" class="input-qldm-save">
+
+                    @*<p>
+                        @Html.TextBox("SearchString", ViewBag.CrurentFilter as string, new { @class = "input-qldm-create", @type = "text", @placeholder = "Nhập tên hãng muốn tìm...", @tabindex = "0" })
+                        <input type="submit" value="Tìm kiếm" class="input-qldm-save">
+                    </p>*@
+                }
+                <a href="@Url.Action("Create", "Dienthoai")">
+                    <button class="create-list">Tạo mới</button>
+                </a>
+            </div>
+            <div class="home-product-title-contents">
+                <div class="table-case col l-12">
+                    <table class="table-create-sanpham">
+                        <tbody>
+                            <tr style="background-color: #faf2c0;">
+                                <th>STT</th>
+                                <th>Tên điện thoại</th>
+                                <th>Hình ảnh</th>
+                                <th>Số lượng tồn</th>
+                                <th>Giá bán</th>
+                                <th>Phần trăm giảm</th>
+                                <th>Giá giảm</th>
+                                <th>Hãng</th>
+                                <th>Màu sắc</th>
+                                <th>Nhà cung cấp</th>
+                                <th>Chỉnh sửa</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                stt = stt + 1;
+                                <tr>
+                                    <td>@stt</td>
+                                    <td> @Html.DisplayFor(modelItem => item.TENDT)</td>
+                                    <td><img width="50px" src="@Url.Content(item.HINHANH1)" alt=""></td>
+                                    <td> @Html.DisplayFor(modelItem => item.SOLUONGTON)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.GIABAN)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.PHANTRAMGIAM)%</td>
+                                    <td> @Html.DisplayFor(modelItem => item.GIAGIAM)</td>
+                                    <td> @(item.HANG==null?"":item.HANG.TENHANG)</td>
+                                    <td> @Html.DisplayFor(modelItem => item.MAUSAC)</td>
+                                    <td>@(item.NHACUNGCAP==null?"":item.NHACUNGCAP.TENNCC)</td>
+
+                                    <td class="td-edit">
+                                        @Html.ActionLink(" ", "Edit", new { id = item.DIENTHOAIID },
+                                                              new { @class = "td-edit-button_edit fas fa-solid fa-pen" })
+                                        @Html.ActionLink(" ", "Details", new { id = item.DIENTHOAIID },
+                                                             new { @class = "td-edit-button_detail fas fa-solid fa-eye" })
+                                        @Html.ActionLink(" ", "Delete", new { id = item.DIENTHOAIID },
+                                                         new { @class = "td-edit-button_delete fas fa-solid fa-trash" })
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 pagelist">
+                    @using (Html.BeginForm("Dienthoai", "Dienthoai", FormMethod.Get))
+                    {
+                        <p>
+                            Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
+                        </p>
+                    }
+                    @Html.PagedListPager(Model, page => Url.Action("Dienthoai", new { page, size = ViewBag.currentSize }))
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

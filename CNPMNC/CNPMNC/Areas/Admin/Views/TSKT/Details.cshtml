@@ -1,0 +1,109 @@
+﻿@model CNPMNC.Models.THONGSOKT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+}
+
+<h2 class="title-delete">Xem thông tin</h2>
+
+<div class="delete-form">
+    <h4>Thông tin điện thoại</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIENTHOAIID)
+        </dt>
+
+        <dd>
+            @(Model.DIENTHOAI==null?"":Model.DIENTHOAI.TENDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MANHINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANHINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOPHANGIAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOPHANGIAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAMERA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAMERA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HEDH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HEDH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHIPXULY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHIPXULY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ROM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ROM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MANGDIDONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANGDIDONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOKESIM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOKESIM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PIN)
+        </dd>
+
+    </dl>
+    <div class="home-product-title-contents-2" @*style="margin-top: 25px; justify-content:center;"*@>
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.THONGSOKTID }, new { @class = "delete-form_btn-delete" }) |
+        @Html.ActionLink("Trở về", "TSKT", "TSKT", new { @class = "delete-form_btn-back" })
+    </div>
+</div>
+

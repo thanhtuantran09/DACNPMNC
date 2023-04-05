@@ -1,0 +1,4 @@
+﻿@model CNPMNC.Models.DIENTHOAI
+
+@Html.DropDownListFor(model => model.DIENTHOAIID, new SelectList(Model.ListCateDT.OrderBy(model => model.TENDT), "DIENTHOAIID", "TENDT"),
+    "--Chọn điện thoại--", new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập tên hãng tạo danh mục...", @tabindex = "0",/*--> @required = true <!--*/})

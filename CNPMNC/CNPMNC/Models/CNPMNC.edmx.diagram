@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80b78ff99d4c47fdbb8b749afafb3197" Name="Diagram1">
+        <EntityTypeShape EntityType="CNPMNCModel.ADMIN" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.CTDONHANG" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.CTPHIEUNHAP" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.DANHGIASANPHAM" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.DIENTHOAI" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.DONHANG" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.HANG" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.LOAIKH" Width="1.5" PointX="1.5" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.PHANHOI" Width="1.5" PointX="2.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.PHIEUNHAP" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.PTTHANHTOAN" Width="1.5" PointX="4.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.THONGSOKT" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.TRANGTHAIDH" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <AssociationConnector Association="CNPMNCModel.FK__CTDONHANG__DIENT__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__CTDONHANG__DONHA__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__CTPHIEUNH__DIENT__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__CTPHIEUNH__PHIEU__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__DANHGIASA__DIENT__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__DANHGIASA__KHACH__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__DIENTHOAI__HANGI__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__DIENTHOAI__NCCID__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__THONGSOKT__DIENT__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__DONHANG__KHACHHA__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__DONHANG__TRANGTH__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__KHACHHANG__LOAIK__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__PHIEUNHAP__NCCID__656C112C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

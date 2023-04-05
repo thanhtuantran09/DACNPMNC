@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CNPMNCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="ADMINID" />
+    </Key>
+    <Property Name="ADMINID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="250" />
+    <Property Name="TENAD" Type="nvarchar" MaxLength="250" />
+    <Property Name="MATKHAU" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CTDONHANG">
+    <Key>
+      <PropertyRef Name="CTDONHANGID" />
+    </Key>
+    <Property Name="CTDONHANGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DIENTHOAIID" Type="int" />
+    <Property Name="DONHANGID" Type="int" />
+    <Property Name="SOLUONGMUA" Type="int" />
+    <Property Name="TONGTIEN" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="CTPHIEUNHAP">
+    <Key>
+      <PropertyRef Name="CTPHIEUNHAPID" />
+    </Key>
+    <Property Name="CTPHIEUNHAPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DIENTHOAIID" Type="int" />
+    <Property Name="PHIEUNHAPID" Type="int" />
+    <Property Name="TENDT" Type="nvarchar" MaxLength="250" />
+    <Property Name="SOLUONGNHAP" Type="int" />
+    <Property Name="GIANHAP" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DANHGIASANPHAM">
+    <Key>
+      <PropertyRef Name="DANHGIAID" />
+    </Key>
+    <Property Name="DANHGIAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KHACHHANGID" Type="int" />
+    <Property Name="DIENTHOAIID" Type="int" />
+    <Property Name="DANHGIA" Type="nvarchar" MaxLength="500" />
+    <Property Name="NGAYTAO" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DIENTHOAI">
+    <Key>
+      <PropertyRef Name="DIENTHOAIID" />
+    </Key>
+    <Property Name="DIENTHOAIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENDT" Type="nvarchar" MaxLength="250" />
+    <Property Name="SOLUONGTON" Type="int" />
+    <Property Name="HINHANH1" Type="nvarchar(max)" />
+    <Property Name="HINHANH2" Type="nvarchar(max)" />
+    <Property Name="HINHANH3" Type="nvarchar(max)" />
+    <Property Name="GIABAN" Type="int" />
+    <Property Name="GIAGIAM" Type="int" />
+    <Property Name="HANGID" Type="int" />
+    <Property Name="NCCID" Type="int" />
+    <Property Name="MAUSAC" Type="nvarchar" MaxLength="250" />
+    <Property Name="PHANTRAMGIAM" Type="int" />
+  </EntityType>
+  <EntityType Name="DONHANG">
+    <Key>
+      <PropertyRef Name="DONHANGID" />
+    </Key>
+    <Property Name="DONHANGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KHACHHANGID" Type="int" />
+    <Property Name="TRANGTHAIID" Type="int" />
+    <Property Name="NGAYTAO" Type="datetime" />
+    <Property Name="GIAMGIA" Type="nvarchar" MaxLength="250" />
+    <Property Name="THANHTIEN" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TENKH" Type="nvarchar" MaxLength="100" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="char" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="HANG">
+    <Key>
+      <PropertyRef Name="HANGID" />
+    </Key>
+    <Property Name="HANGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENHANG" Type="nvarchar" MaxLength="250" />
+    <Property Name="HINH" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="KHACHHANGID" />
+    </Key>
+    <Property Name="KHACHHANGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="250" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="250" />
+    <Property Name="MATKHAU" Type="nvarchar" MaxLength="250" />
+    <Property Name="NHAPLAIMK" Type="nvarchar" MaxLength="250" />
+    <Property Name="SDT" Type="char" MaxLength="13" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="250" />
+    <Property Name="LOAIKHID" Type="int" />
+  </EntityType>
+  <EntityType Name="LOAIKH">
+    <Key>
+      <PropertyRef Name="LOAIKHID" />
+    </Key>
+    <Property Name="LOAIKHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENLOAI" Type="nvarchar" MaxLength="250" />
+    <Property Name="CHIETKHAU" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="NHACUNGCAP">
+    <Key>
+      <PropertyRef Name="NCCID" />
+    </Key>
+    <Property Name="NCCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENNCC" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="char" MaxLength="13" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="PHANHOI">
+    <Key>
+      <PropertyRef Name="PHANHOIID" />
+    </Key>
+    <Property Name="PHANHOIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KHACHHANGID" Type="int" />
+    <Property Name="PHANHOI" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PHIEUNHAP">
+    <Key>
+      <PropertyRef Name="PHIEUNHAPID" />
+    </Key>
+    <Property Name="PHIEUNHAPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NGAYNHAP" Type="datetime" />
+    <Property Name="NCCID" Type="int" />
+  </EntityType>
+  <EntityType Name="PTTHANHTOAN">
+    <Key>
+      <PropertyRef Name="PTTHANHTOANID" />
+    </Key>
+    <Property Name="PTTHANHTOANID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENPT" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="THONGSOKT">
+    <Key>
+      <PropertyRef Name="THONGSOKTID" />
+    </Key>
+    <Property Name="THONGSOKTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DIENTHOAIID" Type="int" />
+    <Property Name="MANHINH" Type="nvarchar" MaxLength="250" />
+    <Property Name="DOPHANGIAI" Type="nvarchar" MaxLength="250" />
+    <Property Name="CAMERA" Type="nvarchar" MaxLength="250" />
+    <Property Name="HEDH" Type="nvarchar" MaxLength="250" />
+    <Property Name="CHIPXULY" Type="nvarchar" MaxLength="250" />
+    <Property Name="ROM" Type="nvarchar" MaxLength="10" />
+    <Property Name="RAM" Type="nvarchar" MaxLength="10" />
+    <Property Name="MANGDIDONG" Type="nvarchar" MaxLength="250" />
+    <Property Name="SOKESIM" Type="nvarchar" MaxLength="250" />
+    <Property Name="PIN" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TRANGTHAIDH">
+    <Key>
+      <PropertyRef Name="TRANGTHAIID" />
+    </Key>
+    <Property Name="TRANGTHAIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENTT" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK__CTDONHANG__DIENT__160F4887">
+    <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="0..1" />
+    <End Role="CTDONHANG" Type="Self.CTDONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENTHOAI">
+        <PropertyRef Name="DIENTHOAIID" />
+      </Principal>
+      <Dependent Role="CTDONHANG">
+        <PropertyRef Name="DIENTHOAIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CTDONHANG__DONHA__17036CC0">
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="0..1" />
+    <End Role="CTDONHANG" Type="Self.CTDONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONHANG">
+        <PropertyRef Name="DONHANGID" />
+      </Principal>
+      <Dependent Role="CTDONHANG">
+        <PropertyRef Name="DONHANGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CTPHIEUNH__DIENT__68487DD7">
+    <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="0..1" />
+    <End Role="CTPHIEUNHAP" Type="Self.CTPHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENTHOAI">
+        <PropertyRef Name="DIENTHOAIID" />
+      </Principal>
+      <Dependent Role="CTPHIEUNHAP">
+        <PropertyRef Name="DIENTHOAIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CTPHIEUNH__PHIEU__693CA210">
+    <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="0..1" />
+    <End Role="CTPHIEUNHAP" Type="Self.CTPHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUNHAP">
+        <PropertyRef Name="PHIEUNHAPID" />
+      </Principal>
+      <Dependent Role="CTPHIEUNHAP">
+        <PropertyRef Name="PHIEUNHAPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DANHGIASA__DIENT__114A936A">
+    <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="0..1" />
+    <End Role="DANHGIASANPHAM" Type="Self.DANHGIASANPHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENTHOAI">
+        <PropertyRef Name="DIENTHOAIID" />
+      </Principal>
+      <Dependent Role="DANHGIASANPHAM">
+        <PropertyRef Name="DIENTHOAIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DANHGIASA__KHACH__123EB7A3">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DANHGIASANPHAM" Type="Self.DANHGIASANPHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="KHACHHANGID" />
+      </Principal>
+      <Dependent Role="DANHGIASANPHAM">
+        <PropertyRef Name="KHACHHANGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DIENTHOAI__HANGI__60A75C0F">
+    <End Role="HANG" Type="Self.HANG" Multiplicity="0..1" />
+    <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANG">
+        <PropertyRef Name="HANGID" />
+      </Principal>
+      <Dependent Role="DIENTHOAI">
+        <PropertyRef Name="HANGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DIENTHOAI__NCCID__619B8048">
+    <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
+    <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHACUNGCAP">
+        <PropertyRef Name="NCCID" />
+      </Principal>
+      <Dependent Role="DIENTHOAI">
+        <PropertyRef Name="NCCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONHANG__KHACHHA__08B54D69">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="KHACHHANGID" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="KHACHHANGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONHANG__TRANGTH__09A971A2">
+    <End Role="TRANGTHAIDH" Type="Self.TRANGTHAIDH" Multiplicity="0..1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANGTHAIDH">
+        <PropertyRef Name="TRANGTHAIID" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="TRANGTHAIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KHACHHANG__LOAIK__01142BA1">
+    <End Role="LOAIKH" Type="Self.LOAIKH" Multiplicity="0..1" />
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIKH">
+        <PropertyRef Name="LOAIKHID" />
+      </Principal>
+      <Dependent Role="KHACHHANG">
+        <PropertyRef Name="LOAIKHID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUNHAP__NCCID__656C112C">
+    <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
+    <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHACUNGCAP">
+        <PropertyRef Name="NCCID" />
+      </Principal>
+      <Dependent Role="PHIEUNHAP">
+        <PropertyRef Name="NCCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THONGSOKT__DIENT__6C190EBB">
+    <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="0..1" />
+    <End Role="THONGSOKT" Type="Self.THONGSOKT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENTHOAI">
+        <PropertyRef Name="DIENTHOAIID" />
+      </Principal>
+      <Dependent Role="THONGSOKT">
+        <PropertyRef Name="DIENTHOAIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CNPMNCModelStoreContainer">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTDONHANG" EntityType="Self.CTDONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTPHIEUNHAP" EntityType="Self.CTPHIEUNHAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANHGIASANPHAM" EntityType="Self.DANHGIASANPHAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DIENTHOAI" EntityType="Self.DIENTHOAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONHANG" EntityType="Self.DONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HANG" EntityType="Self.HANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIKH" EntityType="Self.LOAIKH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHANHOI" EntityType="Self.PHANHOI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUNHAP" EntityType="Self.PHIEUNHAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PTTHANHTOAN" EntityType="Self.PTTHANHTOAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THONGSOKT" EntityType="Self.THONGSOKT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRANGTHAIDH" EntityType="Self.TRANGTHAIDH" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CTDONHANG__DIENT__160F4887" Association="Self.FK__CTDONHANG__DIENT__160F4887">
+      <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
+      <End Role="CTDONHANG" EntitySet="CTDONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CTDONHANG__DONHA__17036CC0" Association="Self.FK__CTDONHANG__DONHA__17036CC0">
+      <End Role="DONHANG" EntitySet="DONHANG" />
+      <End Role="CTDONHANG" EntitySet="CTDONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CTPHIEUNH__DIENT__68487DD7" Association="Self.FK__CTPHIEUNH__DIENT__68487DD7">
+      <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
+      <End Role="CTPHIEUNHAP" EntitySet="CTPHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CTPHIEUNH__PHIEU__693CA210" Association="Self.FK__CTPHIEUNH__PHIEU__693CA210">
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+      <End Role="CTPHIEUNHAP" EntitySet="CTPHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DANHGIASA__DIENT__114A936A" Association="Self.FK__DANHGIASA__DIENT__114A936A">
+      <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
+      <End Role="DANHGIASANPHAM" EntitySet="DANHGIASANPHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DANHGIASA__KHACH__123EB7A3" Association="Self.FK__DANHGIASA__KHACH__123EB7A3">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DANHGIASANPHAM" EntitySet="DANHGIASANPHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DIENTHOAI__HANGI__60A75C0F" Association="Self.FK__DIENTHOAI__HANGI__60A75C0F">
+      <End Role="HANG" EntitySet="HANG" />
+      <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DIENTHOAI__NCCID__619B8048" Association="Self.FK__DIENTHOAI__NCCID__619B8048">
+      <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
+      <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONHANG__KHACHHA__08B54D69" Association="Self.FK__DONHANG__KHACHHA__08B54D69">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DONHANG" EntitySet="DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONHANG__TRANGTH__09A971A2" Association="Self.FK__DONHANG__TRANGTH__09A971A2">
+      <End Role="TRANGTHAIDH" EntitySet="TRANGTHAIDH" />
+      <End Role="DONHANG" EntitySet="DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KHACHHANG__LOAIK__01142BA1" Association="Self.FK__KHACHHANG__LOAIK__01142BA1">
+      <End Role="LOAIKH" EntitySet="LOAIKH" />
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUNHAP__NCCID__656C112C" Association="Self.FK__PHIEUNHAP__NCCID__656C112C">
+      <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THONGSOKT__DIENT__6C190EBB" Association="Self.FK__THONGSOKT__DIENT__6C190EBB">
+      <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
+      <End Role="THONGSOKT" EntitySet="THONGSOKT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

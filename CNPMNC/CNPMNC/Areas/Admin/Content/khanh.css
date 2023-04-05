@@ -1,0 +1,127 @@
+  .form-controlk1 {
+    height: 40px;
+	width: 550px;
+    padding: 8px 12px;
+    border: 1px solid #b3b3b3;
+    border-radius: 2px;
+    outline: none;
+    font-size: 1.4rem;
+  }
+  
+    .formk2 {
+    width: 1000px;
+    min-height: 100px;
+    padding: 32px 24px;
+    text-align: center;
+    background: #fff;
+    border-radius: 2px;
+    margin: 24px;
+    align-self: center;
+    box-shadow: 0 2px 5px 0 rgb(51 62 73 / 10%);
+    margin-top: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+    .formk3 {
+    width: 100%;
+    min-height: 100px;
+    padding: 32px 24px;
+    text-align: left;
+    background: #fff;
+    border-radius: 10px;
+    align-self: left;
+    box-shadow: 0 2px 5px 0 rgb(51 62 73 / 10%);
+    margin-top: 30px;
+	margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+  
+  .maink1 {
+    /* background: #f1f1f1; */
+    background: linear-gradient(to right, rgb(238, 249, 252) 5%, rgb(215, 249, 249) 100%);
+    background-image: url(../img/blur-hospital.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+	margin-top: 20px;
+	border-radius: 2px;
+  }
+  
+  .buttonk1{
+	font-size: 20px;
+  }
+   .btbaocao{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+  height: 50px;
+  background-color: rgb(35 182 250);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px 2px rgb(124 123 123);
+  }
+  
+  .btk01{
+	background-color: rgb(35 182 250);
+	color: white;
+	border: none;
+	border-radius: 2px;
+  }
+ 
+  
+  
+  .time1 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+  }
+  
+
+  .table1 {
+  background-color: none;
+  display: flex;
+  justify-content: flex-end;
+  }
+  
+  .table2 {
+  width: 280px;
+  }
+  
+ 
+  
+.dongho {
+	margin-top: 15px;
+	margin-bottom: 15px;
+
+}
+
+  
+  .hoadon {
+    display: flex;
+    margin-bottom: 16px;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

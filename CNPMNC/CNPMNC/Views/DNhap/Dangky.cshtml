@@ -1,0 +1,64 @@
+﻿@model CNPMNC.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Dangky";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+<div class="main">
+
+
+    @using (Html.BeginForm("Dangky", "DNhap", FormMethod.Post, new { @action = "", @method = "POST", @class = "form", @id = "form-2", role = "form" }))
+    {
+        <h3 class="heading">Đăng ký</h3>
+        <p class="desc"> Mua hàng tại TFT Mobile Shop ❤️</p>
+
+        <div class="spacer"></div>
+        <div class="form-group">
+            <label for="fullname" class="form-label">Tên đầy đủ</label>
+            @Html.TextBoxFor(m => m.HOTEN, new { @id = "fullname", @name = "fullname", @type = "text", @placeholder = "VD: Xuân Sơn", @class="form-control", @required = true })
+           
+            <span class="form-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            @Html.TextBoxFor(m => m.EMAIL, new { @id = "email", @name = "email", @type = "text", @placeholder = "VD: email@domain.com", @class = "form-control", @required = true })
+            @*<input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">*@
+            <span class="form-message"></span>
+        </div>
+        <p style="color:red;text-align:center">
+            @if (ViewBag.error != null)
+            {@ViewBag.error}
+        </p>
+        <div class="form-group">
+            <label for="password" class="form-label">Mật khẩu</label>
+            @Html.PasswordFor(m => m.MATKHAU, new { @id = "password", @name = "password", @type = "password", @placeholder = "Nhập mật khẩu", @class = "form-control", @required = true })
+
+            <span class="form-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Nhập lại mật khẩu</label>
+            @Html.PasswordFor(m => m.NHAPLAIMK, new { @id = "password", @name = "password", @type = "password", @placeholder = "Nhập lại mật khẩu", @class = "form-control", @required = true })
+
+            <span class="form-message"></span>
+        </div>
+        <p style="color:red;text-align:center">
+            @if (ViewBag.error1 != null)
+            {@ViewBag.error1}
+        </p>
+
+        <button type="submit" class="form-submit">Đăng ký</button>
+
+        <div class="form-group">
+            <a href="@Url.Action("Dangnhap", "DNhap")" class="form-register">Đăng nhập tài khoản</a>
+        </div>
+
+    }
+
+
+
+
+
+</div>
+
+

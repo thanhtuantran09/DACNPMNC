@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLBDTModelStoreContainer" CdmEntityContainer="QLBDTEntities">
+    <EntitySetMapping Name="ADMINs">
+      <EntityTypeMapping TypeName="QLBDTModel.ADMIN">
+        <MappingFragment StoreEntitySet="ADMIN">
+          <ScalarProperty Name="ADMINID" ColumnName="ADMINID" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="TENAD" ColumnName="TENAD" />
+          <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTDONHANGs">
+      <EntityTypeMapping TypeName="QLBDTModel.CTDONHANG">
+        <MappingFragment StoreEntitySet="CTDONHANG">
+          <ScalarProperty Name="CTDONHANGID" ColumnName="CTDONHANGID" />
+          <ScalarProperty Name="DIENTHOAIID" ColumnName="DIENTHOAIID" />
+          <ScalarProperty Name="DONHANGID" ColumnName="DONHANGID" />
+          <ScalarProperty Name="SOLUONGMUA" ColumnName="SOLUONGMUA" />
+          <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTPHIEUNHAPs">
+      <EntityTypeMapping TypeName="QLBDTModel.CTPHIEUNHAP">
+        <MappingFragment StoreEntitySet="CTPHIEUNHAP">
+          <ScalarProperty Name="CTPHIEUNHAPID" ColumnName="CTPHIEUNHAPID" />
+          <ScalarProperty Name="DIENTHOAIID" ColumnName="DIENTHOAIID" />
+          <ScalarProperty Name="PHIEUNHAPID" ColumnName="PHIEUNHAPID" />
+          <ScalarProperty Name="TENDT" ColumnName="TENDT" />
+          <ScalarProperty Name="SOLUONGNHAP" ColumnName="SOLUONGNHAP" />
+          <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DANHGIASANPHAMs">
+      <EntityTypeMapping TypeName="QLBDTModel.DANHGIASANPHAM">
+        <MappingFragment StoreEntitySet="DANHGIASANPHAM">
+          <ScalarProperty Name="DANHGIAID" ColumnName="DANHGIAID" />
+          <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
+          <ScalarProperty Name="DIENTHOAIID" ColumnName="DIENTHOAIID" />
+          <ScalarProperty Name="DANHGIA" ColumnName="DANHGIA" />
+          <ScalarProperty Name="NGAYTAO" ColumnName="NGAYTAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIENTHOAIs">
+      <EntityTypeMapping TypeName="QLBDTModel.DIENTHOAI">
+        <MappingFragment StoreEntitySet="DIENTHOAI">
+          <ScalarProperty Name="DIENTHOAIID" ColumnName="DIENTHOAIID" />
+          <ScalarProperty Name="TENDT" ColumnName="TENDT" />
+          <ScalarProperty Name="SOLUONGTON" ColumnName="SOLUONGTON" />
+          <ScalarProperty Name="HINHANH1" ColumnName="HINHANH1" />
+          <ScalarProperty Name="HINHANH2" ColumnName="HINHANH2" />
+          <ScalarProperty Name="HINHANH3" ColumnName="HINHANH3" />
+          <ScalarProperty Name="GIABAN" ColumnName="GIABAN" />
+          <ScalarProperty Name="GIAGIAM" ColumnName="GIAGIAM" />
+          <ScalarProperty Name="HANGID" ColumnName="HANG" />
+          <ScalarProperty Name="NCCID" ColumnName="NCCID" />
+          <ScalarProperty Name="MAUSACID" ColumnName="MAUSACID" />
+          <ScalarProperty Name="PHANTRAMGIAM" ColumnName="PHANTRAMGIAM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONHANGs">
+      <EntityTypeMapping TypeName="QLBDTModel.DONHANG">
+        <MappingFragment StoreEntitySet="DONHANG">
+          <ScalarProperty Name="DONHANGID" ColumnName="DONHANGID" />
+          <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
+          <ScalarProperty Name="TRANGTHAIID" ColumnName="TRANGTHAIID" />
+          <ScalarProperty Name="NGAYTAO" ColumnName="NGAYTAO" />
+          <ScalarProperty Name="GIAMGIA" ColumnName="GIAMGIA" />
+          <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HANGs">
+      <EntityTypeMapping TypeName="QLBDTModel.HANG">
+        <MappingFragment StoreEntitySet="HANG">
+          <ScalarProperty Name="HANGID" ColumnName="HANG" />
+          <ScalarProperty Name="TENHANG" ColumnName="TENHANG" />
+          <ScalarProperty Name="HINH" ColumnName="HINH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="QLBDTModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+          <ScalarProperty Name="NHAPLAIMK" ColumnName="NHAPLAIMK" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="LOAIKHID" ColumnName="LOAIKHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIKHs">
+      <EntityTypeMapping TypeName="QLBDTModel.LOAIKH">
+        <MappingFragment StoreEntitySet="LOAIKH">
+          <ScalarProperty Name="LOAIKHID" ColumnName="LOAIKHID" />
+          <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+          <ScalarProperty Name="CHIETKHAU" ColumnName="CHIETKHAU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHACUNGCAPs">
+      <EntityTypeMapping TypeName="QLBDTModel.NHACUNGCAP">
+        <MappingFragment StoreEntitySet="NHACUNGCAP">
+          <ScalarProperty Name="NCCID" ColumnName="NCCID" />
+          <ScalarProperty Name="TENNCC" ColumnName="TENNCC" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANHOIs">
+      <EntityTypeMapping TypeName="QLBDTModel.PHANHOI">
+        <MappingFragment StoreEntitySet="PHANHOI">
+          <ScalarProperty Name="PHANHOIID" ColumnName="PHANHOIID" />
+          <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
+          <ScalarProperty Name="PHANHOI1" ColumnName="PHANHOI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUNHAPs">
+      <EntityTypeMapping TypeName="QLBDTModel.PHIEUNHAP">
+        <MappingFragment StoreEntitySet="PHIEUNHAP">
+          <ScalarProperty Name="PHIEUNHAPID" ColumnName="PHIEUNHAPID" />
+          <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+          <ScalarProperty Name="NCCID" ColumnName="NCCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PTTHANHTOANs">
+      <EntityTypeMapping TypeName="QLBDTModel.PTTHANHTOAN">
+        <MappingFragment StoreEntitySet="PTTHANHTOAN">
+          <ScalarProperty Name="PTTHANHTOANID" ColumnName="PTTHANHTOANID" />
+          <ScalarProperty Name="TENPT" ColumnName="TENPT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THONGSOKTs">
+      <EntityTypeMapping TypeName="QLBDTModel.THONGSOKT">
+        <MappingFragment StoreEntitySet="THONGSOKT">
+          <ScalarProperty Name="THONGSOKTID" ColumnName="THONGSOKTID" />
+          <ScalarProperty Name="DIENTHOAIID" ColumnName="DIENTHOAIID" />
+          <ScalarProperty Name="MANHINH" ColumnName="MANHINH" />
+          <ScalarProperty Name="DOPHANGIAI" ColumnName="DOPHANGIAI" />
+          <ScalarProperty Name="CAMERA" ColumnName="CAMERA" />
+          <ScalarProperty Name="HEDH" ColumnName="HEDH" />
+          <ScalarProperty Name="CHIPXULY" ColumnName="CHIPXULY" />
+          <ScalarProperty Name="ROM" ColumnName="ROM" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="MANGDIDONG" ColumnName="MANGDIDONG" />
+          <ScalarProperty Name="SOKESIM" ColumnName="SOKESIM" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANGTHAIDHs">
+      <EntityTypeMapping TypeName="QLBDTModel.TRANGTHAIDH">
+        <MappingFragment StoreEntitySet="TRANGTHAIDH">
+          <ScalarProperty Name="TRANGTHAIID" ColumnName="TRANGTHAIID" />
+          <ScalarProperty Name="TENTT" ColumnName="TENTT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
