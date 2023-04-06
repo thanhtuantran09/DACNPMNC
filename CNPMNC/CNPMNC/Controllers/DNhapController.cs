@@ -65,7 +65,16 @@ namespace CNPMNC.Controllers
 
             return View(user);
         }
-
+        public ActionResult DangXuat()
+        {
+            Session["Email"] = null;
+            //HttpCookie ckTaiKhoan = new HttpCookie("TenTaiKhoan"), ckMatKhau = new HttpCookie("MatKhau");
+            //ckTaiKhoan.Expires = DateTime.Now.AddDays(-1);
+            //ckMatKhau.Expires = DateTime.Now.AddDays(-1);
+            //Response.Cookies.Add(ckTaiKhoan);
+            //Response.Cookies.Add(ckMatKhau);
+            return RedirectToAction("Trangchu", "Trangchu");
+        }
 
     }
 }
