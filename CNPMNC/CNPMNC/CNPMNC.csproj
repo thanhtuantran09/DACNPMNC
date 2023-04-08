@@ -135,6 +135,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DangnhapController.cs" />
     <Compile Include="Areas\Admin\Controllers\DienthoaiController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonhangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HangController.cs" />
     <Compile Include="Areas\Admin\Controllers\TSKTController.cs" />
     <Compile Include="Controllers\DNhapController.cs" />
@@ -326,6 +327,7 @@
     <Content Include="Models\CNPMNC.edmx.diagram">
       <DependentUpon>CNPMNC.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Donhang\Donhang.cshtml" />
     <None Include="Scripts\jquery-3.6.4.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.4.js" />
     <Content Include="Scripts\jquery-3.6.4.min.js" />
