@@ -2448,3 +2448,12 @@ i.home-product-item__like-icon-fill {
     /* border: none; */
 }
 
+/**/
+.box-noneshow {
+    width: 200px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    top: -10px;
+}
+
