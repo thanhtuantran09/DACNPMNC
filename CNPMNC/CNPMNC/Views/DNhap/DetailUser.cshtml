@@ -1,0 +1,31 @@
+﻿@model CNPMNC.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "DetailUser";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+<h2>DetailUser</h2>
+<div>
+    <table style="margin-top:250px">
+        <tr>
+            <td>Họ và tên:</td>
+            <td>@Model.HOTEN</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>@Model.EMAIL</td>
+        </tr>
+        <tr>
+            <td>Địa chỉ:</td>
+            <td>@Model.DIACHI</td>
+        </tr>
+        <tr>
+            <td>Số điện thoại:</td>
+            <td>@Model.SDT</td>
+        </tr>
+    </table>
+    <a href="@Url.Action("EditUser","DNhap", new {id = @Model.KHACHHANGID})" class="btn btn-success" style="margin-left:626px">Cập nhật thông tin tài khoản</a>
+</div>
+
+

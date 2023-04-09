@@ -1,0 +1,54 @@
+﻿@model CNPMNC.Models.KHACHHANG
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+<h2>EditUser</h2>
+
+@using (Html.BeginForm("EditUser", "DNhap", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    @Html.HiddenFor(model => model.KHACHHANGID)
+    <div class="text-lg font-bold my-2">
+        dc
+    </div>
+    @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" } })
+    <div class="text-lg font-bold my-2">
+        sdt
+    </div>
+    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+    <div class="text-lg font-bold my-2">
+        mk
+    </div>
+    @Html.EditorFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "form-control" } })
+    <div class="text-lg font-bold my-2">
+        nmk
+    </div>
+    @Html.EditorFor(model => model.NHAPLAIMK, new { htmlAttributes = new { @class = "form-control" } })
+
+    <div class="text-lg font-bold my-2">
+        ht
+    </div>
+    @Html.EditorFor(model => model.HOTEN, new { htmlAttributes = new { @class = "form-control" } })
+    <div class="text-lg font-bold my-2">
+        email
+    </div>
+    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+
+    <button type="submit" class="m-2 font-bold">Save changes</button>
+  
+    <a href="@Url.Action("DetailUser", "DNhap")" class="btn btn-success">Quay lại</a>
+}
