@@ -7,7 +7,7 @@
     <link href="~/Content/css/base.css?" rel="stylesheet" />
     <link href="~/Content/css/cart.css" rel="stylesheet" />
     <link href="~/Content/css/grid.css" rel="stylesheet" />
-    <link href="~/Content/css/main.css?V" rel="stylesheet" />
+    <link href="~/Content/css/main.css?V=0" rel="stylesheet" />
     <link href="~/Content/css/reset.css" rel="stylesheet" />
     <link href="~/Content/css/responsive.css" rel="stylesheet" />
     <link href="~/Content/css/slider.css" rel="stylesheet" />
@@ -90,11 +90,7 @@
                             <ul class="header__navbar-user-menu">
                                 <div class="box-noneshow"></div>
                                 <li class="header__navbar-user-item">
-
-                                    <a href="#">Tài khoản của tôi</a>
-                                </li>
-                                <li class="header__navbar-user-item">
-                                    <a href="@Url.Action("DetailUser","DNhap")">Địa chỉ của tôi</a>
+                                    <a href="@Url.Action("DetailUser","DNhap")">Tài khoản của tôi</a>
                                 </li>
                                 <li class="header__navbar-user-item">
                                     <a href="#">Đơn mua</a>
@@ -309,7 +305,7 @@
             </div>
         </div>
 
-        @RenderBody();
+        @RenderBody()
 
         <footer class="footer">
             <div class="grid wide footer__content">

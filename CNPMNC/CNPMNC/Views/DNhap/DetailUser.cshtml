@@ -5,27 +5,44 @@
     Layout = "~/Views/Shared/User.cshtml";
 }
 
-<h2>DetailUser</h2>
-<div>
-    <table style="margin-top:250px">
-        <tr>
-            <td>Họ và tên:</td>
-            <td>@Model.HOTEN</td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td>@Model.EMAIL</td>
-        </tr>
-        <tr>
-            <td>Địa chỉ:</td>
-            <td>@Model.DIACHI</td>
-        </tr>
-        <tr>
-            <td>Số điện thoại:</td>
-            <td>@Model.SDT</td>
-        </tr>
-    </table>
-    <a href="@Url.Action("EditUser","DNhap", new {id = @Model.KHACHHANGID})" class="checkout-label" style="margin-left:626px">Cập nhật thông tin tài khoản</a>
+<div class="app__container">
+    <div class="grid wide">
+
+
+        <div class="row sm-gutter app__content">
+
+            <div class="col l-12 m-12 c-12">
+
+                <div class="home-product">
+                    <div class="row sm-gutter">
+                        <div class="home-product-title">
+                            <table>
+                                <tr>
+                                    <td>Họ và tên:</td>
+                                    <td>@Model.HOTEN</td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td>@Model.EMAIL</td>
+                                </tr>
+                                <tr>
+                                    <td>Địa chỉ:</td>
+                                    <td>@Model.DIACHI</td>
+                                </tr>
+                                <tr>
+                                    <td>Số điện thoại:</td>
+                                    <td>@Model.SDT</td>
+                                </tr>
+                            </table>
+                            <a href="@Url.Action("EditUser","DNhap", new {id = @Model.KHACHHANGID})" class="edit-profile_user" style="margin-top:10px">Cập nhật</a>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 
