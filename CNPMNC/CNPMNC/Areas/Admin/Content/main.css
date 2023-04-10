@@ -2313,6 +2313,7 @@ i.home-product-item__like-icon-fill {
     display:flex;
     justify-content:center;
     align-items:center;
+    margin: 0;
 }
 
 .td-edit-button_edit {
@@ -2325,6 +2326,13 @@ i.home-product-item__like-icon-fill {
     
 }
 .fas.fa-solid.fa-pen {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fas.fa-solid.fa-eye {
     color: black;
     display: flex;
     justify-content: center;
@@ -2348,7 +2356,7 @@ i.home-product-item__like-icon-fill {
     background-color: red;
     border: 1px solid red;
     border-radius: 3px;
-
+    margin-right: 5px;
 }
 
 .td-edit-button_delete:hover {
@@ -2356,17 +2364,18 @@ i.home-product-item__like-icon-fill {
 }
 
 .td-edit-button_detail {
-    width: 60px;
+    width: 40px;
     height: 30px;
-    background-color: aqua;
-    border: 1px solid aqua;
+    background-color: #62CDFF;
+    border: 1px solid #62CDFF;
     border-radius: 3px;
+    margin-right: 5px;
 }
 
 .td-edit-button_detail:hover {
 
-    background-color: aquamarine;
-    border: 1px solid aquamarine;
+    background-color: #97DEFF;
+    border: 1px solid #97DEFF;
 }
 
 .button-create-list {

@@ -5,67 +5,72 @@
     Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
     CNPMNC.Models.CNPMNCEntities db=new CNPMNC.Models.CNPMNCEntities();
 }
+<style>
+    .label {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+</style>
+<div class="home-product">
+    <div class="row sm-gutter">
+        <!-- Product items -->
+        <div class="home-product-title">
 
-<h2 class="title-delete">Xem thông tin</h2>
+            <div class="home-product-title-label">
+                <h2 class="home-product-title-label__heading">Thông tin đơn hàng</h2>
+            </div>
+            <div class="home-product-title-contents">
+                <div class="table-case col l-12">
+                    <p class="label"><strong>Mã đơn hàng:</strong> @Model.DONHANGID</p>
+                    <p class="label"><strong>Tên khách hàng:</strong> @Model.TENKH</p>
+                    <p class="label"><strong>Địa chỉ:</strong> @Model.DIACHI</p>
+                    <p class="label"><strong>Số điện thoại:</strong> @Model.SDT</p>
+                    <p class="label"><strong>Ngày tạo:</strong> @Model.NGAYTAO</p>
+                    <p class="label">
+                        <strong>Trạng thái:</strong>  @{
+                            var trangthai = db.TRANGTHAIDHs.FirstOrDefault(dt => dt.TRANGTHAIID == Model.TRANGTHAIID);
+                            var tentrangthai = trangthai != null ? trangthai.TENTT : "";
+                        }
+                        @tentrangthai
+                    </p>
+                    @*<p class="label"><strong>Giảm giá:</strong> @Model.GIAMGIA đ</p>*@
+                    <p class="label"><strong>Thành tiền:</strong> @string.Format("{0:0,0 đ}", Model.THANHTIEN)</p>
+                    <h1>Chi tiết đơn hàng</h1>
+                    <table class="table-create-sanpham" style="margin-left:0;">
+                        <tbody>
+                            <tr style="background-color: #faf2c0;">
+                                <th>Mã chi tiết đơn hàng</th>
+                                <th>Mã sản phẩm</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Tổng tiền</th>
+                            </tr>
+                            @foreach (var ctDonHang in Model.CTDONHANGs)
+                            {
+                                <tr>
+                                    <td>@ctDonHang.CTDONHANGID</td>
+                                    <td>@ctDonHang.DIENTHOAIID</td>
+                                    <td>
+                                        @{
+                                            var dienThoai = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == ctDonHang.DIENTHOAIID);
+                                            var tenDienThoai = dienThoai != null ? dienThoai.TENDT : "";
+                                        }
+                                        @tenDienThoai
+                                    </td>
 
-<div class="delete-form">
-    <h4>Thông tin đơn hàng</h4>
-    <hr />
-    <dl class="dl-horizontal">
-
-        <p><strong>Mã đơn hàng:</strong> @Model.DONHANGID</p>
-        <p><strong>Tên khách hàng:</strong> @Model.TENKH</p>
-        <p><strong>Địa chỉ:</strong> @Model.DIACHI</p>
-        <p><strong>Số điện thoại:</strong> @Model.SDT</p>
-        <p><strong>Ngày tạo:</strong> @Model.NGAYTAO</p>
-        <p>
-            <strong>Trạng thái:</strong>  @{
-                var trangthai = db.TRANGTHAIDHs.FirstOrDefault(dt => dt.TRANGTHAIID == Model.TRANGTHAIID);
-                var tentrangthai = trangthai != null ? trangthai.TENTT : "";
-            }
-            @tentrangthai
-        </p>
-        <p><strong>Giảm giá:</strong> @Model.GIAMGIA đ</p>
-        <p><strong>Thành tiền:</strong> @string.Format("{0:0,0 đ}", Model.THANHTIEN)</p>
-
-        <h2>Chi tiết đơn hàng</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Mã chi tiết đơn hàng</th>
-                    <th>Mã sản phẩm</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Tổng tiền</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                @foreach (var ctDonHang in Model.CTDONHANGs)
-                {
-                    <tr>
-                        <td>@ctDonHang.CTDONHANGID</td>
-                        <td>@ctDonHang.DIENTHOAIID</td>
-                        <td>
-                            @{
-                                var dienThoai = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == ctDonHang.DIENTHOAIID);
-                                var tenDienThoai = dienThoai != null ? dienThoai.TENDT : "";
+                                    <td>@ctDonHang.SOLUONGMUA</td>
+                                    <td> @string.Format("{0:0,0 đ}", ctDonHang.TONGTIEN)</td>
+                                </tr>
                             }
-                            @tenDienThoai
-                        </td>
 
-                        <td>@ctDonHang.SOLUONGMUA</td>
-                        <td> @string.Format("{0:0,0 đ}", ctDonHang.TONGTIEN)</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-     
-
-    </dl>
-    <div class="home-product-title-contents-2" @*style="margin-top: 25px; justify-content:center;"*@>
-        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.DONHANGID }, new { @class = "delete-form_btn-delete" }) |
-        @Html.ActionLink("Trở về", "Donhang", "Donhang", new { @class = "delete-form_btn-back" })
+                        </tbody>
+                    </table>
+                </div>
+                <div class="home-product-title-contents-2" @*style="margin-top: 25px; justify-content:center;"*@>
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.DONHANGID }, new { @class = "delete-form_btn-delete", @style="margin-right: 5px;"})
+                    @Html.ActionLink("Trở về", "Donhang", "Donhang", new { @class = "delete-form_btn-back" })
+                </div>
+            </div>
+        </div>
     </div>
 </div>

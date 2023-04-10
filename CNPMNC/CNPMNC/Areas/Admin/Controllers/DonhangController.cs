@@ -96,8 +96,6 @@ namespace CNPMNC.Areas.Admin.Controllers
                 var sua = db.DONHANGs.Find(model.DONHANGID);
                 sua.KHACHHANG = model.KHACHHANG;
                 sua.TRANGTHAIID=model.TRANGTHAIID;
-                sua.GIAMGIA=model.GIAMGIA;
-                sua.THANHTIEN=model.THANHTIEN;
                 sua.TENKH=model.TENKH;
                 sua.DIACHI=model.DIACHI;
                 sua.SDT=model.SDT;
