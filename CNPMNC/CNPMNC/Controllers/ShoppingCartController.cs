@@ -110,7 +110,12 @@ namespace CNPMNC.Controllers
                     donHang.DIACHI = (form["Diachi"]);
                     donHang.SDT = (form["SDT"]);
                     donHang.NGAYTAO = DateTime.Now;
+                    donHang.THANHTIEN = (decimal?)cart.Tongtien();
+                    // Lấy trạng thái đơn hàng mặc định (ví dụ: 1 - Chờ xử lý)
+                    var trangThai = db.TRANGTHAIDHs.SingleOrDefault(tt => tt.TRANGTHAIID == 1);
 
+                    // Thêm thông tin trạng thái vào đơn hàng
+                    donHang.TRANGTHAIID = trangThai.TRANGTHAIID;
                     // Lưu đơn hàng vào CSDL
                     db.DONHANGs.Add(donHang);
 

@@ -25,11 +25,12 @@ namespace CNPMNC.Models
         [Display(Name = "Người đặt")]
         public Nullable<int> KHACHHANGID { get; set; }
         [Display(Name = "Trạng thái đơn hàng")]
-        public Nullable<int> TRANGTHAIID { get; set; }
+        public Nullable<int> TRANGTHAIID { get; set; } = 1;
         [Display(Name = "Ngày tạo")]
         public Nullable<System.DateTime> NGAYTAO { get; set; }
         [Display(Name = "Giá giảm")]
         public string GIAMGIA { get; set; }
+        [DisplayFormat(DataFormatString = "{0:0,0 đ}", ApplyFormatInEditMode = false)]
         [Display(Name = "Thành tiền")]
         public Nullable<decimal> THANHTIEN { get; set; }
         [Display(Name = "Tên người nhận")]

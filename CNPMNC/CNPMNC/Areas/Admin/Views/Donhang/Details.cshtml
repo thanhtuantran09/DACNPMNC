@@ -26,7 +26,7 @@
             @tentrangthai
         </p>
         <p><strong>Giảm giá:</strong> @Model.GIAMGIA đ</p>
-        <p><strong>Thành tiền:</strong> @Model.THANHTIEN đ</p>
+        <p><strong>Thành tiền:</strong> @string.Format("{0:0,0 đ}", Model.THANHTIEN)</p>
 
         <h2>Chi tiết đơn hàng</h2>
 
@@ -56,7 +56,7 @@
                         </td>
 
                         <td>@ctDonHang.SOLUONGMUA</td>
-                        <td>@ctDonHang.TONGTIEN đ</td>
+                        <td> @string.Format("{0:0,0 đ}", ctDonHang.TONGTIEN)</td>
                     </tr>
                 }
             </tbody>
