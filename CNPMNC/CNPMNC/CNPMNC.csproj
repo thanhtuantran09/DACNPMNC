@@ -261,6 +261,7 @@
     <Content Include="Content\Hinh\wibu.png" />
     <Content Include="Content\img-slider\background-login.png" />
     <Content Include="Content\img-slider\Galaxy-S23-series-lo-poster-truoc-ngay-ra-mat-6.jpg" />
+    <Content Include="Content\img-slider\iconuser.png" />
     <Content Include="Content\img-slider\iphone-14-pro-max-og.jpg" />
     <Content Include="Content\img-slider\note20ultra.jpg" />
     <Content Include="Content\img-slider\oppo-reno8-pro.jpg" />
@@ -328,6 +329,10 @@
       <DependentUpon>CNPMNC.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\Donhang\Donhang.cshtml" />
+    <Content Include="Areas\Admin\Views\Donhang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Donhang\SelectCateTT.cshtml" />
+    <Content Include="Areas\Admin\Views\Donhang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Donhang\Details.cshtml" />
     <None Include="Scripts\jquery-3.6.4.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.4.js" />
     <Content Include="Scripts\jquery-3.6.4.min.js" />
@@ -368,6 +373,8 @@
     <Content Include="Views\ShoppingCart\GioHang.cshtml" />
     <Content Include="Views\ShoppingCart\Chucohang.cshtml" />
     <Content Include="Views\ShoppingCart\Complete.cshtml" />
+    <Content Include="Views\DNhap\DetailUser.cshtml" />
+    <Content Include="Views\DNhap\EditUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -81,27 +81,28 @@
                             }
                             else
                             {
-                            <li class="header__navbar-item header__navbar-user">
-                                <img src="https://us.123rf.com/450wm/tuktukdesign/tuktukdesign1606/tuktukdesign160600119/59070200-user-icon-man-profile-businessman-avatar-person-icon-in-vector-illustration.jpg?ver=6" alt="" class="header__navbar-user-img">
-                                <span class="header__navbar-user-name">@Session["Email"]</span>
+                        <li class="header__navbar-item header__navbar-user">
+                          
+                            <img src="~/Content/img-slider/iconuser.png" alt="" class="header__navbar-user-img"/>
+                            <span class="header__navbar-user-name">@Session["Email"]</span>
 
-                                <ul class="header__navbar-user-menu">
-                                    <div class="box-noneshow"></div>
-                                    <li class="header__navbar-user-item">
+                            <ul class="header__navbar-user-menu">
+                                <div class="box-noneshow"></div>
+                                <li class="header__navbar-user-item">
 
-                                        <a href="#">Tài khoản của tôi</a>
-                                    </li>
-                                    <li class="header__navbar-user-item">
-                                        <a href="@Url.Action("DetailUser","DNhap")">Địa chỉ của tôi</a>
-                                    </li>
-                                    <li class="header__navbar-user-item">
-                                        <a href="#">Đơn mua</a>
-                                    </li>
-                                    <li class="header__navbar-user-item header__navbar-user-item--separate">
-                                        <a href="@Url.Action("DangXuat", "DNhap")">Đăng xuất</a>
-                                    </li>
-                                </ul>
-                            </li>
+                                    <a href="#">Tài khoản của tôi</a>
+                                </li>
+                                <li class="header__navbar-user-item">
+                                    <a href="@Url.Action("DetailUser","DNhap")">Địa chỉ của tôi</a>
+                                </li>
+                                <li class="header__navbar-user-item">
+                                    <a href="#">Đơn mua</a>
+                                </li>
+                                <li class="header__navbar-user-item header__navbar-user-item--separate">
+                                    <a href="@Url.Action("DangXuat", "DNhap")">Đăng xuất</a>
+                                </li>
+                            </ul>
+                        </li>
                             @*<div class="dropdown">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                             <span class="header__navbar-user-name">@Session["Email"]</span>

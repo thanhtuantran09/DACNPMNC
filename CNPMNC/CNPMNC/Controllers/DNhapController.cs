@@ -75,6 +75,41 @@ namespace CNPMNC.Controllers
             //Response.Cookies.Add(ckMatKhau);
             return RedirectToAction("Trangchu", "Trangchu");
         }
+        public ActionResult DetailUser()
+        {
+            // Lấy thông tin khách hàng từ database
+            var email = Session["Email"] as string;
+            var customer = db.KHACHHANGs.FirstOrDefault(c => c.EMAIL == email);
+            // Truyền thông tin khách hàng sang
+            return View(customer);
+        }
+        public ActionResult EditUser()
+        {
+            //Lấy thông tin khách hàng từ database
+            var email = Session["Email"] as string;
+            var customer = db.KHACHHANGs.FirstOrDefault(c => c.EMAIL == email);
+            //Truyền thông tin khách hàng sang
+            return View(customer);
+        }
+        [HttpPost]
+        public ActionResult EditUser(KHACHHANG kh)
+        {
+            if (ModelState.IsValid)
+            {
+                var edituser = db.KHACHHANGs.Where(x => x.KHACHHANGID == kh.KHACHHANGID).FirstOrDefault();
 
+                edituser.KHACHHANGID = kh.KHACHHANGID;
+                edituser.EMAIL = kh.EMAIL;
+                edituser.HOTEN = kh.HOTEN;
+                edituser.SDT = kh.SDT;
+                edituser.DIACHI = kh.DIACHI;
+                edituser.NHAPLAIMK = kh.NHAPLAIMK;
+                Session["Email"] = kh.EMAIL;
+                db.SaveChanges();
+                return RedirectToAction("DetailUser", "DNhap");
+            }
+
+            return View(kh);
+        }
     }
 }

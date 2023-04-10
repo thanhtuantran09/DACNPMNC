@@ -1,0 +1,71 @@
+﻿@model CNPMNC.Models.DONHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+    CNPMNC.Models.CNPMNCEntities db=new CNPMNC.Models.CNPMNCEntities();
+}
+
+<h2 class="title-delete">Xem thông tin</h2>
+
+<div class="delete-form">
+    <h4>Thông tin đơn hàng</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <p><strong>Mã đơn hàng:</strong> @Model.DONHANGID</p>
+        <p><strong>Tên khách hàng:</strong> @Model.TENKH</p>
+        <p><strong>Địa chỉ:</strong> @Model.DIACHI</p>
+        <p><strong>Số điện thoại:</strong> @Model.SDT</p>
+        <p><strong>Ngày tạo:</strong> @Model.NGAYTAO</p>
+        <p>
+            <strong>Trạng thái:</strong>  @{
+                var trangthai = db.TRANGTHAIDHs.FirstOrDefault(dt => dt.TRANGTHAIID == Model.TRANGTHAIID);
+                var tentrangthai = trangthai != null ? trangthai.TENTT : "";
+            }
+            @tentrangthai
+        </p>
+        <p><strong>Giảm giá:</strong> @Model.GIAMGIA đ</p>
+        <p><strong>Thành tiền:</strong> @Model.THANHTIEN đ</p>
+
+        <h2>Chi tiết đơn hàng</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã chi tiết đơn hàng</th>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                @foreach (var ctDonHang in Model.CTDONHANGs)
+                {
+                    <tr>
+                        <td>@ctDonHang.CTDONHANGID</td>
+                        <td>@ctDonHang.DIENTHOAIID</td>
+                        <td>
+                            @{
+                                var dienThoai = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == ctDonHang.DIENTHOAIID);
+                                var tenDienThoai = dienThoai != null ? dienThoai.TENDT : "";
+                            }
+                            @tenDienThoai
+                        </td>
+
+                        <td>@ctDonHang.SOLUONGMUA</td>
+                        <td>@ctDonHang.TONGTIEN đ</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+     
+
+    </dl>
+    <div class="home-product-title-contents-2" @*style="margin-top: 25px; justify-content:center;"*@>
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.DONHANGID }, new { @class = "delete-form_btn-delete" }) |
+        @Html.ActionLink("Trở về", "Donhang", "Donhang", new { @class = "delete-form_btn-back" })
+    </div>
+</div>

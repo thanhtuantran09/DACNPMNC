@@ -138,39 +138,5 @@
         </div>
     </div>
 </div>
-@*@if (Model != null)
-{
-    <table class="table">
-        <thead>
-            <tr>Tên điện thoại</tr>
-            <tr>Hình</tr>
-            <tr>Số lượng</tr>
-            <tr>Giá</tr>
-            <tr>Tổng</tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Items)
-            {
-                double total = Convert.ToDouble(item.sanpham.GIAGIAM.Value * item.soluong);
-                <tr>
-                    <td>
-                        @Html.DisplayFor(model => item.sanpham.TENDT);
-                    </td>
-                    <td>
-                        <img src="@Url.Content(item.sanpham.HINHANH1)" style="width:100px;height:100px;" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.soluong);
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.sanpham.GIAGIAM);
-                    </td>
-                    <td>
-                        Total:@total
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>*@
 }
 

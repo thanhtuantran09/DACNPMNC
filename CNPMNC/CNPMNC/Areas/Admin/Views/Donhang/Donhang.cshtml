@@ -21,9 +21,7 @@
                     @Html.TextBox("SearchString", ViewBag.CrurentFilter as string, new { @class = "input-qldm-create", @type = "text", @placeholder = "Nhập tên hãng muốn tìm...", @tabindex = "0" })
                     <input type="submit" value="Tìm kiếm" class="input-qldm-save">
                 }
-                <a href="#">
-                    <button class="create-list">Tạo mới</button>
-                </a>
+              
             </div>
             <div class="home-product-title-contents">
                 <div class="table-case col l-12">
@@ -52,7 +50,7 @@
                                     <td> @Html.DisplayFor(modelItem => item.DIACHI)</td>
                                     <td> @Html.DisplayFor(modelItem => item.SDT)</td>
                                     <td> @Html.DisplayFor(modelItem => item.NGAYTAO)</td>
-                                    <td> @Html.DisplayFor(modelItem => item.TRANGTHAIID)</td>
+                                    <td>  @(item.TRANGTHAIDH==null?"":item.TRANGTHAIDH.TENTT)</td>
                                     <td> @Html.DisplayFor(modelItem => item.THANHTIEN)</td>
                                     <td class="td-edit">
                                         @Html.ActionLink(" ", "Edit", new { id = item.DONHANGID },

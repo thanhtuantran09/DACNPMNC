@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -72,6 +73,116 @@ namespace CNPMNC.Areas.Admin.Controllers
 
             // 5. Trả về các Link được phân trang theo kích thước và số trang.
             return View(thongtin.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult SelectCateTT()
+        {
+            TRANGTHAIDH se_cate = new TRANGTHAIDH();
+            se_cate.ListCateTT = db.TRANGTHAIDHs.ToList<TRANGTHAIDH>();
+            return PartialView(se_cate);
+        }
+        // GET: Admin/TSKT/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var editing = db.DONHANGs.Find(id);
+            return View(editing);
+        }
+
+        // POST: Admin/TSKT/Edit/5
+        [HttpPost]
+        public ActionResult Edit(DONHANG model)
+        {
+            try
+            {
+                var sua = db.DONHANGs.Find(model.DONHANGID);
+                sua.KHACHHANG = model.KHACHHANG;
+                sua.TRANGTHAIID=model.TRANGTHAIID;
+                sua.GIAMGIA=model.GIAMGIA;
+                sua.THANHTIEN=model.THANHTIEN;
+                sua.TENKH=model.TENKH;
+                sua.DIACHI=model.DIACHI;
+                sua.SDT=model.SDT;
+                db.SaveChanges();
+                return RedirectToAction("Donhang");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult Details(int id)
+        {
+            // Lấy thông tin đơn hàng từ database
+            var donHang = db.DONHANGs.FirstOrDefault(dh => dh.DONHANGID == id);
+            if (donHang == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Lấy thông tin chi tiết đơn hàng từ database
+            var ctDonHangs = db.CTDONHANGs.Include("DIENTHOAI").Where(ct => ct.DONHANGID == id).ToList();
+
+            // Tạo một đối tượng DonHangModel để truyền dữ liệu vào view
+            var model = new DONHANG()
+            {
+                DONHANGID = donHang.DONHANGID,
+                TENKH = donHang.TENKH,
+                DIACHI= donHang.DIACHI,
+                SDT= donHang.SDT,
+                NGAYTAO = donHang.NGAYTAO,
+                TRANGTHAIID = donHang.TRANGTHAIID,
+                GIAMGIA = donHang.GIAMGIA,
+                THANHTIEN = donHang.THANHTIEN,
+                CTDONHANGs = new List<CTDONHANG>()
+               
+            };
+
+            // Duyệt danh sách chi tiết đơn hàng và thêm thông tin vào đối tượng model
+            foreach (var ctDonHang in ctDonHangs)
+            {
+                var dienThoai = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == ctDonHang.DIENTHOAIID);
+                // Lấy thông tin điện thoại từ cơ sở dữ liệu
+
+                var ctModel = new CTDONHANG()
+                {
+                    CTDONHANGID = ctDonHang.CTDONHANGID,
+                    DONHANGID = ctDonHang.DONHANGID,
+                    SOLUONGMUA = ctDonHang.SOLUONGMUA,
+                    TONGTIEN = ctDonHang.TONGTIEN,
+                    DIENTHOAIID =ctDonHang.DIENTHOAIID,
+                    
+                };
+
+                model.CTDONHANGs.Add(ctModel);
+            }
+
+            // Trả về view với đối tượng model
+            return View(model);
+        }
+        // GET: Admin/Hang/Delete/5
+        public ActionResult Delete(int id)
+        {
+            var deleting = db.DONHANGs.Find(id);
+
+            return View(deleting);
+        }
+
+        // POST: QLDoibong/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                var deleting = db.DONHANGs.Find(id);
+                db.DONHANGs.Remove(deleting);
+                db.SaveChanges();
+                return RedirectToAction("Donhang");
+            }
+            catch
+            {
+                return Content("Thông tin này đã được sử dụng!");
+            }
         }
     }
 }

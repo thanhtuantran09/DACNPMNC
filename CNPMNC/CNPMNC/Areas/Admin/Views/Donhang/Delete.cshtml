@@ -1,0 +1,174 @@
+﻿@model CNPMNC.Models.DONHANG
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+}
+<h2 class="title-delete">Xóa thông tin</h2>
+
+<h3 class="title-delete_ask">Bạn có chắc muốn xóa thông tin này?</h3>
+<div class="delete-form">
+    <h4>Thông tin đơn hàng</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACHHANGID)
+        </dt>
+
+        <dd>
+            @(Model.KHACHHANG==null?"":Model.KHACHHANG.HOTEN)
+           
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRANGTHAIID)
+        </dt>
+
+        <dd>
+            @(Model.TRANGTHAIDH==null?"":Model.TRANGTHAIDH.TENTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYTAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYTAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIAMGIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIAMGIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THANHTIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THANHTIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="delete-form_btn-delete" /> |
+            @Html.ActionLink("Trở về", "Donhang", "Donhang", new { @class = "delete-form_btn-back" })
+        </div>
+    }
+</div>
+
+@*<h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>DONHANG</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.KHACHHANGID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KHACHHANGID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TRANGTHAIID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TRANGTHAIID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NGAYTAO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NGAYTAO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GIAMGIA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GIAMGIA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.THANHTIEN)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.THANHTIEN)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TENKH)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TENKH)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DIACHI)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DIACHI)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SDT)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SDT)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>*@
