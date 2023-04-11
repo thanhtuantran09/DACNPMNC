@@ -2452,8 +2452,8 @@ i.home-product-item__like-icon-fill {
 
 /**/
 .box-noneshow {
-    width: 200px;
-    height: 30px;
+    width: 160px;
+    height: 11px;
     background-color: transparent;
     position: absolute;
     top: -10px;
@@ -2474,3 +2474,65 @@ i.home-product-item__like-icon-fill {
     background-image: linear-gradient(90deg,  rgb(249,163,97) 5%, rgb(247,94,153) 100%);
 }
 
+.user-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 247, 247);
+    border: 1px solid rgb(238, 235, 235);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+    padding: 5px;
+}
+
+.user-img_name {
+    margin: 10px 0;
+    font-size: 1.7rem;
+}
+
+.user-img_link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+.user-img_link:hover {
+    color:var(--primary-color);
+}
+
+.user-edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-edit_label {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.user-edit_button-save {
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 5px 5px;
+    margin-top: 10px;
+    color: #fff;
+    border: none;
+    background-color: var(--primary-color);
+    width: 90px;
+}
+
+.user-edit_button-save:hover {
+    background-color: rgb(209 73 125);
+}
+
+.user-edit_change-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

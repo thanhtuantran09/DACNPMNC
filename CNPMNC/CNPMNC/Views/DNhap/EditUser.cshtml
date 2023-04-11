@@ -5,52 +5,84 @@
     Layout = "~/Views/Shared/User.cshtml";
 }
 
-<h2>EditUser</h2>
-
-@using (Html.BeginForm("EditUser", "DNhap", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
+<div class="app__container">
+    <div class="grid wide">
 
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+        <div class="row sm-gutter app__content">
 
-    @Html.HiddenFor(model => model.KHACHHANGID)
-    <div class="text-lg font-bold my-2">
-        dc
+            <div class="col l-12 m-12 c-12">
+
+                <div class="home-product">
+                    <div class="row sm-gutter">
+                        <div class="col l-2">
+                            <div class="user-img">
+                                <img src="~/Content/img-slider/person.png" style="width: 82px; height: 82px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.1); object-fit: cover;" />
+                                <p class="user-img_name">@Model.HOTEN</p>
+                                <div style=" border-bottom: 1px solid var(--primary-color); width: 100%;"></div>
+                                <div style="display: flex; flex-direction:column; align-items: flex-start;">
+                                    <a href="@Url.Action("DetailUser","DNhap")" class="user-img_link">
+                                        Tài khoản của bạn
+                                    </a>
+                                    <a href="#" class="user-img_link">
+                                        Đơn mua
+                                    </a>
+                                    <a href="@Url.Action("DangXuat", "DNhap")" class="user-img_link">
+                                        Đăng xuất
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col l-10">
+                            <div class="home-product-title">
+                                <h1>Thông tin của bạn</h1>
+                                @using (Html.BeginForm("EditUser", "DNhap", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.HiddenFor(model => model.KHACHHANGID)
+                                    <div class="row sm-gutter">
+                                        <div class="col l-6">
+                                            <div class="user-edit">
+                                                <p class="user-edit_label">Tên của bạn:</p>
+                                                @Html.EditorFor(model => model.HOTEN, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                            <div class="user-edit">
+                                                <p class="user-edit_label">Số điện thoại của bạn:</p>
+                                                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                            <div class="user-edit">
+                                                <p class="user-edit_label">Địa chỉ của bạn:</p>
+                                                @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                            <div class="user-edit">
+                                                <p class="user-edit_label">Email của bạn:</p>
+                                                @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", @style = "width: 250px;" } })
+                                            </div>
+
+                                        </div>
+                                        <div class="col l-6">
+                                            <div class="user-edit_change-img">
+                                                <img src="~/Content/img-slider/iconuser.png" style="width: 82px; height: 82px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.1); object-fit: cover;" />
+                                                <input type="file" style="font-size: 1.4rem; margin-top: 20px;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="user-edit_button-save">Cập nhật</button>
+                                    <a href="@Url.Action("DetailUser", "DNhap")" class="edit-profile_user" style="margin-top:10px; margin-left: 5px;">Quay về</a>
+
+
+                                }
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-    @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" } })
-    <div class="text-lg font-bold my-2">
-        sdt
-    </div>
-    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
-    <div class="text-lg font-bold my-2">
-        mk
-    </div>
-    @Html.EditorFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "form-control" } })
-    <div class="text-lg font-bold my-2">
-        nmk
-    </div>
-    @Html.EditorFor(model => model.NHAPLAIMK, new { htmlAttributes = new { @class = "form-control" } })
-
-    <div class="text-lg font-bold my-2">
-        ht
-    </div>
-    @Html.EditorFor(model => model.HOTEN, new { htmlAttributes = new { @class = "form-control" } })
-    <div class="text-lg font-bold my-2">
-        email
-    </div>
-    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
-
-    <button type="submit" class="m-2 font-bold">Save changes</button>
-
-    <a href="@Url.Action("DetailUser", "DNhap")" class="btn btn-success">Quay lại</a>
-}
-
+</div>

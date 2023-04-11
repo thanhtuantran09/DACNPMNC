@@ -258,6 +258,12 @@
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\slider.css" />
     <Content Include="Content\css\validator.css" />
+    <Content Include="Content\Hinh\appstore.png" />
+    <Content Include="Content\Hinh\complete-checkout.png" />
+    <Content Include="Content\Hinh\empty-cart.jpg" />
+    <Content Include="Content\Hinh\googleplay.png" />
+    <Content Include="Content\Hinh\home.png" />
+    <Content Include="Content\Hinh\QR_shopee.png" />
     <Content Include="Content\Hinh\wibu.png" />
     <Content Include="Content\img-slider\background-login.png" />
     <Content Include="Content\img-slider\Galaxy-S23-series-lo-poster-truoc-ngay-ra-mat-6.jpg" />
@@ -265,6 +271,7 @@
     <Content Include="Content\img-slider\iphone-14-pro-max-og.jpg" />
     <Content Include="Content\img-slider\note20ultra.jpg" />
     <Content Include="Content\img-slider\oppo-reno8-pro.jpg" />
+    <Content Include="Content\img-slider\person.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
