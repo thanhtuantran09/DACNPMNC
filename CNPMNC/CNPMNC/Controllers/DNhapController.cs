@@ -111,5 +111,30 @@ namespace CNPMNC.Controllers
 
             return View(kh);
         }
+        public ActionResult LichSuDonHang()
+        {
+            // Lấy thông tin khách hàng từ session
+            var email = Session["Email"] as string;
+            if (Session["Email"] == null)
+            {
+                // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                return RedirectToAction("Dangnhap", "DNhap");
+            }
+            else
+            {
+                // Lấy danh sách đơn hàng của khách hàng từ CSDL
+                var khachHang = db.KHACHHANGs.SingleOrDefault(kh => kh.EMAIL == email);
+                var donHangs = db.DONHANGs.Where(dh => dh.KHACHHANGID == khachHang.KHACHHANGID).ToList();
+
+                return View(donHangs);
+            }
+        }
+        public ActionResult ChiTietDonHang(int id)
+        {
+            var donHang = db.DONHANGs.SingleOrDefault(dh => dh.DONHANGID == id);
+            var chiTietDonHangs = db.CTDONHANGs.Where(ct => ct.DONHANGID == id).ToList();
+            ViewBag.DonHang = donHang;
+            return View(chiTietDonHangs);
+        }
     }
 }

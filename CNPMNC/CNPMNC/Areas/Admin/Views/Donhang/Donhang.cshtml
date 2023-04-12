@@ -49,7 +49,7 @@
                                     <td> @Html.DisplayFor(modelItem => item.TENKH)</td>
                                     <td> @Html.DisplayFor(modelItem => item.DIACHI)</td>
                                     <td> @Html.DisplayFor(modelItem => item.SDT)</td>
-                                    <td> @Html.DisplayFor(modelItem => item.NGAYTAO)</td>
+                                    <td> @string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NGAYTAO)</td>
                                     <td>  @(item.TRANGTHAIDH==null?"":item.TRANGTHAIDH.TENTT)</td>
                                     <td> @Html.DisplayFor(modelItem => item.THANHTIEN)</td>
                                     <td class="td-edit">
