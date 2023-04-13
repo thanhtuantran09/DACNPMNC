@@ -25,7 +25,7 @@
                     <p class="label"><strong>Tên khách hàng:</strong> @Model.TENKH</p>
                     <p class="label"><strong>Địa chỉ:</strong> @Model.DIACHI</p>
                     <p class="label"><strong>Số điện thoại:</strong> @Model.SDT</p>
-                    <p class="label"><strong>Ngày tạo:</strong> @Model.NGAYTAO</p>
+                    <p class="label"><strong>Ngày tạo:</strong>@string.Format("{0:dd/MM/yyyy HH:mm:ss}", Model.NGAYTAO) </p>
                     <p class="label">
                         <strong>Trạng thái:</strong>  @{
                             var trangthai = db.TRANGTHAIDHs.FirstOrDefault(dt => dt.TRANGTHAIID == Model.TRANGTHAIID);

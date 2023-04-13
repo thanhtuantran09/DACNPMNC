@@ -1,0 +1,33 @@
+﻿@model List<CNPMNC.Models.DONHANG>
+@{
+    ViewBag.Title = "LichSuDonHang";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+@if (Model.Count == 0)
+{
+    <p style="margin-top:200px">Không có đơn hàng nào.</p>
+}
+else
+{
+    <table style="margin-top:200px">
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Ngày đặt hàng</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </tr>
+        @foreach (var donHang in Model)
+        {
+            <tr>
+                <td>@donHang.DONHANGID</td>
+                <td>  @string.Format("{0:dd/MM/yyyy HH:mm:ss}", donHang.NGAYTAO)</td>
+                <td> @string.Format("{0:0,0 đ}", donHang.THANHTIEN) </td>
+                <td> @(donHang.TRANGTHAIDH==null?"":donHang.TRANGTHAIDH.TENTT)</td>
+                <td><a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID }) "  class="back-to-index">Xem chi tiết</a></td>
+            </tr>
+        }
+    </table>
+}
+
