@@ -15,7 +15,7 @@ namespace CNPMNC.Controllers
         // GET: Trangchu
         public ActionResult Trangchu(int? page)
         {
-            const int pageSize = 5;
+            const int pageSize = 10;
             var pageNumber = (page ?? 1);
             var products = db.DIENTHOAIs.OrderBy(p => p.TENDT).ToPagedList(pageNumber, pageSize);
             return View(products);
