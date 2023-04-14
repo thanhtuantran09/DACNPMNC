@@ -164,27 +164,34 @@ namespace CNPMNC.Areas.Admin.Controllers
         {
             var objDoiBong = db.DIENTHOAIs.Find(model.DIENTHOAIID);
             // Lưu ảnh vào thư mục ~/Content/Images/
-            if (model.UploadImage1 != null && model.UploadImage2 != null && model.UploadImage3 != null)
+            if (model.UploadImage2 != null)
+            {
+                string filename2 = Path.GetFileNameWithoutExtension(model.UploadImage2.FileName);
+                string extension2 = Path.GetExtension(model.UploadImage2.FileName);
+                filename2 = filename2 + extension2;
+
+                objDoiBong.HINHANH2 = "~/Content/Hinh/" + filename2;
+                model.UploadImage2.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename2));
+            }
+            if (model.UploadImage1 != null)
             {
                 string filename1 = Path.GetFileNameWithoutExtension(model.UploadImage1.FileName);
                 string extension1 = Path.GetExtension(model.UploadImage1.FileName);
                 filename1 = filename1 + extension1;
-                string filename2 = Path.GetFileNameWithoutExtension(model.UploadImage2.FileName);
-                string extension2 = Path.GetExtension(model.UploadImage2.FileName);
-                filename2 = filename2 + extension2;
+
+                objDoiBong.HINHANH1 = "~/Content/Hinh/" + filename1;
+                model.UploadImage1.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename1));
+            }
+            if (model.UploadImage3 != null)
+            {
                 string filename3 = Path.GetFileNameWithoutExtension(model.UploadImage3.FileName);
                 string extension3 = Path.GetExtension(model.UploadImage3.FileName);
                 filename3 = filename3 + extension3;
 
-                model.HINHANH1 = "~/Content/Hinh/" + filename1;
-                model.HINHANH2 = "~/Content/Hinh/" + filename2;
-                model.HINHANH3 = "~/Content/Hinh/" + filename3;
-
-                model.UploadImage1.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename1));
-                model.UploadImage2.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename2));
+                objDoiBong.HINHANH3 = "~/Content/Hinh/" + filename3;
                 model.UploadImage3.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename3));
-
             }
+
             // Kiểm tra giá bán, số lượng tồn và phần trăm giảm
             if (model.GIABAN >= 0 && model.SOLUONGTON >= 0 && model.PHANTRAMGIAM >= 0 && model.PHANTRAMGIAM <= 100)
             {
@@ -192,15 +199,13 @@ namespace CNPMNC.Areas.Admin.Controllers
                 objDoiBong.GIABAN = model.GIABAN;
                 objDoiBong.GIAGIAM = model.GIAGIAM;
                 objDoiBong.PHANTRAMGIAM = model.PHANTRAMGIAM;
-                objDoiBong.HINHANH1=model.HINHANH1;
-                objDoiBong.HINHANH2=model.HINHANH2;
-                objDoiBong.HINHANH3 =model.HINHANH3;
+
                 objDoiBong.SOLUONGTON = model.SOLUONGTON;
-                objDoiBong.HANGID=model.HANGID;
+                objDoiBong.HANGID = model.HANGID;
                 objDoiBong.NCCID = model.NCCID;
-                objDoiBong.MAUSAC = model.MAUSAC    ;
+                objDoiBong.MAUSAC = model.MAUSAC;
                 objDoiBong.GIAGIAM = objDoiBong.GIABAN - (objDoiBong.GIABAN * objDoiBong.PHANTRAMGIAM / 100);
-               
+
                 db.SaveChanges();
                 return RedirectToAction("Dienthoai");
             }
@@ -222,7 +227,6 @@ namespace CNPMNC.Areas.Admin.Controllers
 
             return View(model);
         }
-
         // GET: Admin/Dienthoai/Delete/5
         public ActionResult Delete(int id)
         {
