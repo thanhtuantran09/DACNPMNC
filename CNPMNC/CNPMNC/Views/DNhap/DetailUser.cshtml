@@ -18,13 +18,13 @@
                         <div class="col l-2">
                             <div class="user-img">
                                 <img src="~/Content/img-slider/person.png" style="width: 82px; height: 82px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.1); object-fit: cover;" />
-                                <p class="user-img_name">@Model.HOTEN</p>
+                                <p class="user-img_name">@Session["Ten"]</p>
                                 <div style=" border-bottom: 1px solid var(--primary-color); width: 100%;"></div>
                                 <div style="display: flex; flex-direction:column; align-items: flex-start;">
                                     <a href="@Url.Action("DetailUser","DNhap")" class="user-img_link">
                                         Tài khoản của bạn
                                     </a>
-                                    <a href="#" class="user-img_link">
+                                    <a href="@Url.Action("LichSuDonHang","DNhap")" class="user-img_link">
                                         Đơn mua
                                     </a>
                                     <a href="@Url.Action("DangXuat", "DNhap")" class="user-img_link">

@@ -21,7 +21,7 @@
             <div class="button-create-list">
                 @using (Html.BeginForm("Dienthoai", "Dienthoai", FormMethod.Get))
                 {
-                    @Html.TextBox("SearchString", ViewBag.CrurentFilter as string, new { @class = "input-qldm-create", @type = "text", @placeholder = "Nhập tên hãng muốn tìm...", @tabindex = "0" })
+                    @Html.TextBox("SearchString", ViewBag.CrurentFilter as string, new { @class = "input-qldm-create", @type = "text", @placeholder = "Nhập tên điện thoại muốn tìm...", @tabindex = "0" })
                     <input type="submit" value="Tìm kiếm" class="input-qldm-save">
 
                     @*<p>

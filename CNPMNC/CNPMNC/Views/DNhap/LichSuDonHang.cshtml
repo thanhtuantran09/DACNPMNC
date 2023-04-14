@@ -4,30 +4,75 @@
     Layout = "~/Views/Shared/User.cshtml";
 }
 
-@if (Model.Count == 0)
-{
-    <p style="margin-top:200px">Không có đơn hàng nào.</p>
-}
-else
-{
-    <table style="margin-top:200px">
-        <tr>
-            <th>Mã đơn hàng</th>
-            <th>Ngày đặt hàng</th>
-            <th>Tổng tiền</th>
-            <th>Trạng thái</th>
-            <th></th>
-        </tr>
-        @foreach (var donHang in Model)
-        {
-            <tr>
-                <td>@donHang.DONHANGID</td>
-                <td>  @string.Format("{0:dd/MM/yyyy HH:mm:ss}", donHang.NGAYTAO)</td>
-                <td> @string.Format("{0:0,0 đ}", donHang.THANHTIEN) </td>
-                <td> @(donHang.TRANGTHAIDH==null?"":donHang.TRANGTHAIDH.TENTT)</td>
-                <td><a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID }) "  class="back-to-index">Xem chi tiết</a></td>
-            </tr>
-        }
-    </table>
-}
+<div class="app__container">
+    <div class="grid wide">
+
+
+        <div class="row sm-gutter app__content">
+
+            <div class="col l-12 m-12 c-12">
+
+                <div class="home-product">
+                    <div class="row sm-gutter">
+                        @if (Model.Count == 0)
+                        {
+                            <p style="margin-top:200px">Không có đơn hàng nào.</p>
+                        }
+                        else
+                        {
+                            <div class="col l-2">
+                                <div class="user-img">
+                                    <img src="~/Content/img-slider/person.png" style="width: 82px; height: 82px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.1); object-fit: cover;" />
+                                    <p class="user-img_name">@Session["Ten"]</p>
+                                    <div style=" border-bottom: 1px solid var(--primary-color); width: 100%;"></div>
+                                    <div style="display: flex; flex-direction:column; align-items: flex-start;">
+                                        <a href="@Url.Action("DetailUser","DNhap")" class="user-img_link">
+                                            Tài khoản của bạn
+                                        </a>
+                                        <a href="@Url.Action("LichSuDonHang","DNhap")" class="user-img_link">
+                                            Đơn mua
+                                        </a>
+                                        <a href="@Url.Action("DangXuat", "DNhap")" class="user-img_link">
+                                            Đăng xuất
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col l-10">
+                                <div class="home-product-title">
+                                    <h1>Đơn hàng của bạn</h1>
+                                    <table>
+                                        <tr>
+                                            <th>Mã đơn hàng</th>
+                                            <th>Ngày đặt hàng</th>
+                                            <th>Tổng tiền</th>
+                                            <th>Trạng thái</th>
+                                            <th></th>
+                                        </tr>
+                                        @foreach (var donHang in Model)
+                                        {
+                                            <tr>
+                                                <td>@donHang.DONHANGID</td>
+                                                <td>  @string.Format("{0:dd/MM/yyyy HH:mm:ss}", donHang.NGAYTAO)</td>
+                                                <td> @string.Format("{0:0,0 đ}", donHang.THANHTIEN) </td>
+                                                <td> @(donHang.TRANGTHAIDH==null?"":donHang.TRANGTHAIDH.TENTT)</td>
+                                                <td><a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID }) " class="back-to-index">Xem chi tiết</a></td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+
+                            </div>
+                        }
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 

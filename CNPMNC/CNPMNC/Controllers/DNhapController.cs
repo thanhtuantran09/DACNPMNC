@@ -31,6 +31,7 @@ namespace CNPMNC.Controllers
 
 
                     Session["Email"] = user.EMAIL;
+                    Session["Ten"] = objUserGet.HOTEN;
                     return RedirectToAction("Trangchu", "Trangchu");
 
         }

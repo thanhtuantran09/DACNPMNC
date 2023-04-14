@@ -10,7 +10,7 @@
     <link href="~/Areas/Admin/Content/base.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/cart.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/grid.css" rel="stylesheet" />
-    <link href="~/Areas/Admin/Content/main.css?v" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/main.css?v=1" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/menu.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/reset.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/responsive.css" rel="stylesheet" />
@@ -177,29 +177,29 @@
                                 </li> -->
 
                                 <ul class="menu-links">
-                                    <li class="nav-link" style="background-color: var(--star-gold-color);">
-                                        <a href="#">
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Hang" ? "active-menu" : "")">
+                                        <a href="@Url.Action("Hang", "Hang")">
                                             <i class='fas fa-solid fa-list icon'></i>
                                             <span class="text nav-text">Quản lý danh mục</span>
                                         </a>
                                     </li>
 
-                                    <li class="nav-link">
-                                        <a href="./QL-sanpham.html">
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Dienthoai" ? "active-menu" : "")">
+                                        <a href="@Url.Action("Dienthoai", "Dienthoai")">
                                             <i class='fas fa-solid fa-clipboard-list icon'></i>
                                             <span class="text nav-text">Quản lý sản phẩm</span>
                                         </a>
                                     </li>
 
-                                    <li class="nav-link">
-                                        <a href="./QL-thongsokithuat.html">
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "TSKT" ? "active-menu" : "")">
+                                        <a href="@Url.Action("TSKT", "TSKT")">
                                             <i class='fas fa-solid fa-clipboard-list icon'></i>
                                             <span class="text nav-text">Các thông số kĩ thuật</span>
                                         </a>
                                     </li>
 
-                                    <li class="nav-link">
-                                        <a href="#">
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Donhang" ? "active-menu" : "")">
+                                        <a href="@Url.Action("Donhang", "Donhang")">
                                             <i class='fas fa-solid fa-box icon'></i>
                                             <span class="text nav-text">Quản lý đơn hàng</span>
                                         </a>

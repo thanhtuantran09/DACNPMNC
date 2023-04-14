@@ -2611,3 +2611,8 @@ i.home-product-item__like-icon-fill {
     font-size: 14px;
 }
 
+/*active*/
+.active-menu {
+    background-color: var(--star-gold-color);
+}
+

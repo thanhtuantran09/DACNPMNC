@@ -28,7 +28,8 @@ namespace CNPMNC.Controllers
                 GetCart().Add(pro);
 
             }
-            return RedirectToAction("ShowToCart", "ShoppingCart");
+            //return RedirectToAction("ShowToCart", "ShoppingCart");
+            return RedirectToAction("Trangchu","Trangchu");
         }
         public ActionResult ShowToCart()
         {
@@ -64,7 +65,7 @@ namespace CNPMNC.Controllers
         {
             Cart cart = Session["Cart"] as Cart;
             cart.Xoasp(id);
-            return RedirectToAction("ShowToCart", "ShoppingCart");
+            return RedirectToAction("Chucohang", "ShoppingCart");
         }
         public PartialViewResult GioHang()
         {
