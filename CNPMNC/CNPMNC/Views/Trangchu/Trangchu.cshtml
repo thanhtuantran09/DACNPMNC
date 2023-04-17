@@ -44,6 +44,22 @@
                         </div>
                     </div>
                 </div>
+                <div id="toast">
+                    <div class="toast">
+                        <div class="toast__icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="toast__body">
+                            <h3 class="toast__title">Thành công!</h3>
+                            <p class="toast__msg">Sản phẩm được thêm vào giỏ hàng thành công!</p>
+                        </div>
+                        @*<div class="toast__close">
+                            <i class="fas fa-times"></i>
+                        </div>*@
+                    </div>
+                    
+                </div>
+                
 
 
                 <div class="home-product">
@@ -90,10 +106,10 @@
                                         <span class="home-product-item__sale-off-percent">@Html.DisplayFor(modelItem => item.PHANTRAMGIAM)%</span>
                                         <span class="home-product-item__sale-off-label">GIẢM</span>
                                     </div>
-                                    <div class="home-product-item__cart">
-                                        <a href="/ShoppingCart/AddToCart/@item.DIENTHOAIID" class="home-product-item__cart-add">
+                                    <div class="home-product-item__cart" data-product-id="@item.DIENTHOAIID">
+                                        <a href="/ShoppingCart/AddToCart/@item.DIENTHOAIID" class="home-product-item__cart-add" >
                                             <i class="home-product-item__cart-icon fas fa-shopping-cart"></i>
-                                            <button class="home-product-item__cart-order" data-product-id="@item.DIENTHOAIID">Thêm vào giỏ hàng</button>
+                                            <button class="home-product-item__cart-order">Thêm vào giỏ hàng</button>
                                         </a>
                                     </div>
 

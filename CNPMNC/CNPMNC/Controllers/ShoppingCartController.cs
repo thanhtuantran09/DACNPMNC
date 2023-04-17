@@ -34,38 +34,40 @@ namespace CNPMNC.Controllers
         public ActionResult ShowToCart()
         {
             if (Session["Cart"] == null)
-
-                return RedirectToAction("ShowToCart", "ShoppingCart");
+            {
+                 return RedirectToAction("ShowToCart", "ShoppingCart");
+            }
+               
 
             Cart cart = Session["Cart"] as Cart;
+            ViewBag.Message = TempData["Message"];
+            
+
             return View(cart);
         }
-        public ActionResult Update_Sl(FormCollection form)
-        {
+            public ActionResult Update_Sl(FormCollection form)
+            {
             Cart cart = Session["Cart"] as Cart;
             int id_pro = int.Parse(form["ID_dienthoai"]);
             int sl = int.Parse(form["Soluong"]);
-            if (sl <= 0) // Kiểm tra số lượng phải lớn hơn 0
-            {
-                if (sl == 0) // Nếu số lượng = 0, xóa sản phẩm khỏi giỏ hàng
-                {
-                    cart.Xoasp(id_pro);
-                }
-                else // Nếu số lượng < 0, hiển thị thông báo lỗi
-                {
-                    ViewBag.Message = "Số lượng phải lớn hơn 0";
-                }
-                return RedirectToAction("ShowToCart", "ShoppingCart");
-            }
-            cart.Update_Sl(id_pro, sl);
+            cart.Update_Sl(id_pro, sl, this.ControllerContext);
+
             return RedirectToAction("ShowToCart", "ShoppingCart");
 
-        }
+             }
         public ActionResult RemoveCart(int id)
         {
             Cart cart = Session["Cart"] as Cart;
             cart.Xoasp(id);
-            return RedirectToAction("Chucohang", "ShoppingCart");
+            if (cart.Tongsoluong() == 0)
+            {
+                return RedirectToAction("Chucohang", "ShoppingCart");
+            }
+            else
+            {
+                return RedirectToAction("ShowToCart", "ShoppingCart");
+            }
+           
         }
         public PartialViewResult GioHang()
         {
@@ -137,6 +139,11 @@ namespace CNPMNC.Controllers
                         chiTietDonHang.TONGTIEN = (item.soluong * item.sanpham.GIAGIAM);
 
                         db.CTDONHANGs.Add(chiTietDonHang);
+                        foreach (var p in db.DIENTHOAIs.Where(s=>s.DIENTHOAIID==chiTietDonHang.DIENTHOAIID))
+                        {
+                            var soluongtonmoi = p.SOLUONGTON - item.soluong;
+                            p.SOLUONGTON = soluongtonmoi;
+                        }
                     }
 
                     db.SaveChanges();
