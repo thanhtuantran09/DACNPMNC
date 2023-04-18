@@ -10,9 +10,25 @@
 
      
         <div class="row sm-gutter app__content">
-           
 
-          
+            <div id="toast">
+                <div class="toast">
+                    <div class="toast__icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="toast__body">
+                        <h3 class="toast__title">Thành công!</h3>
+                        <p class="toast__msg">Sản phẩm được thêm vào giỏ hàng thành công!</p>
+                    </div>
+                    @*<div class="toast__close">
+                    <i class="fas fa-times"></i>
+                </div>*@
+                </div>
+
+            </div>
+
+
+
 
             <div class="col l-12 m-12" style="display: flex; flex-direction: row; justify-content: space-between;">
                 <div class="home-product">
@@ -49,26 +65,26 @@
                                                 <div class="home-product-item__detail-briefing-sold ">280 Đã Bán</div>
                                             </div>
                                             @*<div class="home-product-item__detail-description">iPhone 14 Pro Max VN/A là dòng sản phẩm cao cấp nhất nằm trong thế hệ iPhone 14 Series mới vừa được ra mắt cùng với nhiều nâng cấp về ngoại hình và tính năng, hứa hẹn sẽ là dòng sản phẩm đột phá trong vài năm trở lại đây của Apple.</div>
-                                            <div class="home-product-item__detail-color">
-                                                <p>Chọn màu:</p>
-                                                <select name="" id="phone-color">
-                                                    <option value="gold">Gold</option>
-                                                    <option value="midnight">Midnight</option>
-                                                    <option value="silver">Silver</option>
+                                        <div class="home-product-item__detail-color">
+                                            <p>Chọn màu:</p>
+                                            <select name="" id="phone-color">
+                                                <option value="gold">Gold</option>
+                                                <option value="midnight">Midnight</option>
+                                                <option value="silver">Silver</option>
 
-                                                </select>
-                                            </div>*@
+                                            </select>
+                                        </div>*@
                                             <div class="home-product-item__detail-price">
                                                 <del class="home-product-item__detail-old-price">@Html.DisplayFor(modelItem => Model.GIABAN)</del>
                                                 <span class="home-product-item__detail-sale-price">@Html.DisplayFor(modelItem => Model.GIAGIAM)</span>
                                                 <!-- <div class="home-product-item__detail-save">
-                                                    <p>Tiết kiệm: <strong>42.000đ (35%)</strong></p>
-                                                </div> -->
+                                            <p>Tiết kiệm: <strong>42.000đ (35%)</strong></p>
+                                        </div> -->
                                             </div>
-                                            <div class="home-product-item__detail-cart">
+                                            <div class="home-product-item__detail-cart" data-product-id="@Model.DIENTHOAIID">
                                                 <a href="/ShoppingCart/AddToCart/@Model.DIENTHOAIID" class="home-product-item__detail-cart-button">
                                                     <i class="home-product-item__detail-cart-icon fas fa-shopping-cart"></i>
-                                                    <p class="home-product-item__detail-cart-order" data-product-id="@Model.DIENTHOAIID">Thêm vào giỏ hàng</p>
+                                                    <p class="home-product-item__detail-cart-order" >Thêm vào giỏ hàng</p>
                                                 </a>
                                             </div>
                                         </div>
@@ -106,14 +122,14 @@
                                         <li><b>Số khe sim:</b> @ViewBag.ThongSoKiThuat.SOKESIM</li>
                                         <li><b>Dung lượng Pin:</b> @ViewBag.ThongSoKiThuat.PIN</li>
                                     }
-                                  
+
                                 </ul>
                             </div>
 
                         </div>
                     </div>
-    </div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
 </div>
 </div>

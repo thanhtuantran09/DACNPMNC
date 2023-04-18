@@ -11,6 +11,7 @@
             <div class="col l-12 m-12 c-12">
                 <div class="cart">
                     <h1>GIỎ HÀNG</h1>
+                   
                     @if (Model != null)
                     {
                         <table class="cart-table">
@@ -25,7 +26,9 @@
                                     <th class="total">Thành tiền</th>
                                 </tr>
                             </thead>
+
                             <tbody class="products-items">
+                               
                                 @foreach (var item in Model.Items)
                                 {
                                     double total = Convert.ToDouble(item.sanpham.GIAGIAM.Value * item.soluong);
@@ -44,12 +47,15 @@
                                                 <input type="number" value="@item.soluong" name="Soluong" />
                                                 <input type="submit" value="Cập nhật" />
                                             }
+                                            @if (item.ErrorMessage != null)
+                                            {
+                                                <p style="color:red;" id="thongbao">@item.ErrorMessage</p>
+                                              
+                                            }
+                                           
 
                                         </td>
-                                        <p style="color:red;text-align:center">
-                                            @if (ViewBag.Message != null)
-                                            {@ViewBag.Message}
-                                        </p>
+
                                         <td>
                                             @Html.DisplayFor(model => item.sanpham.GIAGIAM)
                                         </td>
@@ -90,24 +96,24 @@
                                             <h1 class="logo-text">TFT SHOP</h1>
                                         </a>
                                         @*<ul class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="./cartitems.html">Giỏ hàng</a>
-                            </li>
-                            <li class="breadcrumb-item breadcrumb-item-current">Thông tin giao hàng</li>
-                        </ul>*@
+                                <li class="breadcrumb-item">
+                                    <a href="./cartitems.html">Giỏ hàng</a>
+                                </li>
+                                <li class="breadcrumb-item breadcrumb-item-current">Thông tin giao hàng</li>
+                            </ul>*@
                                     </div>
                                     <div class="checkout-main-content">
                                         <h3 class="checkout-main-label" style="margin-bottom: 20px;">Thông tin giao hàng</h3>
                                         @*<p class="checkout-main-label_text">
-                            Bạn đã có tài khoản?
-                            <a href="">Đăng nhập</a>
-                        </p>*@
+                                Bạn đã có tài khoản?
+                                <a href="">Đăng nhập</a>
+                            </p>*@
                                         <div class="fieldset">
                                             <div class="field">
                                                 <input type="text" class="field-input" name="Hovaten" id="" placeholder="Họ và tên" required>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="fieldset">
                                             <div class="field">
                                                 <input type="text" class="field-input" name="SDT" id="" placeholder="Số điện thoại" required>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CNPMNC.Models
 {
@@ -9,6 +10,7 @@ namespace CNPMNC.Models
     {
         public DIENTHOAI sanpham { get; set; }
         public int soluong { get; set; }
+        public string ErrorMessage { get; set; } // add this property
     }
     public class Cart
     {
@@ -30,20 +32,44 @@ namespace CNPMNC.Models
         {
             return items.Sum(s => s.soluong);
         }
-        public void Update_Sl(int id, int sl)
+        public void Update_Sl(int id, int sl, ControllerContext controllerContext)
         {
-            var item=items.Find(s=>s.sanpham.DIENTHOAIID==id);
+            var item = items.Find(s => s.sanpham.DIENTHOAIID == id);
+            bool error = false;
             if (item != null)
             {
-                if (sl > 0) // Kiểm tra số lượng lớn hơn 0
+               
+                if (item.sanpham.SOLUONGTON < sl)
                 {
-                    item.soluong = sl;
+                    
+                    item.ErrorMessage = "Số lượng sản phẩm trong kho không đủ";
+                    error = true;
+                    
                 }
-                else // Nếu số lượng <= 0, xóa sản phẩm khỏi giỏ hàng
+                else if (sl <= 0)
                 {
                     items.Remove(item);
                 }
+                else
+                {
+                    
+                    item.soluong = sl;
+                }
             }
+            if (!error)
+            {
+
+                item.ErrorMessage = null;
+
+            }
+            //if (error)
+            //{
+            //    controllerContext.Controller.TempData["Message"] = item.ErrorMessage;
+            //}
+            //else
+            //{
+            //    controllerContext.Controller.TempData["Message"] = "Cập nhật số lượng sản phẩm thành công";
+            //}
         }
         public double Tongtien()
         {
