@@ -45,5 +45,9 @@ namespace CNPMNC.Controllers
             ViewBag.ThongSoKiThuat = thongSoKiThuat;
             return View(dienthoai);
         }
+        public ActionResult Search(string searching)
+        {
+            return View(db.DIENTHOAIs.Where(x => x.TENDT.Contains(searching) || x.TENDT == null).ToList());
+        }
     }
 }

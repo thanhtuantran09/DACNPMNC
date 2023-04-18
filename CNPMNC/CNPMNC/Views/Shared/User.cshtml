@@ -111,28 +111,31 @@
                         </ul>
                     </nav>
                     <!--Header with search-->
-                    <div class="header-with-search">
+                <div class="header-with-search">
 
-                        <label for="mobile-search-checkbox" class="header__mobile-search">
-                            <i class="header__mobile-search-icon fas fa-search"></i>
-                        </label>
-                        <div class="header__logo hide-on-tablet">
+                    <label for="mobile-search-checkbox" class="header__mobile-search">
+                        <i class="header__mobile-search-icon fas fa-search"></i>
+                    </label>
+                    <div class="header__logo hide-on-tablet">
 
-                            <a href="@Url.Action("Trangchu", "Trangchu")" class="header__logo-link">
-                                <img src="~/Content/Hinh/wibu.png"
-                                     alt="logo"
-                                     class="header__logo-img" />
+                        <a href="@Url.Action("Trangchu", "Trangchu")" class="header__logo-link">
+                            <img src="~/Content/Hinh/wibu.png"
+                                 alt="logo"
+                                 class="header__logo-img" />
 
-                            </a>
-                        </div>
+                        </a>
+                    </div>
 
-                        <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox">
+                    <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox">
 
+                    @using (Html.BeginForm("Search", "TrangChu", FormMethod.Get))
+                    {
                         <div class="header__search">
                             <div class="header__search-input-wrap">
                                 <input type="text"
                                        class="header__search-input"
-                                       placeholder="Nhập để tìm kiếm..." />
+                                       placeholder="Nhập để tìm kiếm..."
+                                       name="searching" />
                                 <!--Search history-->
                                 <div class="header__search-history">
                                     <h3 class="header__search-history-heading">
@@ -142,36 +145,39 @@
                                 </div>
                             </div>
 
-                            <button class="header__search-btn">
+                            <button class="header__search-btn" type="submit">
                                 <i class="header__search-btn-icon fas fa-search"></i>
                             </button>
-                        </div>
 
-                        <!--Cart layout-->
-                        <div class="header__cart">
-                            <div class="header__cart-wrap">
-                                @if (Session["Cart"] != null && ((CNPMNC.Models.Cart)Session["Cart"]).Items.Count() > 0)
-                                {
-                                    <a href="@Url.Action("ShowToCart", "ShoppingCart")">
-                                        <i class="header__cart-icon fas fa-shopping-cart"></i>
-                                        @Html.Action("Giohang", "ShoppingCart")
-                                    </a>
-                                }
-                                else
-                                {
-                                    <a href="@Url.Action("Chucohang", "ShoppingCart")">
-                                        <i class="header__cart-icon fas fa-shopping-cart"></i>
-                                        @Html.Action("Giohang", "ShoppingCart")
-                                    </a>
-                                }
-
-                            </div>
 
                         </div>
+                    }
 
+                    <!--Cart layout-->
+                    <div class="header__cart">
+                        <div class="header__cart-wrap">
+                            @if (Session["Cart"] != null && ((CNPMNC.Models.Cart)Session["Cart"]).Items.Count() > 0)
+                            {
+                                <a href="@Url.Action("ShowToCart", "ShoppingCart")">
+                                    <i class="header__cart-icon fas fa-shopping-cart"></i>
+                                    @Html.Action("Giohang", "ShoppingCart")
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Chucohang", "ShoppingCart")">
+                                    <i class="header__cart-icon fas fa-shopping-cart"></i>
+                                    @Html.Action("Giohang", "ShoppingCart")
+                                </a>
+                            }
 
+                        </div>
 
                     </div>
+
+
+
+                </div>
 
                     <div class="channel-entrance hide-on-mobile-tablet">
                         <ul class="channel-entrance-menu">
