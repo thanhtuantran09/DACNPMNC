@@ -49,5 +49,9 @@ namespace CNPMNC.Controllers
         {
             return View(db.DIENTHOAIs.Where(x => x.TENDT.Contains(searching) || x.TENDT == null).ToList());
         }
+        public ActionResult Lienhe()
+        {
+            return View();
+        }
     }
 }
