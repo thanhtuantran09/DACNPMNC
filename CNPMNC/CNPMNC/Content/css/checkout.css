@@ -44,7 +44,7 @@
 
 .checkout {
     width: 500px;
-    /*min-height: 100vh;*/
+    min-height: 100vh;
     /*background: linear-gradient(90deg, rgb(233, 175, 132) 5%, rgb(250, 199, 219) 100%);*/
     background-color: #ffffff;
     position: fixed;

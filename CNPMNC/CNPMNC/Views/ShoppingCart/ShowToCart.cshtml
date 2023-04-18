@@ -17,8 +17,7 @@
                         <table class="cart-table">
                             <thead>
                                 <tr>
-
-                                    <th class="product">Sản phẩm</th>
+                                    <th colspan="2" class="product">Sản phẩm</th>
                                     <th class="product">Hình ảnh</th>
 
                                     <th class="quantity">Số lượng</th>
@@ -33,6 +32,11 @@
                                 {
                                     double total = Convert.ToDouble(item.sanpham.GIAGIAM.Value * item.soluong);
                                     <tr>
+                                        <td>
+                                            <a href="/ShoppingCart/RemoveCart/@item.sanpham.DIENTHOAIID" class="back-to-index">
+                                                <i class="fas fa-times-circle" style="color: #d3105b;"></i>
+                                            </a>
+                                        </td>
                                         <td>
                                             @Html.DisplayFor(model => item.sanpham.TENDT)
                                         </td>
@@ -50,9 +54,9 @@
                                             @if (item.ErrorMessage != null)
                                             {
                                                 <p style="color:red;" id="thongbao">@item.ErrorMessage</p>
-                                              
+
                                             }
-                                           
+
 
                                         </td>
 
@@ -63,18 +67,18 @@
 
                                             @total.ToString("0,0 đ")
                                         </td>
-                                        <td>
-                                            <a href="/ShoppingCart/RemoveCart/@item.sanpham.DIENTHOAIID" class="back-to-index">Xóa</a>
-                                        </td>
+
                                     </tr>
                                 }
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="8">Tổng:@Model.Tongtien().ToString("0,0 đ")</td>
-                                </tr>
-                            </tfoot>
                         </table>
+                        <div style="display: flex; justify-content: end;">
+                            <div>
+                                <h2 style="padding: 5px; border-bottom: 1px solid; margin: 10px; font-size:2rem;">Tổng tiền</h2>
+                                <p style="text-align: end; padding: 5px; font-size: 1.8rem;">@Model.Tongtien().ToString("0,0 đ")</p>
+                            </div>
+                            
+                        </div>
                     }
 
                     <div class="total-cart-cost">
@@ -105,9 +109,9 @@
                                     <div class="checkout-main-content">
                                         <h3 class="checkout-main-label" style="margin-bottom: 20px;">Thông tin giao hàng</h3>
                                         @*<p class="checkout-main-label_text">
-                                Bạn đã có tài khoản?
-                                <a href="">Đăng nhập</a>
-                            </p>*@
+            Bạn đã có tài khoản?
+            <a href="">Đăng nhập</a>
+        </p>*@
                                         <div class="fieldset">
                                             <div class="field">
                                                 <input type="text" class="field-input" name="Hovaten" id="" placeholder="Họ và tên" required>
@@ -122,6 +126,45 @@
                                         <div class="fieldset">
                                             <div class="field">
                                                 <input type="text" class="field-input" name="Diachi" id="" placeholder="Địa chỉ" required>
+                                            </div>
+                                        </div>
+                                        <div class="fieldset">
+                                            <div class="field">
+                                                <p class="checkout-method"> Phương thức vận chuyển</p>
+                                            </div>
+                                        </div>
+                                        <div class="fieldset-2">
+                                            <div class="field">
+                                                <div for="" class="field-label">
+                                                    <div class="radio-input">
+                                                        <input id="shipping_rate_id" class="input-radio" type="radio" checked="">
+                                                        <span class="radio-input-span">Giao hàng tận nơi</span>
+                                                        <span class="radio-input-span">0đ</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fieldset">
+                                            <div class="field">
+                                                <p class="checkout-method"> Phương thức thanh toán</p>
+                                            </div>
+                                        </div>
+                                        <div class="fieldset-2">
+                                            <div class="field">
+                                                <div for="" class="field-label">
+                                                    <div class="radio-input">
+                                                        <input id="shipping_rate_id" class="input-radio" type="radio" checked="">
+                                                        <span class="radio-input-span">Thanh toán khi nhận hàng</span>
+                                                        <span class="radio-input-span">COD</span>
+                                                    </div>
+                                                </div>
+                                                <div for="" class="field-label" style="color: #ccc;">
+                                                    <div class="radio-input">
+                                                        <input id="shipping_rate_id" class="input-radio" type="radio" disabled>
+                                                        <span class="radio-input-span">Thanh toán bằng tài khoản ngân hàng</span>
+                                                        <span class="radio-input-span"></span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 

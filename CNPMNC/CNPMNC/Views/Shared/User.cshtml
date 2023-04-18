@@ -7,13 +7,13 @@
     <link href="~/Content/css/base.css?" rel="stylesheet" />
     <link href="~/Content/css/cart.css?" rel="stylesheet" />
     <link href="~/Content/css/grid.css" rel="stylesheet" />
-    <link href="~/Content/css/main.css?V=" rel="stylesheet" />
+    <link href="~/Content/css/main.css?V=1" rel="stylesheet" />
     <link href="~/Content/css/reset.css" rel="stylesheet" />
     <link href="~/Content/css/responsive.css" rel="stylesheet" />
     <link href="~/Content/css/slider.css" rel="stylesheet" />
     <link href="~/Content/css/validator.css" rel="stylesheet" />
     <link href="~/Content/css/PageList.css" rel="stylesheet" />
-    <link href="~/Content/css/checkout.css" rel="stylesheet" />
+    <link href="~/Content/css/checkout.css?" rel="stylesheet" />
     <link href="~/Content/css/toast.css?V=1" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -127,31 +127,19 @@
                     </div>
 
                     <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox">
-
-                    @using (Html.BeginForm("Search", "TrangChu", FormMethod.Get))
+                    @using (Html.BeginForm("Search", "TrangChu", FormMethod.Get, new {@class= "header__search" }))
                     {
-                        <div class="header__search">
-                            <div class="header__search-input-wrap">
-                                <input type="text"
-                                       class="header__search-input"
-                                       placeholder="Nhập để tìm kiếm..."
-                                       name="searching" />
-                                <!--Search history-->
-                                <div class="header__search-history">
-                                    <h3 class="header__search-history-heading">
-                                        Lịch sử tìm kiếm
-                                    </h3>
-
-                                </div>
-                            </div>
-
-                            <button class="header__search-btn" type="submit">
-                                <i class="header__search-btn-icon fas fa-search"></i>
-                            </button>
-
-
+                        <div class="header__search-input-wrap">
+                            <input type="text"
+                                   class="header__search-input"
+                                   placeholder="Nhập để tìm kiếm..."
+                                   name="searching" />
                         </div>
-                    }
+
+                        <button class="header__search-btn" type="submit">
+                            <i class="header__search-btn-icon fas fa-search"></i>
+                        </button>
+                    }                 
 
                     <!--Cart layout-->
                     <div class="header__cart">
@@ -201,6 +189,12 @@
                             </li>
                             <li class="channel-entrance-menu-list">
                                 <a class="channel-entrance-link" href="./sachbanchay.html">Điện thoại bán chạy</a>
+                            </li>
+                            <li class="channel-entrance-menu-list">
+                                <a class="channel-entrance-link" href="./sachbanchay.html">Liên hệ</a>
+                            </li>
+                            <li class="channel-entrance-menu-list">
+                                <a class="channel-entrance-link" href="./sachbanchay.html">Cửa hàng gần bạn</a>
                             </li>
 
                         </ul>

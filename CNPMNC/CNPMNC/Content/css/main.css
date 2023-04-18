@@ -2393,7 +2393,7 @@ i.home-product-item__like-icon-fill {
     margin-bottom: 10px;
 }
 
-.field input {
+.field-input {
     box-shadow: 0 0 0 1px #d9d9d9;
     transition: all 0.2s ease-out;
     background-color: white;
@@ -2425,7 +2425,7 @@ i.home-product-item__like-icon-fill {
     font-size: 1.4rem;
 }
 
-.field-label {
+/*.field-label {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -2434,6 +2434,12 @@ i.home-product-item__like-icon-fill {
     border: 1px;
     background-color: white;
 
+}*/
+
+.field-label {
+    width: 100%;
+    border: 1px;
+    background-color: white;
 }
 
 .fieldset {
@@ -2444,13 +2450,23 @@ i.home-product-item__like-icon-fill {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 30px;
+    padding: 12.5px 20px;
+    box-shadow: 0 0 0 1px #d9d9d9;
+    border: 1px;
 }
 
 .input-radio {
     width: 20px;
     height: 20px;
-    /* border: none; */
+    border: none !important;
+}
+
+.radio-input-span {
+    font-size: 1.4rem;
+}
+
+.checkout-method {
+    font-size: 1.4rem;
 }
 
 /**/
