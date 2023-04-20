@@ -1,0 +1,49 @@
+﻿@model CNPMNC.Models.Dashboard
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+}
+
+<div class="home-product">
+    <div class="row sm-gutter">
+        <!-- Product items -->
+        <div class="dashboard">
+            <div class="dashboard-group">
+                <div class="dashboard-items">
+                    <h2 class="dashboard-items__title">Khách hàng</h2>
+                    <p class="dashboard-items__total">@Model.TotalUsers</p>
+                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                </div>
+                <div class="dashboard-items">
+                    <h2 class="dashboard-items__title">Tổng đơn hàng chờ thanh toán</h2>
+                    <p class="dashboard-items__total">@Model.TotalNewOrders</p>
+                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                </div>
+                <div class="dashboard-items">
+                    <h2 class="dashboard-items__title">Tổng sản phẩm</h2>
+                    <p class="dashboard-items__total">@Model.TotalProducts</p>
+                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                </div>
+            </div>
+            <div class="dashboard-group">
+                <div class="dashboard-items">
+                    <h2 class="dashboard-items__title">Tổng doanh thu</h2>
+                    <p class="dashboard-items__total">@string.Format("{0:0,0 đ}", @Model.TotalRevenue)</p>
+                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                </div>
+                <div class="dashboard-items">
+                    <h2 class="dashboard-items__title">Tổng đơn hàng đã thanh toán</h2>
+                    <p class="dashboard-items__total">@Model.TotalOrders</p>
+                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                </div>
+                <div class="dashboard-items">
+                    <h2 class="dashboard-items__title">Tài khoản Admin</h2>
+                    <p class="dashboard-items__total">@Model.TotalAdmin</p>
+                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
