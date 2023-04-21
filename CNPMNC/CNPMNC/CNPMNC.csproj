@@ -139,6 +139,7 @@
     <Compile Include="Areas\Admin\Controllers\HangController.cs" />
     <Compile Include="Areas\Admin\Controllers\TSKTController.cs" />
     <Compile Include="Controllers\DNhapController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\TrangchuController.cs" />
     <Compile Include="Global.asax.cs">
@@ -205,6 +206,9 @@
     <Compile Include="Models\TRANGTHAIDH.cs">
       <DependentUpon>CNPMNC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Others\PayCompare.cs" />
+    <Compile Include="Others\PayLib.cs" />
+    <Compile Include="Others\Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -382,6 +386,7 @@
     <Content Include="Views\ShoppingCart\Complete.cshtml" />
     <Content Include="Views\DNhap\DetailUser.cshtml" />
     <Content Include="Views\DNhap\EditUser.cshtml" />
+    <Content Include="Views\Payment\PaymentConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
