@@ -91,7 +91,7 @@ namespace CNPMNC.Areas.Admin.Controllers
         // GET: Admin/Dienthoai/Create
         public ActionResult Create()
         {
-           
+
             DIENTHOAI pro = new DIENTHOAI();
             return View(pro);
         }
