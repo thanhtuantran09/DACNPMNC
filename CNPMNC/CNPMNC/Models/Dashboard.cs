@@ -9,7 +9,7 @@ namespace CNPMNC.Models
     public class Dashboard
     {
         public int TotalUsers { get; set; }
-        public int TotalAdmin{ get; set; }
+        public int TotalAdmin { get; set; }
         public int TotalNewOrders { get; set; }
         public int TotalOrders { get; set; }
         public int TotalProducts { get; set; }
