@@ -33,9 +33,19 @@ namespace CNPMNC.Areas.Admin.Controllers
         
         public ActionResult Chart()
         {
-            var data = db.DONHANGs.ToList();
+            var data = db.DONHANGs.Where(x => x.TRANGTHAIID != 1).ToList();
             var chart = new Chart();
             var area = new ChartArea();
+            area.AxisX.Minimum = 1;
+            area.AxisX.Maximum = 12;
+            area.AxisY.Minimum = 0;
+            area.AxisY.Maximum = (double)data.Sum(x => x.THANHTIEN);
+            area.AxisX.Interval = 1;
+            area.AxisY.Interval = (double)(data.Sum(x => x.THANHTIEN) / 10);
+            area.AxisX.MajorGrid.Enabled = false;
+            area.AxisY.MajorGrid.Enabled = false;
+            chart.Width = 800;
+            chart.Height = 500;
             chart.ChartAreas.Add(area);
             var series = new Series();
             var year = DateTime.Now.Year;
@@ -44,7 +54,12 @@ namespace CNPMNC.Areas.Admin.Controllers
             {
                 var month = item.Key;
                 var totalRevenue = item.Sum(x => x.THANHTIEN);
-                series.Points.AddXY(month, totalRevenue);
+                series.Points.AddXY(month, totalRevenue);               
+            }
+            Color[] colors = new Color[] { Color.LightGreen, Color.MistyRose, Color.Blue };
+            for (int i = 0; i < series.Points.Count; i++)
+            {
+                series.Points[i].Color = colors[i];
             }
             chart.Titles.Add($"Doanh thu theo tháng năm {year}");
             series.Label = "#PERCENT{P0}";
@@ -52,6 +67,7 @@ namespace CNPMNC.Areas.Admin.Controllers
             series.ChartType = SeriesChartType.Column;
             series["PieLabelStyle"] = "Outside";
             chart.Series.Add(series);
+            area.AxisY.LabelStyle.Format = "{N0} đ"; // Add thousand separator
             var returnStream = new MemoryStream();
             chart.ImageType = ChartImageType.Png;
             chart.SaveImage(returnStream);
