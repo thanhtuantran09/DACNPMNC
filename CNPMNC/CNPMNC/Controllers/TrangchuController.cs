@@ -43,7 +43,60 @@ namespace CNPMNC.Controllers
             var thongSoKiThuat = db.THONGSOKTs.FirstOrDefault(t => t.DIENTHOAIID == dienthoai.DIENTHOAIID);
 
             ViewBag.ThongSoKiThuat = thongSoKiThuat;
+            
+            var email = Session["Email"] as string;
+            // Check if user already reviewed this product
+            var existingReview = db.DANHGIASANPHAMs.FirstOrDefault(r => r.KHACHHANGID.ToString() == email && r.DIENTHOAIID == id);
+            if (existingReview != null)
+            {
+                ViewBag.CanReview = false;
+                ViewBag.UserReview = existingReview;
+            }
+            else
+            {
+                ViewBag.CanReview = true;
+            }
             return View(dienthoai);
+        }
+        [HttpPost]
+        public ActionResult AddReview(int id, string review)
+        {
+            // Check if user is logged in
+            var email = Session["Email"] as string;
+            if (Session["Email"] == null)
+            {
+                // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                return RedirectToAction("Dangnhap", "DNhap");
+            }
+            // Get logged in user id
+
+
+            // Check if user already reviewed this product
+            var existingReview = db.DANHGIASANPHAMs.FirstOrDefault(r => r.KHACHHANGID.ToString() == email && r.DIENTHOAIID == id);
+
+            if (existingReview != null)
+            {
+                ModelState.AddModelError("", "Bạn đã đánh giá sản phẩm này rồi.");
+            }
+            else
+            {
+                // Add new review
+                var khachHang = db.KHACHHANGs.SingleOrDefault(kh => kh.EMAIL == email);
+                var newReview = new DANHGIASANPHAM();
+
+
+                   newReview.KHACHHANGID = khachHang.KHACHHANGID;
+                    newReview.DIENTHOAIID = id;
+                    newReview.DANHGIA = review;
+                newReview.NGAYTAO = DateTime.Now;
+                
+
+                db.DANHGIASANPHAMs.Add(newReview);
+                db.SaveChanges();
+            }
+
+            // Redirect to product details page
+            return RedirectToAction("Details", new { id = id });
         }
         public ActionResult Search(string searching)
         {
