@@ -2555,3 +2555,53 @@ i.home-product-item__like-icon-fill {
     align-items: center;
     justify-content: center;
 }
+
+/*Comment*/
+.btn-comment {
+    padding: 10px 5px;
+    border: none;
+    border-radius: 3px;
+    background-image: linear-gradient(90deg, rgb(255, 147, 63) 5%, rgb(249, 55, 130) 100%);
+    font-size: 1.5rem;
+    color: white;
+    box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.btn-comment:hover {
+    background-image: linear-gradient(90deg, rgb(246 161 94) 5%, rgb(246 102 157) 100%);
+
+}
+
+.review {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    margin: 20px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.review-img {
+     margin-right: 5px;
+}
+
+.review-aboutuser {
+
+}
+
+.review-aboutuser__name {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.review-aboutuser__date {
+    font-size: 1.5rem;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.review-aboutuser__comment {
+    font-size: 1.5rem;
+    padding-left: 10px;
+}
