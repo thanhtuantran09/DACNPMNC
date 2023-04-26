@@ -14,14 +14,12 @@ namespace CNPMNC.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
-    using System.Web.Mvc;
 
     public partial class HANG
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HANG()
         {
-
             HINH = "~/Areas/Admin/Content/img/iconanh.png";
             this.DIENTHOAIs = new HashSet<DIENTHOAI>();
         }

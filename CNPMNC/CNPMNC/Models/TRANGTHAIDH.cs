@@ -13,6 +13,7 @@ namespace CNPMNC.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
 
     public partial class TRANGTHAIDH
     {
@@ -21,13 +22,14 @@ namespace CNPMNC.Models
         {
             this.DONHANGs = new HashSet<DONHANG>();
         }
+
         [NotMapped]
         public List<TRANGTHAIDH> ListCateTT { get; set; }
-        
+
         public int TRANGTHAIID { get; set; }
         [Display(Name = "Tên trạng thái")]
         public string TENTT { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONHANG> DONHANGs { get; set; }
     }

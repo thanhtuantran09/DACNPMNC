@@ -33,6 +33,7 @@
         <AssociationConnector Association="CNPMNCModel.FK__DONHANG__TRANGTH__09A971A2" ManuallyRouted="false" />
         <AssociationConnector Association="CNPMNCModel.FK__KHACHHANG__LOAIK__01142BA1" ManuallyRouted="false" />
         <AssociationConnector Association="CNPMNCModel.FK__PHIEUNHAP__NCCID__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMNCModel.FK__DONHANG__PTTHANH__2739D489" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

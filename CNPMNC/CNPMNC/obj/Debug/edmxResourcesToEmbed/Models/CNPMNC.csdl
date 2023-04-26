@@ -85,6 +85,8 @@
     <NavigationProperty Name="CTDONHANGs" Relationship="Self.FK__CTDONHANG__DONHA__17036CC0" FromRole="DONHANG" ToRole="CTDONHANG" />
     <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DONHANG__KHACHHA__08B54D69" FromRole="DONHANG" ToRole="KHACHHANG" />
     <NavigationProperty Name="TRANGTHAIDH" Relationship="Self.FK__DONHANG__TRANGTH__09A971A2" FromRole="DONHANG" ToRole="TRANGTHAIDH" />
+    <Property Name="PTTHANHTOANID" Type="Int32" />
+    <NavigationProperty Name="PTTHANHTOAN" Relationship="CNPMNCModel.FK__DONHANG__PTTHANH__2739D489" FromRole="DONHANG" ToRole="PTTHANHTOAN" />
   </EntityType>
   <EntityType Name="HANG">
     <Key>
@@ -155,6 +157,7 @@
     </Key>
     <Property Name="PTTHANHTOANID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TENPT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DONHANGs" Relationship="CNPMNCModel.FK__DONHANG__PTTHANH__2739D489" FromRole="PTTHANHTOAN" ToRole="DONHANG" />
   </EntityType>
   <EntityType Name="THONGSOKT">
     <Key>
@@ -406,5 +409,21 @@
       <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
       <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
     </AssociationSet>
+    <AssociationSet Name="FK__DONHANG__PTTHANH__2739D489" Association="CNPMNCModel.FK__DONHANG__PTTHANH__2739D489">
+      <End Role="PTTHANHTOAN" EntitySet="PTTHANHTOANs" />
+      <End Role="DONHANG" EntitySet="DONHANGs" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK__DONHANG__PTTHANH__2739D489">
+    <End Type="CNPMNCModel.PTTHANHTOAN" Role="PTTHANHTOAN" Multiplicity="0..1" />
+    <End Type="CNPMNCModel.DONHANG" Role="DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PTTHANHTOAN">
+        <PropertyRef Name="PTTHANHTOANID" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="PTTHANHTOANID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

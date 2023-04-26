@@ -1,0 +1,4 @@
+﻿@model CNPMNC.Models.PTTHANHTOAN
+@Html.DropDownListFor(model => model.PTTHANHTOANID, new SelectList(Model.ListCatePTTT.OrderBy(model => model.TENPT), "PTTHANHTOANID", "TENPT"),
+    "--Chọn phương thức thanh toán--", new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập tên hãng tạo danh mục...", @tabindex = "0",  @required = true })
+

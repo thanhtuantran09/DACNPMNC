@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CNPMNCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CNPMNCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADMIN">
           <Key>
             <PropertyRef Name="ADMINID" />
@@ -75,6 +75,7 @@
           <Property Name="TENKH" Type="nvarchar" MaxLength="100" />
           <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
           <Property Name="SDT" Type="char" MaxLength="12" />
+          <Property Name="PTTHANHTOANID" Type="int" />
         </EntityType>
         <EntityType Name="HANG">
           <Key>
@@ -269,6 +270,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__DONHANG__PTTHANH__2739D489">
+          <End Role="PTTHANHTOAN" Type="Self.PTTHANHTOAN" Multiplicity="0..1" />
+          <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTTHANHTOAN">
+              <PropertyRef Name="PTTHANHTOANID" />
+            </Principal>
+            <Dependent Role="DONHANG">
+              <PropertyRef Name="PTTHANHTOANID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__DONHANG__TRANGTH__09A971A2">
           <End Role="TRANGTHAIDH" Type="Self.TRANGTHAIDH" Multiplicity="0..1" />
           <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
@@ -369,6 +382,10 @@
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
             <End Role="DONHANG" EntitySet="DONHANG" />
           </AssociationSet>
+          <AssociationSet Name="FK__DONHANG__PTTHANH__2739D489" Association="Self.FK__DONHANG__PTTHANH__2739D489">
+            <End Role="PTTHANHTOAN" EntitySet="PTTHANHTOAN" />
+            <End Role="DONHANG" EntitySet="DONHANG" />
+          </AssociationSet>
           <AssociationSet Name="FK__DONHANG__TRANGTH__09A971A2" Association="Self.FK__DONHANG__TRANGTH__09A971A2">
             <End Role="TRANGTHAIDH" EntitySet="TRANGTHAIDH" />
             <End Role="DONHANG" EntitySet="DONHANG" />
@@ -386,8 +403,7 @@
             <End Role="THONGSOKT" EntitySet="THONGSOKT" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CNPMNCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -476,6 +492,8 @@
           <NavigationProperty Name="CTDONHANGs" Relationship="Self.FK__CTDONHANG__DONHA__17036CC0" FromRole="DONHANG" ToRole="CTDONHANG" />
           <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DONHANG__KHACHHA__08B54D69" FromRole="DONHANG" ToRole="KHACHHANG" />
           <NavigationProperty Name="TRANGTHAIDH" Relationship="Self.FK__DONHANG__TRANGTH__09A971A2" FromRole="DONHANG" ToRole="TRANGTHAIDH" />
+          <Property Name="PTTHANHTOANID" Type="Int32" />
+          <NavigationProperty Name="PTTHANHTOAN" Relationship="CNPMNCModel.FK__DONHANG__PTTHANH__2739D489" FromRole="DONHANG" ToRole="PTTHANHTOAN" />
         </EntityType>
         <EntityType Name="HANG">
           <Key>
@@ -546,6 +564,7 @@
           </Key>
           <Property Name="PTTHANHTOANID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENPT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DONHANGs" Relationship="CNPMNCModel.FK__DONHANG__PTTHANH__2739D489" FromRole="PTTHANHTOAN" ToRole="DONHANG" />
         </EntityType>
         <EntityType Name="THONGSOKT">
           <Key>
@@ -797,7 +816,23 @@
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
             <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
           </AssociationSet>
+          <AssociationSet Name="FK__DONHANG__PTTHANH__2739D489" Association="CNPMNCModel.FK__DONHANG__PTTHANH__2739D489">
+            <End Role="PTTHANHTOAN" EntitySet="PTTHANHTOANs" />
+            <End Role="DONHANG" EntitySet="DONHANGs" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__DONHANG__PTTHANH__2739D489">
+          <End Type="CNPMNCModel.PTTHANHTOAN" Role="PTTHANHTOAN" Multiplicity="0..1" />
+          <End Type="CNPMNCModel.DONHANG" Role="DONHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTTHANHTOAN">
+              <PropertyRef Name="PTTHANHTOANID" />
+            </Principal>
+            <Dependent Role="DONHANG">
+              <PropertyRef Name="PTTHANHTOANID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -869,6 +904,7 @@
           <EntitySetMapping Name="DONHANGs">
             <EntityTypeMapping TypeName="CNPMNCModel.DONHANG">
               <MappingFragment StoreEntitySet="DONHANG">
+                <ScalarProperty Name="PTTHANHTOANID" ColumnName="PTTHANHTOANID" />
                 <ScalarProperty Name="DONHANGID" ColumnName="DONHANGID" />
                 <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
                 <ScalarProperty Name="TRANGTHAIID" ColumnName="TRANGTHAIID" />

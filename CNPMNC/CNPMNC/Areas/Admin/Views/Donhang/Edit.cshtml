@@ -47,6 +47,12 @@
 
                         @Html.ValidationMessageFor(model => model.TRANGTHAIID, "", new { @class = "text-danger" })
                     </div>
+                    <div class="home-product-input-create-sp">
+                        @Html.LabelFor(model => model.PTTHANHTOANID, htmlAttributes: new { @for = "input" })
+                        @{Html.RenderAction("SelectCatePTTT", "Donhang"); }
+
+                        @Html.ValidationMessageFor(model => model.PTTHANHTOANID, "", new { @class = "text-danger" })
+                    </div>
                 </div>
                
                

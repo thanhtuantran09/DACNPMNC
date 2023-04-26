@@ -14,7 +14,6 @@ namespace CNPMNC.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
-    using System.Xml.Linq;
 
     public partial class DIENTHOAI
     {
@@ -25,10 +24,12 @@ namespace CNPMNC.Models
             HINHANH2 = "~/Areas/Admin/Content/img/iconanh.png";
             HINHANH3 = "~/Areas/Admin/Content/img/iconanh.png";
             this.CTPHIEUNHAPs = new HashSet<CTPHIEUNHAP>();
+            this.CTDONHANGs = new HashSet<CTDONHANG>();
+            this.CTPHIEUNHAPs = new HashSet<CTPHIEUNHAP>();
             this.DANHGIASANPHAMs = new HashSet<DANHGIASANPHAM>();
             this.THONGSOKTs = new HashSet<THONGSOKT>();
-            this.CTDONHANGs = new HashSet<CTDONHANG>();
         }
+
         [NotMapped]
         public List<DIENTHOAI> ListCateDT { get; set; }
         [NotMapped]

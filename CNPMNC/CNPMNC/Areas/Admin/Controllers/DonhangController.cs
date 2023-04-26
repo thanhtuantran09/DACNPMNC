@@ -77,17 +77,24 @@ namespace CNPMNC.Areas.Admin.Controllers
         public ActionResult SelectCateTT()
         {
             TRANGTHAIDH se_cate = new TRANGTHAIDH();
+
             se_cate.ListCateTT = db.TRANGTHAIDHs.ToList<TRANGTHAIDH>();
             return PartialView(se_cate);
         }
-        // GET: Admin/TSKT/Edit/5
+        public ActionResult SelectCatePTTT()
+        {
+            PTTHANHTOAN se_cate = new PTTHANHTOAN();
+            se_cate.ListCatePTTT = db.PTTHANHTOANs.ToList<PTTHANHTOAN>();
+            return PartialView(se_cate);
+        }
+        
         public ActionResult Edit(int id)
         {
             var editing = db.DONHANGs.Find(id);
             return View(editing);
         }
 
-        // POST: Admin/TSKT/Edit/5
+        
         [HttpPost]
         public ActionResult Edit(DONHANG model)
         {
@@ -96,6 +103,7 @@ namespace CNPMNC.Areas.Admin.Controllers
                 var sua = db.DONHANGs.Find(model.DONHANGID);
                 sua.KHACHHANG = model.KHACHHANG;
                 sua.TRANGTHAIID=model.TRANGTHAIID;
+                sua.PTTHANHTOANID= model.PTTHANHTOANID;
                 sua.TENKH=model.TENKH;
                 sua.DIACHI=model.DIACHI;
                 sua.SDT=model.SDT;
@@ -128,6 +136,7 @@ namespace CNPMNC.Areas.Admin.Controllers
                 SDT= donHang.SDT,
                 NGAYTAO = donHang.NGAYTAO,
                 TRANGTHAIID = donHang.TRANGTHAIID,
+                PTTHANHTOANID = donHang.PTTHANHTOANID,
                 GIAMGIA = donHang.GIAMGIA,
                 THANHTIEN = donHang.THANHTIEN,
                 CTDONHANGs = new List<CTDONHANG>()

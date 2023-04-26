@@ -66,6 +66,7 @@
     <EntitySetMapping Name="DONHANGs">
       <EntityTypeMapping TypeName="CNPMNCModel.DONHANG">
         <MappingFragment StoreEntitySet="DONHANG">
+          <ScalarProperty Name="PTTHANHTOANID" ColumnName="PTTHANHTOANID" />
           <ScalarProperty Name="DONHANGID" ColumnName="DONHANGID" />
           <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
           <ScalarProperty Name="TRANGTHAIID" ColumnName="TRANGTHAIID" />

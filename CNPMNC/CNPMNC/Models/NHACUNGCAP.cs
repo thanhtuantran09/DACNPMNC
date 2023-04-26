@@ -13,7 +13,7 @@ namespace CNPMNC.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Xml.Linq;
+    using System.Web;
 
     public partial class NHACUNGCAP
     {
@@ -23,6 +23,7 @@ namespace CNPMNC.Models
             this.DIENTHOAIs = new HashSet<DIENTHOAI>();
             this.PHIEUNHAPs = new HashSet<PHIEUNHAP>();
         }
+
         [NotMapped]
         public List<NHACUNGCAP> ListCateNCC { get; set; }
         public int NCCID { get; set; }

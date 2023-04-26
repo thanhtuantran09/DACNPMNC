@@ -70,6 +70,7 @@
     <Property Name="TENKH" Type="nvarchar" MaxLength="100" />
     <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
     <Property Name="SDT" Type="char" MaxLength="12" />
+    <Property Name="PTTHANHTOANID" Type="int" />
   </EntityType>
   <EntityType Name="HANG">
     <Key>
@@ -264,6 +265,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__DONHANG__PTTHANH__2739D489">
+    <End Role="PTTHANHTOAN" Type="Self.PTTHANHTOAN" Multiplicity="0..1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PTTHANHTOAN">
+        <PropertyRef Name="PTTHANHTOANID" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="PTTHANHTOANID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__DONHANG__TRANGTH__09A971A2">
     <End Role="TRANGTHAIDH" Type="Self.TRANGTHAIDH" Multiplicity="0..1" />
     <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
@@ -362,6 +375,10 @@
     </AssociationSet>
     <AssociationSet Name="FK__DONHANG__KHACHHA__08B54D69" Association="Self.FK__DONHANG__KHACHHA__08B54D69">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DONHANG" EntitySet="DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONHANG__PTTHANH__2739D489" Association="Self.FK__DONHANG__PTTHANH__2739D489">
+      <End Role="PTTHANHTOAN" EntitySet="PTTHANHTOAN" />
       <End Role="DONHANG" EntitySet="DONHANG" />
     </AssociationSet>
     <AssociationSet Name="FK__DONHANG__TRANGTH__09A971A2" Association="Self.FK__DONHANG__TRANGTH__09A971A2">

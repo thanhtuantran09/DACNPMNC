@@ -36,6 +36,7 @@
                                 <th>Số điện thoại</th>
                                 <th>Ngày đặt</th>
                                 <th>Trạng thái đơn hàng</th>
+                                <th>Phương thức thanh toán</th>
                                 <th>Thành tiền</th>
                                 <th>Chỉnh sửa</th>
                             </tr>
@@ -51,6 +52,7 @@
                                     <td> @Html.DisplayFor(modelItem => item.SDT)</td>
                                     <td> @string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NGAYTAO)</td>
                                     <td>  @(item.TRANGTHAIDH==null?"":item.TRANGTHAIDH.TENTT)</td>
+                                    <td> @(item.PTTHANHTOAN==null?"":item.PTTHANHTOAN.TENPT)</td>
                                     <td> @Html.DisplayFor(modelItem => item.THANHTIEN)</td>
                                     <td class="td-edit">
                                         @Html.ActionLink(" ", "Edit", new { id = item.DONHANGID },
