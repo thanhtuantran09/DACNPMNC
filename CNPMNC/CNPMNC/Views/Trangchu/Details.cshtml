@@ -160,25 +160,7 @@
 
                 }
 
-                @*<table>
-                    <thead>
-                        <tr>
-                            <th>Khách hàng</th>
-                            <th>Đánh giá</th>
-                            <th>Ngày tạo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var review in Model.DANHGIASANPHAMs)
-                        {
-                            <tr>
-                                <td>@(review.KHACHHANG==null?"":review.KHACHHANG.HOTEN)</td>
-                                <td>@review.DANHGIA</td>
-                                <td>@string.Format("{0:dd/MM/yyyy HH:mm:ss}", review.NGAYTAO)</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>*@
+                
             </div>
 
             
