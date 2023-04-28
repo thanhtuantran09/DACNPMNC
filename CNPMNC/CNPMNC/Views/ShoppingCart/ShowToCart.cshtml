@@ -1,5 +1,5 @@
 ﻿@model CNPMNC.Models.Cart
-
+  @using CNPMNC.Controllers
 @{
     ViewBag.Title = "ShowToCart";
     Layout = "~/Views/Shared/User.cshtml";
@@ -87,10 +87,10 @@
                     <div class="order">
                         @using (Html.BeginForm("Checkout", "ShoppingCart"))
                         {
-                            <label for="button-show" class="checkout-label">Thanh toán</label>
-                            <input type="checkbox" class="button-show-check-out" id="button-show">
-                            <label for="button-show" class="overlay2"></label>
-                            <div class="checkout">
+
+
+                                    <label for="button-show" class="checkout-label">Thanh toán</label><input type="checkbox" class="button-show-check-out" id="button-show">
+                        <label for="button-show" class="overlay2"></label><div class="checkout">
                                 <label for="button-show" class="checkout-close">
                                     <i class="fas fa-times"></i>
                                 </label>
@@ -103,15 +103,15 @@
                                 <li class="breadcrumb-item">
                                     <a href="./cartitems.html">Giỏ hàng</a>
                                 </li>
-                                <li class="breadcrumb-item breadcrumb-item-current">Thông tin giao hàng</li>
+                                <li class="breadcrumb-item breadcrumb-item-current">     tin giao hàng</li>
                             </ul>*@
                                     </div>
                                     <div class="checkout-main-content">
                                         <h3 class="checkout-main-label" style="margin-bottom: 20px;">Thông tin giao hàng</h3>
                                         @*<p class="checkout-main-label_text">
-            Bạn đã có tài khoản?
-            <a href="">Đăng nhập</a>
-        </p>*@
+        Bạn đã có tài khoản?
+          <a href="">Đăng nhập</a>
+              </p>*@
                                         <div class="fieldset">
                                             <div class="field">
                                                 <input type="text" class="field-input" name="Hovaten" id="" placeholder="Họ và tên" required>
@@ -128,48 +128,66 @@
                                                 <input type="text" class="field-input" name="Diachi" id="" placeholder="Địa chỉ" required>
                                             </div>
                                         </div>
-                                        <div class="fieldset">
-                                            <div class="field">
-                                                <p class="checkout-method"> Phương thức vận chuyển</p>
-                                            </div>
-                                        </div>
-                                        <div class="fieldset-2">
-                                            <div class="field">
-                                                <div for="" class="field-label">
-                                                    <div class="radio-input">
-                                                        <input id="shipping_rate_id" class="input-radio" type="radio" checked="">
-                                                        <span class="radio-input-span">Giao hàng tận nơi</span>
-                                                        <span class="radio-input-span">0đ</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @*<div class="fieldset">
+            <div class="field">
+                <p class="checkout-method"> Phương thức vận chuyển</p>
+            </div>
+        </div>*@
+                                        @*<div class="fieldset-2">
+            <div class="field">
+                <div for="" class="field-label">
+                    <div class="radio-input">
+                        <input id="shipping_rate_id" class="input-radio" type="radio" checked="">
+                        <span class="radio-input-span">Giao hàng tận nơi</span>
+                        <span class="radio-input-span">0đ</span>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
                                         <div class="fieldset">
                                             <div class="field">
                                                 <p class="checkout-method"> Phương thức thanh toán</p>
                                             </div>
                                         </div>
-                                        <div class="fieldset-2">
-                                            <div class="field">
-                                                <div for="" class="field-label">
-                                                    <div class="radio-input">
-                                                        <input id="shipping_rate_id" class="input-radio" type="radio" checked="">
-                                                        <span class="radio-input-span">Thanh toán khi nhận hàng</span>
-                                                        <span class="radio-input-span">COD</span>
-                                                    </div>
-                                                </div>
-                                                <div for="" class="field-label" style="color: #ccc;">
-                                                    <div class="radio-input">
-                                                        <input id="shipping_rate_id" class="input-radio" type="radio" disabled>
-                                                        <span class="radio-input-span">Thanh toán bằng tài khoản ngân hàng</span>
-                                                        <span class="radio-input-span"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @*<div class="fieldset-2">
+            <div class="field">
+                <div for="" class="field-label">
+                    <div class="radio-input">
 
-                                        <a for="button-show_checkout" href="#"> <button>Thanh toán</button></a>
+                        <span class="radio-input-span">Thanh toán khi nhận hàng</span>
+                        <span class="radio-input-span">COD</span>
+                    </div>
+                </div>
+                <div for="" class="field-label">
+                    <div class="radio-input">
 
+                        <span class="radio-input-span">Thanh toán bằng tài khoản ngân hàng</span>
+                        <span class="radio-input-span"></span>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+                                        <a for="button-show_checkout" href="#">
+                                            <button style="width:452px">
+                                                <strong>MUA NGAY</strong>
+                                                <br />
+                                                <span style="font-size:18px">(Giao nhanh từ 2 giờ hoặc nhận tại cửa hàng)</span>
+
+                                            </button>
+                                        </a>
+
+
+                                        <br />
+                                        <h3 style="text-align:center"> Hoặc </h3>
+
+                                        <a class="btn btn-success" style="margin: 0 -1px" href="@Url.Action("Payment","Payment")">
+
+                                            <strong>THANH TOÁN QUA THẺ</strong>
+                                            <br />
+                                            <span style="font-size:18px">(Thẻ VNPAY)</span>
+
+                                        </a>
 
                                     </div>
                                 </div>
@@ -188,4 +206,3 @@
     </div>
 </div>
 }
-
