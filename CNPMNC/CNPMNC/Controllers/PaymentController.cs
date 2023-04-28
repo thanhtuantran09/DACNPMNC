@@ -56,7 +56,7 @@ namespace CNPMNC.Controllers
                 string hashSecret = ConfigurationManager.AppSettings["HashSecret"]; //Chuỗi bí mật
                 var vnpayData = Request.QueryString;
                 PayLib pay = new PayLib();
-
+                Cart cart = Session["Cart"] as Cart;
                 //lấy toàn bộ dữ liệu được trả về
                 foreach (string s in vnpayData)
                 {
@@ -78,7 +78,7 @@ namespace CNPMNC.Controllers
                 {
                     if (vnp_ResponseCode == "00")
                     {
-
+                        cart.Xoagh();
                         //Thanh toán thành công
                         ViewBag.Message = "Thanh toán thành công hóa đơn " + orderId + " | Mã giao dịch: " + vnpayTranId;
                     }
