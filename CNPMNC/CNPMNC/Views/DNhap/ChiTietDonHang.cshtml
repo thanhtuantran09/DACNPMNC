@@ -1,4 +1,4 @@
-﻿@model List<CNPMNC.Models.CTDONHANG>
+﻿@model IEnumerable<CNPMNC.Models.CTDONHANG>
 
 @{
     ViewBag.Title = "ChiTietDonHang";
@@ -7,11 +7,89 @@
     var stt = 0;
 }
 
+<style>
+    .history-order__date {
+        font-size: 1.5rem;
+        margin-bottom: 13.4px;
+    }
+
+</style>
+
+<div class="app__container">
+    <div class="grid wide">
 
 
-<h4 style="margin-top:200px">Đơn hàng số: @ViewBag.DonHang.DONHANGID</h4>
+        <div class="row sm-gutter app__content">
+
+            <div class="col l-12 m-12 c-12">
+
+                <div class="home-product" style="background-color: snow; padding: 15px 15px;">
+
+                    <h1>Đơn hàng số: @ViewBag.DonHang.DONHANGID</h1>
+                    <p class="history-order__date">Ngày đặt hàng: @string.Format("{0:dd/MM/yyyy HH:mm:ss}", ViewBag.DonHang.NGAYTAO)</p>
+                    <div class="history-order">
+                        @foreach (var item in Model)
+                        {
+                            <div class="history-order__product">
+                                <div class="history-order__product-items">
+                                    @{
+                                        var hinh = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == item.DIENTHOAIID);
+                                        if (hinh != null && !string.IsNullOrEmpty(hinh.HINHANH1))
+                                        {
+                                            var imageUrl = Url.Content(hinh.HINHANH1);
+                                            <img src="@imageUrl" style="width: 140px; object-fit: contain; margin-right: 10px;" />
+                                        }
+                                    }
+                                    <div class="history-order__product-items_name">
+                                        @{
+                                            var dienThoai = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == item.DIENTHOAIID);
+                                            var tenDienThoai = dienThoai != null ? dienThoai.TENDT : "";
+                                        }
+                                        <p>@tenDienThoai</p>
+                                        <p>Số lượng: @item.SOLUONGMUA</p>
+                                    </div>
+                                </div>
+
+                                <div class="history-order__product-price">
+                                    <p>
+                                        @{
+                                            var dongia = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == item.DIENTHOAIID);
+                                            var tendongia = dongia != null ? string.Format("{0:0,0 đ}", dongia.GIAGIAM) : "";
+                                        }
+                                        Đơn giá: @tendongia
+                                    </p>
+                                    <p>Tổng tiền: @string.Format("{0:0,0 đ}", item.TONGTIEN)</p>
+
+                                </div>
+                            </div>
+                            
+
+
+                        }
+                    </div>
+                    <div class="history-order__product-total" style="justify-content: flex-end;">
+                        <h2 style="font-size: 2rem; color: var(--primary-color);">Thành tiền: @string.Format("{0:0,0 đ}", ViewBag.DonHang.THANHTIEN)</h2>
+                    </div>
+                    
+
+
+                    
+                    <div style="margin-top: 13.4px;">
+                        <a href="@Url.Action("LichSuDonHang", "DNhap")" class="back-to-index">Quay lại</a>
+                    </div>
+
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<h4 style="margin-top:200px">Đơn hàng số: @ViewBag.DonHang.DONHANGID</h4>
 <p>Ngày đặt hàng: @string.Format("{0:dd/MM/yyyy HH:mm:ss}", ViewBag.DonHang.NGAYTAO)</p>
-<table >
+<table>
     <thead>
         <tr>
             <th>STT</th>
@@ -26,7 +104,7 @@
     <tbody>
         @foreach (var item in Model)
         {
-            stt= stt + 1;
+            stt = stt + 1;
             <tr>
                 <td>@stt</td>
                 <td>
@@ -50,12 +128,13 @@
     </tbody>
     <tfoot>
         <tr>
-            
+
             <td colspan="3">Tổng tiền:</td>
             <td colspan="2">@string.Format("{0:0,0 đ}", ViewBag.DonHang.THANHTIEN) </td>
         </tr>
     </tfoot>
 </table>
 <div>
-    <a href="@Url.Action("LichSuDonHang", "DNhap")"  class="back-to-index">Quay lại</a>
-</div>
+    <a href="@Url.Action("LichSuDonHang", "DNhap")" class="back-to-index">Quay lại</a>
+</div>*@
+

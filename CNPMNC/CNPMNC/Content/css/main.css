@@ -2604,3 +2604,46 @@ i.home-product-item__like-icon-fill {
     font-size: 1.5rem;
     padding-left: 10px;
 }
+
+/*order detail*/
+.history-order__product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px dashed #e3e3e3;
+    padding: 8px 0;
+    margin: 10px 0;
+
+
+}
+
+.history-order__product-items {
+    display:flex;
+    flex-direction: row;
+}
+
+.history-order__product-items_name p:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.history-order__product-items_name p {
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.history-order__product-price {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: end;
+}
+
+.history-order__product-price p:nth-child(2) {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.history-order__product-total {
+    text-align: end;
+    border-bottom: 2px dashed #e3e3e3;
+    padding: 8px 0;
+}
