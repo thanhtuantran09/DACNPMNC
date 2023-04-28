@@ -76,7 +76,7 @@ namespace CNPMNC.Controllers
 
             if (existingReview != null)
             {
-                ModelState.AddModelError("", "Bạn đã đánh giá sản phẩm này rồi.");
+                ModelState.AddModelError("", "Bạn đã đánh giá sản phẩm này rồi!");
             }
             else
             {

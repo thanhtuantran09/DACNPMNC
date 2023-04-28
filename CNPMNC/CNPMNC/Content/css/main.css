@@ -2557,7 +2557,7 @@ i.home-product-item__like-icon-fill {
 }
 
 /*Comment*/
-.btn-comment {
+/*.btn-comment {
     padding: 10px 5px;
     border: none;
     border-radius: 3px;
@@ -2603,4 +2603,4 @@ i.home-product-item__like-icon-fill {
 .review-aboutuser__comment {
     font-size: 1.5rem;
     padding-left: 10px;
-}
+}*/
