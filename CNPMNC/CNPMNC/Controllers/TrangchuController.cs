@@ -85,10 +85,10 @@ namespace CNPMNC.Controllers
                 var newReview = new DANHGIASANPHAM();
 
 
-                   newReview.KHACHHANGID = khachHang.KHACHHANGID;
+                    newReview.KHACHHANGID = khachHang.KHACHHANGID;
                     newReview.DIENTHOAIID = id;
                     newReview.DANHGIA = review;
-                newReview.NGAYTAO = DateTime.Now;
+                    newReview.NGAYTAO = DateTime.Now;
                 
 
                 db.DANHGIASANPHAMs.Add(newReview);
