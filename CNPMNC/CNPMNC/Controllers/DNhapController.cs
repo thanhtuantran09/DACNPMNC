@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using CNPMNC.Models;
+using PagedList;
 
 namespace CNPMNC.Controllers
 {
@@ -112,7 +114,7 @@ namespace CNPMNC.Controllers
 
             return View(kh);
         }
-        public ActionResult LichSuDonHang()
+        public ActionResult LichSuDonHang(int? trangThaiId)
         {
             // Lấy thông tin khách hàng từ session
             var email = Session["Email"] as string;
@@ -125,10 +127,21 @@ namespace CNPMNC.Controllers
             {
                 // Lấy danh sách đơn hàng của khách hàng từ CSDL
                 var khachHang = db.KHACHHANGs.SingleOrDefault(kh => kh.EMAIL == email);
-                var donHangs = db.DONHANGs.Where(dh => dh.KHACHHANGID == khachHang.KHACHHANGID).ToList();
+                var donHangs = db.DONHANGs.Where(dh => dh.KHACHHANGID == khachHang.KHACHHANGID);
 
-                return View(donHangs);
+                // Lọc danh sách đơn hàng theo trạng thái được chọn (nếu có)
+                if (trangThaiId.HasValue)
+                {
+                    donHangs = donHangs.Where(dh => dh.TRANGTHAIID == trangThaiId.Value);
+                }
+
+                return View(donHangs.ToList());
             }
+        }
+        private void LoadTrangThai()
+        {
+            var trangThai = db.TRANGTHAIDHs.ToList();
+            ViewBag.TrangThai = trangThai;
         }
         public ActionResult ChiTietDonHang(int id)
         {
@@ -137,5 +150,6 @@ namespace CNPMNC.Controllers
             ViewBag.DonHang = donHang;
             return View(chiTietDonHangs);
         }
+       
     }
 }

@@ -16,6 +16,25 @@
                     <div class="row sm-gutter">
                         @if (Model.Count == 0)
                         {
+                            <div class="col l-2">
+                                <div class="user-img">
+                                    <img src="~/Content/img-slider/person.png" style="width: 82px; height: 82px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.1); object-fit: cover;" />
+                                    <p class="user-img_name">@Session["Ten"]</p>
+                                    <div style=" border-bottom: 1px solid var(--primary-color); width: 100%;"></div>
+                                    <div style="display: flex; flex-direction:column; align-items: flex-start;">
+                                        <a href="@Url.Action("DetailUser","DNhap")" class="user-img_link">
+                                            Tài khoản của bạn
+                                        </a>
+                                        <a href="@Url.Action("LichSuDonHang","DNhap")" class="user-img_link">
+                                            Đơn mua
+                                        </a>
+                                        <a href="@Url.Action("DangXuat", "DNhap")" class="user-img_link">
+                                            Đăng xuất
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
                             <p style="margin-top:200px">Không có đơn hàng nào.</p>
                         }
                         else
@@ -42,6 +61,18 @@
                             <div class="col l-10">
                                 <div class="home-product-title">
                                     <h1>Đơn hàng của bạn</h1>
+                                    <ul style="background-color:red">
+                                        <li>@Html.ActionLink("Tất cả", "LichSuDonHang")</li>
+                                        <li>@Html.ActionLink("Đặt hàng thành công", "LichSuDonHang", new { TRANGTHAIID = 1 })</li>
+                                        <li>@Html.ActionLink("Đã duyệt", "LichSuDonHang", new { TRANGTHAIID = 2 })</li>
+                                        <li>@Html.ActionLink("Đang chuẩn bị hàng", "LichSuDonHang", new { TRANGTHAIID = 3 })</li>
+                                        <li>@Html.ActionLink("Đang giao", "LichSuDonHang", new { TRANGTHAIID = 4 })</li>
+                                        <li>@Html.ActionLink("Giao hàng thành công ", "LichSuDonHang", new { TRANGTHAIID = 5 })</li>
+                                        <li>@Html.ActionLink("Hủy đơn", "LichSuDonHang", new { TRANGTHAIID = 6 })</li>
+                                        <li>@Html.ActionLink("Giao hàng lại", "LichSuDonHang", new { TRANGTHAIID = 7 })</li>
+                                       
+                                    </ul>
+
                                     <table>
                                         <tr>
                                             <th>Mã đơn hàng</th>
@@ -52,12 +83,12 @@
                                         </tr>
                                         @foreach (var donHang in Model)
                                         {
-                                            <tr>
+                                            <tr style="background-color:@(donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Đặt hàng thành công"?"lightgreen":donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Hủy đơn"?"lightcoral":"")">
                                                 <td>@donHang.DONHANGID</td>
                                                 <td>  @string.Format("{0:dd/MM/yyyy HH:mm:ss}", donHang.NGAYTAO)</td>
                                                 <td> @string.Format("{0:0,0 đ}", donHang.THANHTIEN) </td>
                                                 <td> @(donHang.TRANGTHAIDH==null?"":donHang.TRANGTHAIDH.TENTT)</td>
-                                                <td><a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID }) " class="back-to-index">Xem chi tiết</a></td>
+                                                <td><a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID })" class="back-to-index">Xem chi tiết</a></td>
                                             </tr>
                                         }
                                     </table>
@@ -75,3 +106,4 @@
         </div>
     </div>
 </div>
+

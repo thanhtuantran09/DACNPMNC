@@ -12,7 +12,6 @@
         font-size: 1.5rem;
         margin-bottom: 13.4px;
     }
-
 </style>
 
 <div class="app__container">
@@ -62,7 +61,7 @@
 
                                 </div>
                             </div>
-                            
+
 
 
                         }
@@ -70,16 +69,16 @@
                     <div class="history-order__product-total" style="justify-content: flex-end;">
                         <h2 style="font-size: 2rem; color: var(--primary-color);">Thành tiền: @string.Format("{0:0,0 đ}", ViewBag.DonHang.THANHTIEN)</h2>
                     </div>
-                    
 
 
-                    
+
+
                     <div style="margin-top: 13.4px;">
                         <a href="@Url.Action("LichSuDonHang", "DNhap")" class="back-to-index">Quay lại</a>
                     </div>
 
                 </div>
-                
+
 
             </div>
         </div>
@@ -88,53 +87,54 @@
 
 
 @*<h4 style="margin-top:200px">Đơn hàng số: @ViewBag.DonHang.DONHANGID</h4>
-<p>Ngày đặt hàng: @string.Format("{0:dd/MM/yyyy HH:mm:ss}", ViewBag.DonHang.NGAYTAO)</p>
-<table>
-    <thead>
-        <tr>
-            <th>STT</th>
-            <th>
-                Sản phẩm
-            </th>
-            <th>Số lượng</th>
-            <th>Đơn giá</th>
-            <th>Thành tiền</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            stt = stt + 1;
+    <p>Ngày đặt hàng: @string.Format("{0:dd/MM/yyyy HH:mm:ss}", ViewBag.DonHang.NGAYTAO)</p>
+    <table>
+        <thead>
             <tr>
-                <td>@stt</td>
-                <td>
-                    @{
-                        var dienThoai = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == item.DIENTHOAIID);
-                        var tenDienThoai = dienThoai != null ? dienThoai.TENDT : "";
-                    }
-                    @tenDienThoai
-                </td>
-                <td>@item.SOLUONGMUA</td>
-                <td>
-                    @{
-                        var dongia = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == item.DIENTHOAIID);
-                        var tendongia = dongia != null ? string.Format("{0:0,0 đ}", dongia.GIAGIAM) : "";
-                    }
-                    @tendongia
-                </td>
-                <td> @string.Format("{0:0,0 đ}", item.TONGTIEN)</td>
+                <th>STT</th>
+                <th>
+                    Sản phẩm
+                </th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
             </tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                stt = stt + 1;
+                <tr>
+                    <td>@stt</td>
+                    <td>
+                        @{
+                            var dienThoai = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == item.DIENTHOAIID);
+                            var tenDienThoai = dienThoai != null ? dienThoai.TENDT : "";
+                        }
+                        @tenDienThoai
+                    </td>
+                    <td>@item.SOLUONGMUA</td>
+                    <td>
+                        @{
+                            var dongia = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == item.DIENTHOAIID);
+                            var tendongia = dongia != null ? string.Format("{0:0,0 đ}", dongia.GIAGIAM) : "";
+                        }
+                        @tendongia
+                    </td>
+                    <td> @string.Format("{0:0,0 đ}", item.TONGTIEN)</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
 
-            <td colspan="3">Tổng tiền:</td>
-            <td colspan="2">@string.Format("{0:0,0 đ}", ViewBag.DonHang.THANHTIEN) </td>
-        </tr>
-    </tfoot>
-</table>
-<div>
-    <a href="@Url.Action("LichSuDonHang", "DNhap")" class="back-to-index">Quay lại</a>
-</div>*@
+                <td colspan="3">Tổng tiền:</td>
+                <td colspan="2">@string.Format("{0:0,0 đ}", ViewBag.DonHang.THANHTIEN) </td>
+            </tr>
+        </tfoot>
+    </table>
+    <div>
+        <a href="@Url.Action("LichSuDonHang", "DNhap")" class="back-to-index">Quay lại</a>
+    </div>*@
+
 
