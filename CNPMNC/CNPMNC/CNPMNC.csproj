@@ -395,6 +395,7 @@
     <Content Include="Views\Payment\PaymentConfirm.cshtml" />
     <Content Include="Views\DNhap\LichSuDonHang.cshtml" />
     <Content Include="Views\DNhap\ChiTietDonHang.cshtml" />
+    <Content Include="Views\Trangchu\BanChay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

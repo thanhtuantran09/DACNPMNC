@@ -31,8 +31,19 @@ namespace CNPMNC.Controllers
             var dienthoais = db.DIENTHOAIs.Where(d => d.HANGID == id).ToList().ToPagedList(page, 10); // 10 là số phần tử trên mỗi trang
             return View(dienthoais);
         }
-       
 
+        public ActionResult BanChay(int page = 1)
+        {
+            var sanPhams = db.DIENTHOAIs
+                 
+                     .GroupBy(sp => sp.HANGID)
+                     .Select(group => group.OrderByDescending(sp => sp.GIABAN).Take(5))
+                     .ToList()
+                     .SelectMany(x => x)
+                     .ToPagedList(page, 10);
+
+            return View(sanPhams);
+        }
         public ActionResult Details(int id)
         {
             var dienthoai = db.DIENTHOAIs.Find(id);

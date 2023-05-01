@@ -96,7 +96,9 @@
                                           <li class="order-list__items">Giao hàng lại</li>
                                        </a>
                                     </ul>
-                                    <p style="margin-top:200px">Không có đơn hàng nào.</p>
+                                    <p style="margin-top:25px; text-align:center;margin-bottom:25px">
+                                        <strong style="font-size: 20px;">Không có đơn hàng nào.</strong>
+                                    </p>
 
                                 </div>
 
@@ -172,8 +174,8 @@
                                                 <td>@donHang.DONHANGID</td>
                                                 <td>  @string.Format("{0:dd/MM/yyyy HH:mm:ss}", donHang.NGAYTAO)</td>
                                                 <td> @string.Format("{0:0,0 đ}", donHang.THANHTIEN) </td>
-                                                <td  style="color:@(donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="COD"?"lightgreen":donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="Thẻ ngân hàng"?"lightcoral":"")">@(donHang.PTTHANHTOAN==null?"":donHang.PTTHANHTOAN.TENPT)</td>
-                                                <td style="color:@(donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Đặt hàng thành công"?"lightgreen":donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Hủy đơn"?"lightcoral":"")"> @(donHang.TRANGTHAIDH==null?"":donHang.TRANGTHAIDH.TENTT)</td>
+                                                <td  style="color:@(donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="COD"?"#32CD32":donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="Thẻ ngân hàng"?"#DC143C":"")">@(donHang.PTTHANHTOAN==null?"":donHang.PTTHANHTOAN.TENPT)</td>
+                                                <td style="color:@(donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Đặt hàng thành công"?"#32CD32":donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Hủy đơn"?"#DC143C":"")"> @(donHang.TRANGTHAIDH==null?"":donHang.TRANGTHAIDH.TENTT)</td>
                                                 <td><a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID })" class="back-to-index">Xem chi tiết</a></td>
                                             </tr>
                                         }
