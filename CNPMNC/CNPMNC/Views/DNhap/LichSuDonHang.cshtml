@@ -99,16 +99,18 @@
                                             <th>Mã đơn hàng</th>
                                             <th>Ngày đặt hàng</th>
                                             <th>Tổng tiền</th>
+                                            <th>Phương thức thanh toán</th>
                                             <th>Trạng thái</th>
                                             <th></th>
                                         </tr>
                                         @foreach (var donHang in Model)
                                         {
-                                            <tr style="background-color:@(donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Đặt hàng thành công"?"lightgreen":donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Hủy đơn"?"lightcoral":"")">
+                                            <tr >
                                                 <td>@donHang.DONHANGID</td>
                                                 <td>  @string.Format("{0:dd/MM/yyyy HH:mm:ss}", donHang.NGAYTAO)</td>
                                                 <td> @string.Format("{0:0,0 đ}", donHang.THANHTIEN) </td>
-                                                <td> @(donHang.TRANGTHAIDH==null?"":donHang.TRANGTHAIDH.TENTT)</td>
+                                                <td  style="color:@(donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="COD"?"lightgreen":donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="Thẻ ngân hàng"?"lightcoral":"")">@(donHang.PTTHANHTOAN==null?"":donHang.PTTHANHTOAN.TENPT)</td>
+                                                <td style="color:@(donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Đặt hàng thành công"?"lightgreen":donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Hủy đơn"?"lightcoral":"")"> @(donHang.TRANGTHAIDH==null?"":donHang.TRANGTHAIDH.TENTT)</td>
                                                 <td><a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID })" class="back-to-index">Xem chi tiết</a></td>
                                             </tr>
                                         }
