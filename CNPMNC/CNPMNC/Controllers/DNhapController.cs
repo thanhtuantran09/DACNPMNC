@@ -138,11 +138,7 @@ namespace CNPMNC.Controllers
                 return View(donHangs.ToList());
             }
         }
-        private void LoadTrangThai()
-        {
-            var trangThai = db.TRANGTHAIDHs.ToList();
-            ViewBag.TrangThai = trangThai;
-        }
+
         public ActionResult ChiTietDonHang(int id)
         {
             var donHang = db.DONHANGs.SingleOrDefault(dh => dh.DONHANGID == id);

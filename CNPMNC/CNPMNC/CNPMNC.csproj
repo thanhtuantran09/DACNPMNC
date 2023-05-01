@@ -393,6 +393,8 @@
     <Content Include="Views\DNhap\DetailUser.cshtml" />
     <Content Include="Views\DNhap\EditUser.cshtml" />
     <Content Include="Views\Payment\PaymentConfirm.cshtml" />
+    <Content Include="Views\DNhap\LichSuDonHang.cshtml" />
+    <Content Include="Views\DNhap\ChiTietDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

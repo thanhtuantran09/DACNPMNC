@@ -22,10 +22,10 @@
                                     <p class="user-img_name">@Session["Ten"]</p>
                                     <div style=" border-bottom: 1px solid var(--primary-color); width: 100%;"></div>
                                     <div style="display: flex; flex-direction:column; align-items: flex-start;">
-                                        <a href="@Url.Action("DetailUser","DNhap")" class="user-img_link">
+                                        <a href="@Url.Action("DetailUser", "DNhap")" class="user-img_link">
                                             Tài khoản của bạn
                                         </a>
-                                        <a href="@Url.Action("LichSuDonHang","DNhap")" class="user-img_link">
+                                        <a href="@Url.Action("LichSuDonHang", "DNhap")" class="user-img_link">
                                             Đơn mua
                                         </a>
                                         <a href="@Url.Action("DangXuat", "DNhap")" class="user-img_link">
@@ -34,6 +34,26 @@
                                     </div>
 
                                 </div>
+                            </div>
+                            <div class="col l-10">
+                                <div class="home-product-title">
+                                    <h1>Đơn hàng của bạn</h1>
+                                    <ul style="background-color:red">
+                                        <li>@Html.ActionLink("Tất cả", "LichSuDonHang")</li>
+                                        <li>@Html.ActionLink("Đặt hàng thành công", "LichSuDonHang", new { TRANGTHAIID = 1 })</li>
+                                        <li>@Html.ActionLink("Đang duyệt", "LichSuDonHang", new { TRANGTHAIID = 2 })</li>
+                                        <li>@Html.ActionLink("Đã duyệt", "LichSuDonHang", new { TRANGTHAIID = 3 })</li>
+                                        <li>@Html.ActionLink("Đang chuẩn bị hàng", "LichSuDonHang", new { TRANGTHAIID = 4 })</li>
+                                        <li>@Html.ActionLink("Đang giao", "LichSuDonHang", new { TRANGTHAIID = 5 })</li>
+                                        <li>@Html.ActionLink("Giao hàng thành công ", "LichSuDonHang", new { TRANGTHAIID = 6 })</li>
+                                        <li>@Html.ActionLink("Hủy đơn", "LichSuDonHang", new { TRANGTHAIID = 7 })</li>
+                                        <li>@Html.ActionLink("Giao hàng lại", "LichSuDonHang", new { TRANGTHAIID = 8 })</li>
+
+                                    </ul>
+
+                                   
+                                </div>
+
                             </div>
                             <p style="margin-top:200px">Không có đơn hàng nào.</p>
                         }
@@ -64,13 +84,14 @@
                                     <ul style="background-color:red">
                                         <li>@Html.ActionLink("Tất cả", "LichSuDonHang")</li>
                                         <li>@Html.ActionLink("Đặt hàng thành công", "LichSuDonHang", new { TRANGTHAIID = 1 })</li>
-                                        <li>@Html.ActionLink("Đã duyệt", "LichSuDonHang", new { TRANGTHAIID = 2 })</li>
-                                        <li>@Html.ActionLink("Đang chuẩn bị hàng", "LichSuDonHang", new { TRANGTHAIID = 3 })</li>
-                                        <li>@Html.ActionLink("Đang giao", "LichSuDonHang", new { TRANGTHAIID = 4 })</li>
-                                        <li>@Html.ActionLink("Giao hàng thành công ", "LichSuDonHang", new { TRANGTHAIID = 5 })</li>
-                                        <li>@Html.ActionLink("Hủy đơn", "LichSuDonHang", new { TRANGTHAIID = 6 })</li>
-                                        <li>@Html.ActionLink("Giao hàng lại", "LichSuDonHang", new { TRANGTHAIID = 7 })</li>
-                                       
+                                        <li>@Html.ActionLink("Đang duyệt", "LichSuDonHang", new { TRANGTHAIID = 2 })</li>
+                                        <li>@Html.ActionLink("Đã duyệt", "LichSuDonHang", new { TRANGTHAIID = 3 })</li>
+                                        <li>@Html.ActionLink("Đang chuẩn bị hàng", "LichSuDonHang", new { TRANGTHAIID = 4 })</li>
+                                        <li>@Html.ActionLink("Đang giao", "LichSuDonHang", new { TRANGTHAIID = 5 })</li>
+                                        <li>@Html.ActionLink("Giao hàng thành công ", "LichSuDonHang", new { TRANGTHAIID = 6 })</li>
+                                        <li>@Html.ActionLink("Hủy đơn", "LichSuDonHang", new { TRANGTHAIID = 7 })</li>
+                                        <li>@Html.ActionLink("Giao hàng lại", "LichSuDonHang", new { TRANGTHAIID = 8 })</li>
+
                                     </ul>
 
                                     <table>
