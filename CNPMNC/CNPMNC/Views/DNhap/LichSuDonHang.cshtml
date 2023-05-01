@@ -4,6 +4,35 @@
     Layout = "~/Views/Shared/User.cshtml";
 }
 
+<style>
+    .order-list {
+        list-style: none;
+        display: flex;
+        margin: 10px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        justify-content: center;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #e3e3e3;
+    }
+    .order-list__items {
+        font-size: 1.3rem;
+        padding: 15px 15px;
+    }
+    a .order-list__items {
+        color: black;
+    }
+    a .order-list__items:hover {
+        color: var(--primary-color);
+        border-bottom: 3px solid var(--primary-color);
+    }
+    .active-items {
+        color: var(--primary-color);
+        border-bottom: 3px solid var(--primary-color);
+    }
+</style>
 <div class="app__container">
     <div class="grid wide">
 
@@ -38,24 +67,41 @@
                             <div class="col l-10">
                                 <div class="home-product-title">
                                     <h1>Đơn hàng của bạn</h1>
-                                    <ul style="background-color:red">
-                                        <li>@Html.ActionLink("Tất cả", "LichSuDonHang")</li>
-                                        <li>@Html.ActionLink("Đặt hàng thành công", "LichSuDonHang", new { TRANGTHAIID = 1 })</li>
-                                        <li>@Html.ActionLink("Đang duyệt", "LichSuDonHang", new { TRANGTHAIID = 2 })</li>
-                                        <li>@Html.ActionLink("Đã duyệt", "LichSuDonHang", new { TRANGTHAIID = 3 })</li>
-                                        <li>@Html.ActionLink("Đang chuẩn bị hàng", "LichSuDonHang", new { TRANGTHAIID = 4 })</li>
-                                        <li>@Html.ActionLink("Đang giao", "LichSuDonHang", new { TRANGTHAIID = 5 })</li>
-                                        <li>@Html.ActionLink("Giao hàng thành công ", "LichSuDonHang", new { TRANGTHAIID = 6 })</li>
-                                        <li>@Html.ActionLink("Hủy đơn", "LichSuDonHang", new { TRANGTHAIID = 7 })</li>
-                                        <li>@Html.ActionLink("Giao hàng lại", "LichSuDonHang", new { TRANGTHAIID = 8 })</li>
-
+                                    <ul class="order-list" id="categories">
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap")" class="@(!Request.QueryString.HasKeys() || Request.QueryString["TRANGTHAIID"] == "" ? "active-items" : "")">
+                                          <li class="order-list__items">Tất cả</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 1 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "1" ? "active-items" : "")">
+                                          <li class="order-list__items">Đặt hàng thành công</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 2 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "2" ? "active-items" : "")">
+                                          <li class="order-list__items">Đang duyệt</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 3 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "3" ? "active-items" : "")">
+                                          <li class="order-list__items">Đã duyệt</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 4 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "4" ? "active-items" : "")">
+                                          <li class="order-list__items">Đang chuẩn bị hàng</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 5 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "5" ? "active-items" : "")">
+                                          <li class="order-list__items">Đang giao</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 6 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "6" ? "active-items" : "")">
+                                          <li class="order-list__items">Giao hàng thành công</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 7 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "7" ? "active-items" : "")">
+                                          <li class="order-list__items">Hủy đơn</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 8 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "8" ? "active-items" : "")">
+                                          <li class="order-list__items">Giao hàng lại</li>
+                                       </a>
                                     </ul>
+                                    <p style="margin-top:200px">Không có đơn hàng nào.</p>
 
-                                   
                                 </div>
 
                             </div>
-                            <p style="margin-top:200px">Không có đơn hàng nào.</p>
+                            
                         }
                         else
                         {
@@ -81,17 +127,34 @@
                             <div class="col l-10">
                                 <div class="home-product-title">
                                     <h1>Đơn hàng của bạn</h1>
-                                    <ul style="background-color:red">
-                                        <li>@Html.ActionLink("Tất cả", "LichSuDonHang")</li>
-                                        <li>@Html.ActionLink("Đặt hàng thành công", "LichSuDonHang", new { TRANGTHAIID = 1 })</li>
-                                        <li>@Html.ActionLink("Đang duyệt", "LichSuDonHang", new { TRANGTHAIID = 2 })</li>
-                                        <li>@Html.ActionLink("Đã duyệt", "LichSuDonHang", new { TRANGTHAIID = 3 })</li>
-                                        <li>@Html.ActionLink("Đang chuẩn bị hàng", "LichSuDonHang", new { TRANGTHAIID = 4 })</li>
-                                        <li>@Html.ActionLink("Đang giao", "LichSuDonHang", new { TRANGTHAIID = 5 })</li>
-                                        <li>@Html.ActionLink("Giao hàng thành công ", "LichSuDonHang", new { TRANGTHAIID = 6 })</li>
-                                        <li>@Html.ActionLink("Hủy đơn", "LichSuDonHang", new { TRANGTHAIID = 7 })</li>
-                                        <li>@Html.ActionLink("Giao hàng lại", "LichSuDonHang", new { TRANGTHAIID = 8 })</li>
-
+                                    <ul class="order-list" id="categories">
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap")" class="@(!Request.QueryString.HasKeys() || Request.QueryString["TRANGTHAIID"] == "" ? "active-items" : "")">
+                                          <li class="order-list__items">Tất cả</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 1 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "1" ? "active-items" : "")">
+                                          <li class="order-list__items">Đặt hàng thành công</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 2 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "2" ? "active-items" : "")">
+                                          <li class="order-list__items">Đang duyệt</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 3 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "3" ? "active-items" : "")">
+                                          <li class="order-list__items">Đã duyệt</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 4 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "4" ? "active-items" : "")">
+                                          <li class="order-list__items">Đang chuẩn bị hàng</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 5 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "5" ? "active-items" : "")">
+                                          <li class="order-list__items">Đang giao</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 6 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "6" ? "active-items" : "")">
+                                          <li class="order-list__items">Giao hàng thành công</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 7 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "7" ? "active-items" : "")">
+                                          <li class="order-list__items">Hủy đơn</li>
+                                       </a>
+                                       <a href="@Url.Action("LichSuDonHang", "DNhap", new { TRANGTHAIID = 8 })" class="@((Request.QueryString["TRANGTHAIID"] ?? "") == "8" ? "active-items" : "")">
+                                          <li class="order-list__items">Giao hàng lại</li>
+                                       </a>
                                     </ul>
 
                                     <table>
@@ -129,4 +192,3 @@
         </div>
     </div>
 </div>
-
