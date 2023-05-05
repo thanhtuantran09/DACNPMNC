@@ -88,7 +88,7 @@ namespace CNPMNC.Controllers
                     db.SaveChanges();
 
                     // Hiển thị thông báo đặt hàng thành công
-                    ViewBag.ThongBao = "Đặt hàng thành công!";
+                    ViewBag.ThongBao = "Đặt hàng thành công!!";
                 }
 
             }
