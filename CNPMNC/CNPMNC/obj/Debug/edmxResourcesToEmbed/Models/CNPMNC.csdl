@@ -112,6 +112,8 @@
     <NavigationProperty Name="DANHGIASANPHAMs" Relationship="Self.FK__DANHGIASA__KHACH__123EB7A3" FromRole="KHACHHANG" ToRole="DANHGIASANPHAM" />
     <NavigationProperty Name="DONHANGs" Relationship="Self.FK__DONHANG__KHACHHA__08B54D69" FromRole="KHACHHANG" ToRole="DONHANG" />
     <NavigationProperty Name="LOAIKH" Relationship="Self.FK__KHACHHANG__LOAIK__01142BA1" FromRole="KHACHHANG" ToRole="LOAIKH" />
+    <Property Name="HINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHANHOIs" Relationship="CNPMNCModel.FK__PHANHOI__KHACHHA__3A4CA8FD" FromRole="KHACHHANG" ToRole="PHANHOI" />
   </EntityType>
   <EntityType Name="LOAIKH">
     <Key>
@@ -140,6 +142,9 @@
     <Property Name="PHANHOIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="KHACHHANGID" Type="Int32" />
     <Property Name="PHANHOI1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KHACHHANG" Relationship="CNPMNCModel.FK__PHANHOI__KHACHHA__3A4CA8FD" FromRole="PHANHOI" ToRole="KHACHHANG" />
   </EntityType>
   <EntityType Name="PHIEUNHAP">
     <Key>
@@ -413,6 +418,10 @@
       <End Role="PTTHANHTOAN" EntitySet="PTTHANHTOANs" />
       <End Role="DONHANG" EntitySet="DONHANGs" />
     </AssociationSet>
+    <AssociationSet Name="FK__PHANHOI__KHACHHA__3A4CA8FD" Association="CNPMNCModel.FK__PHANHOI__KHACHHA__3A4CA8FD">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="PHANHOI" EntitySet="PHANHOIs" />
+    </AssociationSet>
   </EntityContainer>
   <Association Name="FK__DONHANG__PTTHANH__2739D489">
     <End Type="CNPMNCModel.PTTHANHTOAN" Role="PTTHANHTOAN" Multiplicity="0..1" />
@@ -423,6 +432,18 @@
       </Principal>
       <Dependent Role="DONHANG">
         <PropertyRef Name="PTTHANHTOANID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHANHOI__KHACHHA__3A4CA8FD">
+    <End Type="CNPMNCModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1" />
+    <End Type="CNPMNCModel.PHANHOI" Role="PHANHOI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="KHACHHANGID" />
+      </Principal>
+      <Dependent Role="PHANHOI">
+        <PropertyRef Name="KHACHHANGID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

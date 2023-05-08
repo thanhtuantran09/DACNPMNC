@@ -40,5 +40,6 @@ namespace CNPMNC.Models
         public virtual DbSet<PTTHANHTOAN> PTTHANHTOANs { get; set; }
         public virtual DbSet<THONGSOKT> THONGSOKTs { get; set; }
         public virtual DbSet<TRANGTHAIDH> TRANGTHAIDHs { get; set; }
+        public virtual DbSet<CHUCVU> CHUCVUs { get; set; }
     }
 }

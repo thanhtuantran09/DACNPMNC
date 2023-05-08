@@ -57,6 +57,8 @@ namespace CNPMNC.Controllers
 
                 // Thêm thông tin trạng thái vào đơn hàng
                 donHang.TRANGTHAIID = trangThai.TRANGTHAIID;
+                var ptthanhtoan = db.PTTHANHTOANs.SingleOrDefault(tt => tt.PTTHANHTOANID == 2);
+                donHang.PTTHANHTOANID = ptthanhtoan.PTTHANHTOANID;
                 // Lưu đơn hàng vào CSDL
                 db.DONHANGs.Add(donHang);
 

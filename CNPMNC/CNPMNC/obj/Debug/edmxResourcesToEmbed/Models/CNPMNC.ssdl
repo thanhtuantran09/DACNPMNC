@@ -92,6 +92,7 @@
     <Property Name="SDT" Type="char" MaxLength="13" />
     <Property Name="DIACHI" Type="nvarchar" MaxLength="250" />
     <Property Name="LOAIKHID" Type="int" />
+    <Property Name="HINH" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="LOAIKH">
     <Key>
@@ -117,6 +118,8 @@
     <Property Name="PHANHOIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="KHACHHANGID" Type="int" />
     <Property Name="PHANHOI" Type="nvarchar(max)" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="250" />
+    <Property Name="SDT" Type="nvarchar" MaxLength="11" />
   </EntityType>
   <EntityType Name="PHIEUNHAP">
     <Key>
@@ -301,6 +304,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__PHANHOI__KHACHHA__3A4CA8FD">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="PHANHOI" Type="Self.PHANHOI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="KHACHHANGID" />
+      </Principal>
+      <Dependent Role="PHANHOI">
+        <PropertyRef Name="KHACHHANGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__PHIEUNHAP__NCCID__656C112C">
     <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
     <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
@@ -388,6 +403,10 @@
     <AssociationSet Name="FK__KHACHHANG__LOAIK__01142BA1" Association="Self.FK__KHACHHANG__LOAIK__01142BA1">
       <End Role="LOAIKH" EntitySet="LOAIKH" />
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHANHOI__KHACHHA__3A4CA8FD" Association="Self.FK__PHANHOI__KHACHHA__3A4CA8FD">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="PHANHOI" EntitySet="PHANHOI" />
     </AssociationSet>
     <AssociationSet Name="FK__PHIEUNHAP__NCCID__656C112C" Association="Self.FK__PHIEUNHAP__NCCID__656C112C">
       <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />

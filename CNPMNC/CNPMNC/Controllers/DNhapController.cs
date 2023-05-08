@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,10 +31,9 @@ namespace CNPMNC.Controllers
                 return View();
             }
             else
-
-
                     Session["Email"] = user.EMAIL;
                     Session["Ten"] = objUserGet.HOTEN;
+                    Session["Hinh"] = objUserGet.HINH;
                     return RedirectToAction("Trangchu", "Trangchu");
 
         }
@@ -86,38 +86,50 @@ namespace CNPMNC.Controllers
             // Truyền thông tin khách hàng sang
             return View(customer);
         }
-        public ActionResult EditUser()
+        public ActionResult EditUser(int id)
         {
             //Lấy thông tin khách hàng từ database
             var email = Session["Email"] as string;
-            var customer = db.KHACHHANGs.FirstOrDefault(c => c.EMAIL == email);
-            //Truyền thông tin khách hàng sang
-            return View(customer);
+            return View(db.KHACHHANGs.Where(s => s.KHACHHANGID == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult EditUser(KHACHHANG kh)
+        public ActionResult EditUser(KHACHHANG model)
         {
             if (ModelState.IsValid)
             {
-                var edituser = db.KHACHHANGs.Where(x => x.KHACHHANGID == kh.KHACHHANGID).FirstOrDefault();
+                var objDoiBong = db.KHACHHANGs.Find(model.KHACHHANGID);
+                //var edituser = db.KHACHHANGs.Where(x => x.KHACHHANGID == kh.KHACHHANGID).FirstOrDefault();
+                if (model.UploadImage1 != null)
+                {
+                    string filename = Path.GetFileNameWithoutExtension(model.UploadImage1.FileName);
+                    string extension = Path.GetExtension(model.UploadImage1.FileName);
+                    filename = filename + extension;
+                    model.HINH = "~/Content/Hinh/" + filename;
+                    model.UploadImage1.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename));
+                    // gan cac du lieu vao cai lay len
 
-                edituser.KHACHHANGID = kh.KHACHHANGID;
-                edituser.EMAIL = kh.EMAIL;
-                edituser.HOTEN = kh.HOTEN;
-                edituser.SDT = kh.SDT;
-                edituser.DIACHI = kh.DIACHI;
-                edituser.NHAPLAIMK = kh.NHAPLAIMK;
-                Session["Email"] = kh.EMAIL;
+                }
+                objDoiBong.HINH = model.HINH;
+                objDoiBong.KHACHHANGID = model.KHACHHANGID;
+                objDoiBong.EMAIL = model.EMAIL;
+                objDoiBong.HOTEN = model.HOTEN;
+                objDoiBong.SDT = model.SDT;
+                objDoiBong.DIACHI = model.DIACHI;
+                objDoiBong.NHAPLAIMK = model.NHAPLAIMK;
+                Session["Email"] = model.EMAIL;
+                Session["Ten"] = model.HOTEN;
+                Session["Hinh"] = model.HINH;
                 db.SaveChanges();
                 return RedirectToAction("DetailUser", "DNhap");
             }
 
-            return View(kh);
+            return View(model);
         }
         public ActionResult LichSuDonHang(int? trangThaiId)
         {
             // Lấy thông tin khách hàng từ session
             var email = Session["Email"] as string;
+            var hinh = Session["Hinh"] as string;
             if (Session["Email"] == null)
             {
                 // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
@@ -146,8 +158,5 @@ namespace CNPMNC.Controllers
             ViewBag.DonHang = donHang;
             return View(chiTietDonHangs);
         }
-      
-
-
     }
 }

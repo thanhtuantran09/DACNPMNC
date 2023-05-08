@@ -151,6 +151,9 @@
       <DependentUpon>CNPMNC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CHUCVU.cs">
+      <DependentUpon>CNPMNC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CNPMNC.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -396,6 +399,7 @@
     <Content Include="Views\DNhap\LichSuDonHang.cshtml" />
     <Content Include="Views\DNhap\ChiTietDonHang.cshtml" />
     <Content Include="Views\Trangchu\BanChay.cshtml" />
+    <Content Include="Views\Trangchu\Lienhe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

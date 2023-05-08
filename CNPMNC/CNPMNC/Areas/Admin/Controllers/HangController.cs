@@ -91,13 +91,13 @@ namespace CNPMNC.Areas.Admin.Controllers
         {
             try
             {
-                if (model.UploadImage != null)
+                if (model.UploadImage1 != null)
                 {
-                    string filename = Path.GetFileNameWithoutExtension(model.UploadImage.FileName);
-                    string extension = Path.GetExtension(model.UploadImage.FileName);
+                    string filename = Path.GetFileNameWithoutExtension(model.UploadImage1.FileName);
+                    string extension = Path.GetExtension(model.UploadImage1.FileName);
                     filename = filename + extension;
                     model.HINH = "~/Content/Hinh/" + filename;
-                    model.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename));
+                    model.UploadImage1.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename));
 
                 }
                 db.HANGs.Add(model);
@@ -124,13 +124,13 @@ namespace CNPMNC.Areas.Admin.Controllers
             {
                 var objDoiBong = db.HANGs.Find(model.HANGID);
                 // TODO: Add update logic here
-                if (model.UploadImage != null)
+                if (model.UploadImage1 != null)
                 {
-                    string filename = Path.GetFileNameWithoutExtension(model.UploadImage.FileName);
-                    string extension = Path.GetExtension(model.UploadImage.FileName);
+                    string filename = Path.GetFileNameWithoutExtension(model.UploadImage1.FileName);
+                    string extension = Path.GetExtension(model.UploadImage1.FileName);
                     filename = filename + extension;
                     model.HINH = "~/Content/Hinh/" + filename;
-                    model.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename));
+                    model.UploadImage1.SaveAs(Path.Combine(Server.MapPath("~/Content/Hinh/"), filename));
                     // gan cac du lieu vao cai lay len
 
                 }

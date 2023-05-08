@@ -33,7 +33,7 @@
 
                 <div class="col-md-10">
                     <img src="@Url.Content(Model.HINH)" height="150px" width="150px" id="previewImg" />
-                    <input class="btn" type="file" name="UploadImage" onchange="ChangeImage(this, document.getElementById('previewImg1'))" />
+                    <input class="btn" type="file" name="UploadImage1" onchange="ChangeImage(this, document.getElementById('previewImg1'))" />
                     @Html.ValidationMessageFor(model => model.HINH, "", new { @class = "text-danger" })
                 </div>
 

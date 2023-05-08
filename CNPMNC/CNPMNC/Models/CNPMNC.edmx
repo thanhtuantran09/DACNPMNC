@@ -13,6 +13,14 @@
           <Property Name="EMAIL" Type="nvarchar" MaxLength="250" />
           <Property Name="TENAD" Type="nvarchar" MaxLength="250" />
           <Property Name="MATKHAU" Type="nvarchar" MaxLength="250" />
+          <Property Name="CHUCVUID" Type="int" />
+        </EntityType>
+        <EntityType Name="CHUCVU">
+          <Key>
+            <PropertyRef Name="CHUCVUID" />
+          </Key>
+          <Property Name="CHUCVUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENCHUCVU" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="CTDONHANG">
           <Key>
@@ -97,6 +105,7 @@
           <Property Name="SDT" Type="char" MaxLength="13" />
           <Property Name="DIACHI" Type="nvarchar" MaxLength="250" />
           <Property Name="LOAIKHID" Type="int" />
+          <Property Name="HINH" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="LOAIKH">
           <Key>
@@ -122,6 +131,8 @@
           <Property Name="PHANHOIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KHACHHANGID" Type="int" />
           <Property Name="PHANHOI" Type="nvarchar(max)" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="SDT" Type="nvarchar" MaxLength="11" />
         </EntityType>
         <EntityType Name="PHIEUNHAP">
           <Key>
@@ -162,6 +173,18 @@
           <Property Name="TRANGTHAIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENTT" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <Association Name="FK__ADMIN__CHUCVUID__51300E55">
+          <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="0..1" />
+          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUCVU">
+              <PropertyRef Name="CHUCVUID" />
+            </Principal>
+            <Dependent Role="ADMIN">
+              <PropertyRef Name="CHUCVUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__CTDONHANG__DIENT__160F4887">
           <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="0..1" />
           <End Role="CTDONHANG" Type="Self.CTDONHANG" Multiplicity="*" />
@@ -306,6 +329,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__PHANHOI__KHACHHA__3A4CA8FD">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+          <End Role="PHANHOI" Type="Self.PHANHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="KHACHHANGID" />
+            </Principal>
+            <Dependent Role="PHANHOI">
+              <PropertyRef Name="KHACHHANGID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__PHIEUNHAP__NCCID__656C112C">
           <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
           <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
@@ -332,6 +367,7 @@
         </Association>
         <EntityContainer Name="CNPMNCModelStoreContainer">
           <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTDONHANG" EntityType="Self.CTDONHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTPHIEUNHAP" EntityType="Self.CTPHIEUNHAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DANHGIASANPHAM" EntityType="Self.DANHGIASANPHAM" Schema="dbo" store:Type="Tables" />
@@ -346,6 +382,10 @@
           <EntitySet Name="PTTHANHTOAN" EntityType="Self.PTTHANHTOAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THONGSOKT" EntityType="Self.THONGSOKT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRANGTHAIDH" EntityType="Self.TRANGTHAIDH" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ADMIN__CHUCVUID__51300E55" Association="Self.FK__ADMIN__CHUCVUID__51300E55">
+            <End Role="CHUCVU" EntitySet="CHUCVU" />
+            <End Role="ADMIN" EntitySet="ADMIN" />
+          </AssociationSet>
           <AssociationSet Name="FK__CTDONHANG__DIENT__160F4887" Association="Self.FK__CTDONHANG__DIENT__160F4887">
             <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
             <End Role="CTDONHANG" EntitySet="CTDONHANG" />
@@ -394,6 +434,10 @@
             <End Role="LOAIKH" EntitySet="LOAIKH" />
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
           </AssociationSet>
+          <AssociationSet Name="FK__PHANHOI__KHACHHA__3A4CA8FD" Association="Self.FK__PHANHOI__KHACHHA__3A4CA8FD">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="PHANHOI" EntitySet="PHANHOI" />
+          </AssociationSet>
           <AssociationSet Name="FK__PHIEUNHAP__NCCID__656C112C" Association="Self.FK__PHIEUNHAP__NCCID__656C112C">
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
             <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
@@ -415,6 +459,8 @@
           <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TENAD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="MATKHAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CHUCVUID" Type="Int32" />
+          <NavigationProperty Name="CHUCVU" Relationship="CNPMNCModel.FK__ADMIN__CHUCVUID__51300E55" FromRole="ADMIN" ToRole="CHUCVU" />
         </EntityType>
         <EntityType Name="CTDONHANG">
           <Key>
@@ -519,6 +565,8 @@
           <NavigationProperty Name="DANHGIASANPHAMs" Relationship="Self.FK__DANHGIASA__KHACH__123EB7A3" FromRole="KHACHHANG" ToRole="DANHGIASANPHAM" />
           <NavigationProperty Name="DONHANGs" Relationship="Self.FK__DONHANG__KHACHHA__08B54D69" FromRole="KHACHHANG" ToRole="DONHANG" />
           <NavigationProperty Name="LOAIKH" Relationship="Self.FK__KHACHHANG__LOAIK__01142BA1" FromRole="KHACHHANG" ToRole="LOAIKH" />
+          <Property Name="HINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PHANHOIs" Relationship="CNPMNCModel.FK__PHANHOI__KHACHHA__3A4CA8FD" FromRole="KHACHHANG" ToRole="PHANHOI" />
         </EntityType>
         <EntityType Name="LOAIKH">
           <Key>
@@ -547,6 +595,9 @@
           <Property Name="PHANHOIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KHACHHANGID" Type="Int32" />
           <Property Name="PHANHOI1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KHACHHANG" Relationship="CNPMNCModel.FK__PHANHOI__KHACHHA__3A4CA8FD" FromRole="PHANHOI" ToRole="KHACHHANG" />
         </EntityType>
         <EntityType Name="PHIEUNHAP">
           <Key>
@@ -820,6 +871,15 @@
             <End Role="PTTHANHTOAN" EntitySet="PTTHANHTOANs" />
             <End Role="DONHANG" EntitySet="DONHANGs" />
           </AssociationSet>
+          <AssociationSet Name="FK__PHANHOI__KHACHHA__3A4CA8FD" Association="CNPMNCModel.FK__PHANHOI__KHACHHA__3A4CA8FD">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="PHANHOI" EntitySet="PHANHOIs" />
+          </AssociationSet>
+          <EntitySet Name="CHUCVUs" EntityType="CNPMNCModel.CHUCVU" />
+          <AssociationSet Name="FK__ADMIN__CHUCVUID__51300E55" Association="CNPMNCModel.FK__ADMIN__CHUCVUID__51300E55">
+            <End Role="CHUCVU" EntitySet="CHUCVUs" />
+            <End Role="ADMIN" EntitySet="ADMINs" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK__DONHANG__PTTHANH__2739D489">
           <End Type="CNPMNCModel.PTTHANHTOAN" Role="PTTHANHTOAN" Multiplicity="0..1" />
@@ -833,6 +893,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__PHANHOI__KHACHHA__3A4CA8FD">
+          <End Type="CNPMNCModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1" />
+          <End Type="CNPMNCModel.PHANHOI" Role="PHANHOI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="KHACHHANGID" />
+            </Principal>
+            <Dependent Role="PHANHOI">
+              <PropertyRef Name="KHACHHANGID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CHUCVU">
+          <Key>
+            <PropertyRef Name="CHUCVUID" />
+          </Key>
+          <Property Name="CHUCVUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENCHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ADMINs" Relationship="CNPMNCModel.FK__ADMIN__CHUCVUID__51300E55" FromRole="CHUCVU" ToRole="ADMIN" />
+        </EntityType>
+        <Association Name="FK__ADMIN__CHUCVUID__51300E55">
+          <End Type="CNPMNCModel.CHUCVU" Role="CHUCVU" Multiplicity="0..1" />
+          <End Type="CNPMNCModel.ADMIN" Role="ADMIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUCVU">
+              <PropertyRef Name="CHUCVUID" />
+            </Principal>
+            <Dependent Role="ADMIN">
+              <PropertyRef Name="CHUCVUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -842,6 +934,7 @@
           <EntitySetMapping Name="ADMINs">
             <EntityTypeMapping TypeName="CNPMNCModel.ADMIN">
               <MappingFragment StoreEntitySet="ADMIN">
+                <ScalarProperty Name="CHUCVUID" ColumnName="CHUCVUID" />
                 <ScalarProperty Name="ADMINID" ColumnName="ADMINID" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="TENAD" ColumnName="TENAD" />
@@ -929,6 +1022,7 @@
           <EntitySetMapping Name="KHACHHANGs">
             <EntityTypeMapping TypeName="CNPMNCModel.KHACHHANG">
               <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="HINH" ColumnName="HINH" />
                 <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
                 <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
@@ -962,6 +1056,8 @@
           <EntitySetMapping Name="PHANHOIs">
             <EntityTypeMapping TypeName="CNPMNCModel.PHANHOI">
               <MappingFragment StoreEntitySet="PHANHOI">
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="PHANHOIID" ColumnName="PHANHOIID" />
                 <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
                 <ScalarProperty Name="PHANHOI1" ColumnName="PHANHOI" />
@@ -1008,6 +1104,14 @@
               <MappingFragment StoreEntitySet="TRANGTHAIDH">
                 <ScalarProperty Name="TRANGTHAIID" ColumnName="TRANGTHAIID" />
                 <ScalarProperty Name="TENTT" ColumnName="TENTT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHUCVUs">
+            <EntityTypeMapping TypeName="CNPMNCModel.CHUCVU">
+              <MappingFragment StoreEntitySet="CHUCVU">
+                <ScalarProperty Name="TENCHUCVU" ColumnName="TENCHUCVU" />
+                <ScalarProperty Name="CHUCVUID" ColumnName="CHUCVUID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

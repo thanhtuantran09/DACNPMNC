@@ -41,7 +41,7 @@ namespace CNPMNC.Models
         public string SDT { get; set; }
         [Display(Name = "Phương thức thanh toán")]
         public Nullable<int> PTTHANHTOANID { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTDONHANG> CTDONHANGs { get; set; }
         public virtual KHACHHANG KHACHHANG { get; set; }

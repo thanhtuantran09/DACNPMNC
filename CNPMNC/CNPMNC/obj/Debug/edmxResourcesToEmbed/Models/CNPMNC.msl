@@ -91,6 +91,7 @@
     <EntitySetMapping Name="KHACHHANGs">
       <EntityTypeMapping TypeName="CNPMNCModel.KHACHHANG">
         <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="HINH" ColumnName="HINH" />
           <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
           <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
           <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
@@ -124,6 +125,8 @@
     <EntitySetMapping Name="PHANHOIs">
       <EntityTypeMapping TypeName="CNPMNCModel.PHANHOI">
         <MappingFragment StoreEntitySet="PHANHOI">
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
           <ScalarProperty Name="PHANHOIID" ColumnName="PHANHOIID" />
           <ScalarProperty Name="KHACHHANGID" ColumnName="KHACHHANGID" />
           <ScalarProperty Name="PHANHOI1" ColumnName="PHANHOI" />

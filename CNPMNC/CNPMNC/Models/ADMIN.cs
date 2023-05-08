@@ -18,5 +18,8 @@ namespace CNPMNC.Models
         public string EMAIL { get; set; }
         public string TENAD { get; set; }
         public string MATKHAU { get; set; }
+        public Nullable<int> CHUCVUID { get; set; }
+    
+        public virtual CHUCVU CHUCVU { get; set; }
     }
 }

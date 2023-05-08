@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="CNPMNCModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPMNCModel.LOAIKH" Width="1.5" PointX="1.5" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPMNCModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CNPMNCModel.PHANHOI" Width="1.5" PointX="2.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMNCModel.PHANHOI" Width="1.5" PointX="2.875" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPMNCModel.PHIEUNHAP" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPMNCModel.PTTHANHTOAN" Width="1.5" PointX="4.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPMNCModel.THONGSOKT" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
@@ -34,6 +34,9 @@
         <AssociationConnector Association="CNPMNCModel.FK__KHACHHANG__LOAIK__01142BA1" ManuallyRouted="false" />
         <AssociationConnector Association="CNPMNCModel.FK__PHIEUNHAP__NCCID__656C112C" ManuallyRouted="false" />
         <AssociationConnector Association="CNPMNCModel.FK__DONHANG__PTTHANH__2739D489" />
+        <AssociationConnector Association="CNPMNCModel.FK__PHANHOI__KHACHHA__3A4CA8FD" />
+        <EntityTypeShape EntityType="CNPMNCModel.CHUCVU" Width="1.5" PointX="7.875" PointY="2" />
+        <AssociationConnector Association="CNPMNCModel.FK__ADMIN__CHUCVUID__51300E55" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

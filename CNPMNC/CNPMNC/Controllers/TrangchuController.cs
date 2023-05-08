@@ -117,7 +117,43 @@ namespace CNPMNC.Controllers
         }
         public ActionResult Lienhe()
         {
-            return View();
+            PHANHOI pro = new PHANHOI();
+            return View(pro);
+        }
+        [HttpPost]
+        public ActionResult Lienhe(PHANHOI model)
+        {
+            try
+            {
+                var email = Session["Email"] as string;
+                if (Session["Email"] == null)
+                {
+                    // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                    return RedirectToAction("Dangnhap", "DNhap");
+                }
+                else
+                {
+                    
+                    // Lấy thông tin khách hàng từ CSDL
+                    var khachHang = db.KHACHHANGs.SingleOrDefault(kh => kh.EMAIL == email);
+                    if (string.IsNullOrEmpty(model.SDT) || model.SDT.Length < 10 || model.SDT.Length > 11)
+                    {
+                        ViewBag.error = "Số điện thoại phải có 10 hoặc 11 số!";
+                        
+                        return View(model);
+                    }
+
+                    // Thêm thông tin khách hàng vào đơn hàng
+                    model.KHACHHANGID = khachHang.KHACHHANGID;
+                    db.PHANHOIs.Add(model);
+                    db.SaveChanges();
+                    return RedirectToAction("Lienhe");
+                }
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }
