@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,10 +30,42 @@ namespace CNPMNC.Areas.Admin.Controllers
             }
             else
 
-
+                Session["Ten"]=objUserGet.TENAD;
                 Session["Email"] = admin.EMAIL;
             return RedirectToAction("Dienthoai", "Dienthoai");
 
+        }
+        public ActionResult DangXuat()
+        {
+            Session["Email"] = null;
+            return RedirectToAction("Dangnhap", "Dangnhap");
+        }
+     
+        public ActionResult DetailUser()
+        {
+            // Lấy thông tin khách hàng từ database
+            var email = Session["Email"] as string;
+            var customer = db.ADMINs.FirstOrDefault(c => c.EMAIL == email);
+            // Truyền thông tin khách hàng sang
+            return View(customer);
+        }
+        [HttpPost]
+        public ActionResult DetailUser(ADMIN model)
+        {
+            if (ModelState.IsValid)
+            {
+                //var objadmin = db.ADMINs.Find(model.ADMINID);
+                var edituser = db.ADMINs.Where(x => x.ADMINID == model.ADMINID).FirstOrDefault();
+
+                edituser.TENAD = model.TENAD;
+                edituser.MATKHAU = model.MATKHAU;
+                
+                Session["Ten"] = model.TENAD;
+                db.SaveChanges();
+                return RedirectToAction("DetailUser", "Dangnhap");
+            }
+
+            return View(model);
         }
     }
 }

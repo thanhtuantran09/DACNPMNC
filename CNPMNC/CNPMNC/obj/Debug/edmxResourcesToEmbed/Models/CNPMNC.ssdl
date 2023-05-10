@@ -8,6 +8,14 @@
     <Property Name="EMAIL" Type="nvarchar" MaxLength="250" />
     <Property Name="TENAD" Type="nvarchar" MaxLength="250" />
     <Property Name="MATKHAU" Type="nvarchar" MaxLength="250" />
+    <Property Name="CHUCVUID" Type="int" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="CHUCVUID" />
+    </Key>
+    <Property Name="CHUCVUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENCHUCVU" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="CTDONHANG">
     <Key>
@@ -160,6 +168,18 @@
     <Property Name="TRANGTHAIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENTT" Type="nvarchar" MaxLength="250" />
   </EntityType>
+  <Association Name="FK__ADMIN__CHUCVUID__51300E55">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="0..1" />
+    <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="CHUCVUID" />
+      </Principal>
+      <Dependent Role="ADMIN">
+        <PropertyRef Name="CHUCVUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__CTDONHANG__DIENT__160F4887">
     <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="0..1" />
     <End Role="CTDONHANG" Type="Self.CTDONHANG" Multiplicity="*" />
@@ -342,6 +362,7 @@
   </Association>
   <EntityContainer Name="CNPMNCModelStoreContainer">
     <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CTDONHANG" EntityType="Self.CTDONHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CTPHIEUNHAP" EntityType="Self.CTPHIEUNHAP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DANHGIASANPHAM" EntityType="Self.DANHGIASANPHAM" Schema="dbo" store:Type="Tables" />
@@ -356,6 +377,10 @@
     <EntitySet Name="PTTHANHTOAN" EntityType="Self.PTTHANHTOAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THONGSOKT" EntityType="Self.THONGSOKT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TRANGTHAIDH" EntityType="Self.TRANGTHAIDH" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ADMIN__CHUCVUID__51300E55" Association="Self.FK__ADMIN__CHUCVUID__51300E55">
+      <End Role="CHUCVU" EntitySet="CHUCVU" />
+      <End Role="ADMIN" EntitySet="ADMIN" />
+    </AssociationSet>
     <AssociationSet Name="FK__CTDONHANG__DIENT__160F4887" Association="Self.FK__CTDONHANG__DIENT__160F4887">
       <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
       <End Role="CTDONHANG" EntitySet="CTDONHANG" />

@@ -24,7 +24,7 @@ namespace CNPMNC.Models
             this.DIENTHOAIs = new HashSet<DIENTHOAI>();
         }
         [NotMapped]
-        public HttpPostedFileBase UploadImage { get; set; }
+        public HttpPostedFileBase UploadImage1 { get; set; }
         [NotMapped]
         public List<HANG> ListCate { get; set; }
 

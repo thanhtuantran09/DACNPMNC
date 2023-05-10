@@ -4,6 +4,7 @@
     <EntitySetMapping Name="ADMINs">
       <EntityTypeMapping TypeName="CNPMNCModel.ADMIN">
         <MappingFragment StoreEntitySet="ADMIN">
+          <ScalarProperty Name="CHUCVUID" ColumnName="CHUCVUID" />
           <ScalarProperty Name="ADMINID" ColumnName="ADMINID" />
           <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
           <ScalarProperty Name="TENAD" ColumnName="TENAD" />
@@ -173,6 +174,14 @@
         <MappingFragment StoreEntitySet="TRANGTHAIDH">
           <ScalarProperty Name="TRANGTHAIID" ColumnName="TRANGTHAIID" />
           <ScalarProperty Name="TENTT" ColumnName="TENTT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUCVUs">
+      <EntityTypeMapping TypeName="CNPMNCModel.CHUCVU">
+        <MappingFragment StoreEntitySet="CHUCVU">
+          <ScalarProperty Name="TENCHUCVU" ColumnName="TENCHUCVU" />
+          <ScalarProperty Name="CHUCVUID" ColumnName="CHUCVUID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -8,6 +8,8 @@
     <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="TENAD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="MATKHAU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CHUCVUID" Type="Int32" />
+    <NavigationProperty Name="CHUCVU" Relationship="CNPMNCModel.FK__ADMIN__CHUCVUID__51300E55" FromRole="ADMIN" ToRole="CHUCVU" />
   </EntityType>
   <EntityType Name="CTDONHANG">
     <Key>
@@ -422,6 +424,11 @@
       <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
       <End Role="PHANHOI" EntitySet="PHANHOIs" />
     </AssociationSet>
+    <EntitySet Name="CHUCVUs" EntityType="CNPMNCModel.CHUCVU" />
+    <AssociationSet Name="FK__ADMIN__CHUCVUID__51300E55" Association="CNPMNCModel.FK__ADMIN__CHUCVUID__51300E55">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="ADMIN" EntitySet="ADMINs" />
+    </AssociationSet>
   </EntityContainer>
   <Association Name="FK__DONHANG__PTTHANH__2739D489">
     <End Type="CNPMNCModel.PTTHANHTOAN" Role="PTTHANHTOAN" Multiplicity="0..1" />
@@ -444,6 +451,26 @@
       </Principal>
       <Dependent Role="PHANHOI">
         <PropertyRef Name="KHACHHANGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="CHUCVUID" />
+    </Key>
+    <Property Name="CHUCVUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENCHUCVU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ADMINs" Relationship="CNPMNCModel.FK__ADMIN__CHUCVUID__51300E55" FromRole="CHUCVU" ToRole="ADMIN" />
+  </EntityType>
+  <Association Name="FK__ADMIN__CHUCVUID__51300E55">
+    <End Type="CNPMNCModel.CHUCVU" Role="CHUCVU" Multiplicity="0..1" />
+    <End Type="CNPMNCModel.ADMIN" Role="ADMIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="CHUCVUID" />
+      </Principal>
+      <Dependent Role="ADMIN">
+        <PropertyRef Name="CHUCVUID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

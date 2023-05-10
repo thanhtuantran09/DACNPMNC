@@ -1,0 +1,58 @@
+﻿@model CNPMNC.Models.ADMIN
+
+@{
+    ViewBag.Title = "DetailUser";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+}
+
+<div class="home-product">
+    <div class="row sm-gutter">
+        <!-- Product items -->
+        <div class="home-product-title" style="height: 555px; font-size: 2.5rem; display: flex; padding-left: 0; padding-bottom: 0; padding-top: 0;">
+            <div class="admin-title l-3">
+                <img src="~/Content/img-slider/iconuser.png" alt="" class="admin-title__img">
+                <div class="admin-title__info">
+                    <div class="admin-title__info-name">
+                        <p>Tên:</p>
+                        <p> @Model.TENAD</p>
+                    </div>
+                    <div class="admin-title__info-email">
+                        <p>Email:</p>
+                        <p>@Model.EMAIL</p>
+                    </div>
+                    <div class="admin-title__info-email">
+                        <p>Chức vụ:</p>
+                        <p> @(Model.CHUCVUID==null?"":Model.CHUCVU.TENCHUCVU)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-profile l-9">
+                @using (Html.BeginForm("DetailUser", "Dangnhap", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.Hidden("ADMINID", Model.ADMINID)
+                    <div style="display: flex; justify-content: space-between;">
+                        <div class="home-product-title-contents" style="margin-top: 25px;">
+                            <p style="font-size: 1.5rem;">Tên</p>
+                            @Html.EditorFor(model => model.TENAD, new { htmlAttributes = new { @class = "input-qldm-create",@type="text", @placeholder = "" ,@tabindex = "0" } })
+                          
+                        </div>
+                        <div class="home-product-title-contents" style="margin-top: 25px;">
+                            <p style="font-size: 1.5rem;">Email</p>
+                            @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "input-qldm-create", @type = "text", @placeholder = "", @tabindex = "0", @readonly = "readonly" } })
+                        </div>
+                        <div class="home-product-title-contents" style="margin-top: 25px;">
+                            <p style="font-size: 1.5rem;">Mật khẩu</p>
+                            @Html.EditorFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "input-qldm-create", @type = "password", @placeholder = "", @tabindex = "0" } })
+
+                        </div>
+                    </div>
+                    <div class="home-product-title-contents" style="margin-top: 25px;">
+                        <button class="input-qldm-save">Cập nhật</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+

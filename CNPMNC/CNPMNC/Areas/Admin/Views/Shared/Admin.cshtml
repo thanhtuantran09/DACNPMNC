@@ -10,7 +10,7 @@
     <link href="~/Areas/Admin/Content/base.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/cart.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/grid.css" rel="stylesheet" />
-    <link href="~/Areas/Admin/Content/main.css?v=1" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/main.css?v=" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/menu.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/reset.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/responsive.css" rel="stylesheet" />
@@ -80,9 +80,9 @@
                         </div>
 
                         <div class="dropdown-content" id="myDropdown">
-                            <a href="#">abc</a>
-                            <a href="#">Xem tài khoản</a>
-                            <a href="">Đăng xuất</a>
+                            <a href="#">@Session["Ten"]</a>
+                            <a href="@Url.Action("DetailUser", "Dangnhap" )">Xem tài khoản</a>
+                            <a href="@Url.Action("DangXuat", "Dangnhap")">Đăng xuất</a>
                         </div>
 
 

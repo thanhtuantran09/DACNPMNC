@@ -86,7 +86,7 @@
                             {
                             <li class="header__navbar-item header__navbar-user">
 
-                                <img src="~/Content/img-slider/iconuser.png" alt="" class="header__navbar-user-img" />
+                                <img src="@Url.Content(Session["Hinh"].ToString())" alt="" class="header__navbar-user-img" />
                                 <span class="header__navbar-user-name">@Session["Email"]</span>
 
                                 <ul class="header__navbar-user-menu">
