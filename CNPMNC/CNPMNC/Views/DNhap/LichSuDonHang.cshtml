@@ -33,6 +33,15 @@
         color: var(--primary-color);
         border-bottom: 3px solid var(--primary-color);
     }
+    .tr-order th {
+        font-size:1.4rem;
+    }
+    .tr-order__detail td {
+        font-size: 1.4rem;
+    }
+    .tr-order__detail td a {
+        font-size: 1.4rem;
+    }
 </style>
 <div class="app__container">
     <div class="grid wide">
@@ -161,7 +170,7 @@
                                     </ul>
 
                                     <table>
-                                        <tr>
+                                        <tr class="tr-order">
                                             <th>Mã đơn hàng</th>
                                             <th>Ngày đặt hàng</th>
                                             <th>Tổng tiền</th>
@@ -171,7 +180,7 @@
                                         </tr>
                                         @foreach (var donHang in Model)
                                         {
-                                            <tr >
+                                            <tr class="tr-order__detail">
                                                 <td>@donHang.DONHANGID</td>
                                                 <td>  @string.Format("{0:dd/MM/yyyy HH:mm:ss}", donHang.NGAYTAO)</td>
                                                 <td> @string.Format("{0:0,0 đ}", donHang.THANHTIEN) </td>

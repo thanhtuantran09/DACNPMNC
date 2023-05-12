@@ -263,11 +263,13 @@
     <Content Include="Content\css\cart.css" />
     <Content Include="Content\css\checkout.css" />
     <Content Include="Content\css\grid.css" />
+    <Content Include="Content\css\lienhe.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\PageList.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\slider.css" />
+    <Content Include="Content\css\toast.css" />
     <Content Include="Content\css\validator.css" />
     <Content Include="Content\Hinh\appstore.png" />
     <Content Include="Content\Hinh\complete-checkout.png" />
