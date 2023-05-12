@@ -39,63 +39,8 @@ namespace CNPMNC.Controllers
             }
             else
             {
-                Cart cart1 = Session["Cart"] as Cart;
-                // Lấy thông tin khách hàng từ CSDL
-                var khachHang = db.KHACHHANGs.SingleOrDefault(kh => kh.EMAIL == email);
-                var donHang = new DONHANG();
 
-                // Thêm thông tin khách hàng vào đơn hàng
-                donHang.KHACHHANGID = khachHang.KHACHHANGID;
-                donHang.TENKH = (form["Hovaten"]);
-
-                donHang.DIACHI = (form["Diachi"]);
-                donHang.SDT = (form["SDT"]);
-                donHang.NGAYTAO = DateTime.Now;
-                donHang.THANHTIEN = (decimal?)cart1.Tongtien();
-                // Lấy trạng thái đơn hàng mặc định (ví dụ: 1 - Chờ xử lý)
-                var trangThai = db.TRANGTHAIDHs.SingleOrDefault(tt => tt.TRANGTHAIID == 1);
-
-                // Thêm thông tin trạng thái vào đơn hàng
-                donHang.TRANGTHAIID = trangThai.TRANGTHAIID;
-                var ptthanhtoan = db.PTTHANHTOANs.SingleOrDefault(tt => tt.PTTHANHTOANID == 2);
-                donHang.PTTHANHTOANID = ptthanhtoan.PTTHANHTOANID;
-                // Lưu đơn hàng vào CSDL
-                db.DONHANGs.Add(donHang);
-
-
-                // Thêm sản phẩm vào chi tiết đơn hàng
-
-
-                foreach (var item in cart1.Items)
-                {
-                    CTDONHANG chiTietDonHang = new CTDONHANG();
-
-
-                    chiTietDonHang.DONHANGID = donHang.DONHANGID;
-                    chiTietDonHang.DIENTHOAIID = item.sanpham.DIENTHOAIID;
-                    chiTietDonHang.SOLUONGMUA = item.soluong;
-
-
-                    chiTietDonHang.TONGTIEN = (item.soluong * item.sanpham.GIAGIAM);
-
-                    db.CTDONHANGs.Add(chiTietDonHang);
-                    foreach (var p in db.DIENTHOAIs.Where(s => s.DIENTHOAIID == chiTietDonHang.DIENTHOAIID))
-                    {
-                        var soluongtonmoi = p.SOLUONGTON - item.soluong;
-                        p.SOLUONGTON = soluongtonmoi;
-                    }
-                }
-
-                db.SaveChanges();
-
-                // Hiển thị thông báo đặt hàng thành công
-                ViewBag.ThongBao = "Đặt hàng thành công!!";
-            }
-
-
-
-
-            Cart cart = Session["Cart"] as Cart;
+                Cart cart = Session["Cart"] as Cart;
                 PayLib pay = new PayLib();
 
                 pay.AddRequestData("vnp_Version", "2.1.0"); //Phiên bản api mà merchant kết nối. Phiên bản hiện tại là 2.1.0
@@ -118,8 +63,8 @@ namespace CNPMNC.Controllers
                 return Redirect(paymentUrl);
 
             }
-           
-        
+
+        }
 
         public ActionResult PaymentConfirm(FormCollection form)
         {
@@ -128,6 +73,7 @@ namespace CNPMNC.Controllers
             {
                 string hashSecret = ConfigurationManager.AppSettings["HashSecret"]; //Chuỗi bí mật
                 var vnpayData = Request.QueryString;
+                var email = Session["Email"] as string;
                 PayLib pay = new PayLib();
                 Cart cart = Session["Cart"] as Cart;
                 //lấy toàn bộ dữ liệu được trả về
@@ -151,7 +97,52 @@ namespace CNPMNC.Controllers
                 {
                     if (vnp_ResponseCode == "00")
                     {
-                        cart.Xoagh();
+                        Cart cart1 = Session["Cart"] as Cart;
+                        // Lấy thông tin khách hàng từ CSDL
+                        var khachHang = db.KHACHHANGs.SingleOrDefault(kh => kh.EMAIL == email);
+                        var donHang = new DONHANG();
+
+                        // Thêm thông tin khách hàng vào đơn hàng
+                        donHang.KHACHHANGID = khachHang.KHACHHANGID;
+                        donHang.TENKH = (form["Hovaten"]);
+
+                        donHang.DIACHI = (form["Diachi"]);
+                        donHang.SDT = (form["SDT"]);
+                        donHang.NGAYTAO = DateTime.Now;
+                        donHang.THANHTIEN = (decimal?)cart1.Tongtien();
+                        // Lấy trạng thái đơn hàng mặc định (ví dụ: 1 - Chờ xử lý)
+                        var trangThai = db.TRANGTHAIDHs.SingleOrDefault(tt => tt.TRANGTHAIID == 1);
+
+                        // Thêm thông tin trạng thái vào đơn hàng
+                        donHang.TRANGTHAIID = trangThai.TRANGTHAIID;
+                        // Lưu đơn hàng vào CSDL
+                        db.DONHANGs.Add(donHang);
+
+
+                        // Thêm sản phẩm vào chi tiết đơn hàng
+
+
+                        foreach (var item in cart1.Items)
+                        {
+                            CTDONHANG chiTietDonHang = new CTDONHANG();
+
+
+                            chiTietDonHang.DONHANGID = donHang.DONHANGID;
+                            chiTietDonHang.DIENTHOAIID = item.sanpham.DIENTHOAIID;
+                            chiTietDonHang.SOLUONGMUA = item.soluong;
+
+
+                            chiTietDonHang.TONGTIEN = (item.soluong * item.sanpham.GIAGIAM);
+
+                            db.CTDONHANGs.Add(chiTietDonHang);
+                            foreach (var p in db.DIENTHOAIs.Where(s => s.DIENTHOAIID == chiTietDonHang.DIENTHOAIID))
+                            {
+                                var soluongtonmoi = p.SOLUONGTON - item.soluong;
+                                p.SOLUONGTON = soluongtonmoi;
+                            }
+                        }
+                        cart1.Xoagh();
+                        db.SaveChanges();
                         //Thanh toán thành công
                         ViewBag.Message = "Thanh toán thành công hóa đơn " + orderId + " | Mã giao dịch: " + vnpayTranId;
                     }
