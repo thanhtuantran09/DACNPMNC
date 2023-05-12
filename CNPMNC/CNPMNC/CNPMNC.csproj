@@ -369,6 +369,7 @@
     <Content Include="Scripts\js\Giohang.js" />
     <Content Include="Scripts\js\products.js" />
     <Content Include="Scripts\js\slider2.js" />
+    <Content Include="Scripts\js\themhang.js" />
     <Content Include="Scripts\js\validator.js" />
     <Content Include="Scripts\js\zoom.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -401,6 +402,7 @@
     <Content Include="Views\DNhap\ChiTietDonHang.cshtml" />
     <Content Include="Views\Trangchu\BanChay.cshtml" />
     <Content Include="Views\Trangchu\Lienhe.cshtml" />
+    <Content Include="Views\Trangchu\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
