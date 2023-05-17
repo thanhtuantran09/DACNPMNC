@@ -178,61 +178,64 @@
                                 </li> -->
 
                                 <ul class="menu-links">
-                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Hang" ? "active-menu" : "")">
-                                        <a href="@Url.Action("Hang", "Hang")">
-                                            <i class='fas fa-solid fa-list icon'></i>
-                                            <span class="text nav-text">Quản lý danh mục</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Dienthoai" ? "active-menu" : "")">
-                                        <a href="@Url.Action("Dienthoai", "Dienthoai")">
-                                            <i class='fas fa-solid fa-clipboard-list icon'></i>
-                                            <span class="text nav-text">Quản lý sản phẩm</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "TSKT" ? "active-menu" : "")">
-                                        <a href="@Url.Action("TSKT", "TSKT")">
-                                            <i class='fas fa-solid fa-clipboard-list icon'></i>
-                                            <span class="text nav-text">Các thông số kĩ thuật</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Donhang" ? "active-menu" : "")">
-                                        <a href="@Url.Action("Donhang", "Donhang")">
-                                            <i class='fas fa-solid fa-box icon'></i>
-                                            <span class="text nav-text">Quản lý đơn hàng</span>
-                                        </a>
-                                    </li>
-
                                     <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Dashboard" ? "active-menu" : "")">
                                         <a href="@Url.Action("Dashboard", "Dashboard")">
                                             <i class='fas fa-chart-bar icon'></i>
                                             <span class="text nav-text">Doanh thu</span>
                                         </a>
                                     </li>
-
-                                    <!-- <li class="nav-link">
-                                        <a href="#">
-                                            <i class='bx bx-heart icon' ></i>
-                                            <span class="text nav-text">Likes</span>
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Dienthoai" ? "active-menu" : "")">
+                                        <a href="@Url.Action("Dienthoai", "Dienthoai")">
+                                            <i class='fas fa-solid fa-clipboard-list icon'></i>
+                                            <span class="text nav-text">Quản lý sản phẩm</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Hang" ? "active-menu" : "")">
+                                        <a href="@Url.Action("Hang", "Hang")">
+                                            <i class='fas fa-solid fa-list icon'></i>
+                                            <span class="text nav-text">Quản lý danh mục</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "TSKT" ? "active-menu" : "")">
+                                        <a href="@Url.Action("TSKT", "TSKT")">
+                                            <i class='fas fa-solid fa-clipboard-list icon'></i>
+                                            <span class="text nav-text">Các thông số kĩ thuật</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Donhang" ? "active-menu" : "")">
+                                        <a href="@Url.Action("Donhang", "Donhang")">
+                                            <i class='fas fa-solid fa-box icon'></i>
+                                            <span class="text nav-text">Quản lý đơn hàng</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Taikhoan" ? "active-menu" : "")">
+                                        <a href="@Url.Action("Taikhoan", "TaikhoanUser")">
+                                            <i class='fas fa-solid fa-address-card icon'></i>
+                                            <span class="text nav-text">Quản lý tài khoản User</span>
                                         </a>
                                     </li>
 
-                                    <li class="nav-link">
-                                        <a href="#">
-                                            <i class='bx bx-wallet icon' ></i>
-                                            <span class="text nav-text">Wallets</span>
-                                        </a>
-                                    </li> -->
+
+                                    <!-- <li class="nav-link">
+        <a href="#">
+            <i class='bx bx-heart icon' ></i>
+            <span class="text nav-text">Likes</span>
+        </a>
+    </li>
+
+    <li class="nav-link">
+        <a href="#">
+            <i class='bx bx-wallet icon' ></i>
+            <span class="text nav-text">Wallets</span>
+        </a>
+    </li> -->
 
                                 </ul>
                             </div>
 
                             <div class="bottom-content">
                                 <li class="">
-                                    <a href="#">
+                                    <a href="@Url.Action("Dangnhap", "Dangnhap")">
                                         <i class='bx bx-log-out icon'></i>
                                         <span class="text nav-text">Đăng xuất</span>
                                     </a>

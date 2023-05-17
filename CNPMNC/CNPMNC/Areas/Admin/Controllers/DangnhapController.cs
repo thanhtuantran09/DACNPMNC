@@ -32,7 +32,7 @@ namespace CNPMNC.Areas.Admin.Controllers
 
                 Session["Ten"]=objUserGet.TENAD;
                 Session["Email"] = admin.EMAIL;
-            return RedirectToAction("Dienthoai", "Dienthoai");
+            return RedirectToAction("Dashboard", "Dashboard");
 
         }
         public ActionResult DangXuat()

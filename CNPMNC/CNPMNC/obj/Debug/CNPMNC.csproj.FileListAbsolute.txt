@@ -338,3 +338,7 @@ E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\obj\Debug\CNPMNC.csproj.CoreCompileInputs.cache
 E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\obj\Debug\CNPMNC.csproj.CopyComplete
 E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\obj\Debug\CNPMNC.dll
 E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\obj\Debug\CNPMNC.pdb
+E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.Core.dll
+E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.Core.xml
+E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.EntityFramework.xml

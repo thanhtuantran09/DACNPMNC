@@ -51,6 +51,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -139,6 +145,7 @@
     <Compile Include="Areas\Admin\Controllers\DienthoaiController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonhangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TaikhoanUserController.cs" />
     <Compile Include="Areas\Admin\Controllers\TSKTController.cs" />
     <Compile Include="Controllers\DNhapController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
@@ -356,6 +363,10 @@
     <Content Include="Areas\Admin\Views\Dashboard\Dashboard.cshtml" />
     <Content Include="Areas\Admin\Views\Donhang\SelectCatePTTT.cshtml" />
     <Content Include="Areas\Admin\Views\Dangnhap\DetailUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Dienthoai\Khongcoquyen.cshtml" />
+    <Content Include="Areas\Admin\Views\TaikhoanUser\Taikhoan.cshtml" />
+    <Content Include="Areas\Admin\Views\TaikhoanUser\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TaikhoanUser\Delete.cshtml" />
     <None Include="Scripts\jquery-3.6.4.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.4.js" />
     <Content Include="Scripts\jquery-3.6.4.min.js" />
