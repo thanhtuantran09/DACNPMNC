@@ -342,3 +342,7 @@ E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.Core.dll
 E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.Core.xml
 E:\CNPMNC\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\học tập\Công nghệ phần mềm nâng cao\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.Core.dll
+D:\học tập\Công nghệ phần mềm nâng cao\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\học tập\Công nghệ phần mềm nâng cao\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.Core.xml
+D:\học tập\Công nghệ phần mềm nâng cao\DACNPMNC\CNPMNC\CNPMNC\bin\Microsoft.AspNet.Identity.EntityFramework.xml

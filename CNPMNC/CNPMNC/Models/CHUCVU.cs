@@ -22,7 +22,8 @@ namespace CNPMNC.Models
     
         public int CHUCVUID { get; set; }
         public string TENCHUCVU { get; set; }
-    
+        public List<CHUCVU> ListCate { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ADMIN> ADMINs { get; set; }
     }

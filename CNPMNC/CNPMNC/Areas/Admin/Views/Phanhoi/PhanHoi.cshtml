@@ -1,9 +1,8 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
-@model PagedList.IPagedList<CNPMNC.Models.KHACHHANG>
-
+@model PagedList.IPagedList<CNPMNC.Models.PHANHOI>
 @{
-    ViewBag.Title = "Taikhoan";
+    ViewBag.Title = "PhanHoi";
     Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
     var stt = 0;
 }
@@ -13,12 +12,12 @@
         <!-- Product items -->
         <div class="home-product-title">
             <div class="home-product-title-label">
-                <h2 class="home-product-title-label__heading">Quản lý Tài khoản khách hàng</h2>
+                <h2 class="home-product-title-label__heading">Quản lý phản hồi của khách hàng</h2>
             </div>
             <div class="button-create-list">
-                @using (Html.BeginForm("Taikhoan", "TaikhoanUser", FormMethod.Get))
+                @using (Html.BeginForm("PhanHoi", "Phanhoi", FormMethod.Get))
                 {
-                    @Html.TextBox("SearchString", ViewBag.CrurentFilter as string, new { @class = "input-qldm-create", @type = "text", @placeholder = "Nhập tên hoặc số điện thoại...", @tabindex = "0" })
+                    @Html.TextBox("SearchString", ViewBag.CrurentFilter as string, new { @class = "input-qldm-create", @type = "text", @placeholder = "Nhập tên hoặc email...", @tabindex = "0" })
                     <input type="submit" value="Tìm kiếm" class="input-qldm-save">
                 }
 
@@ -28,39 +27,30 @@
                     <table class="table-create-sanpham">
                         <tbody>
                             <tr style="background-color: #faf2c0;">
-                                <th>STT</th>
+                                <th>Mã phản hồi</th>
                                 <th>Họ và tên</th>
                                 <th>Email</th>
-                                <th>Số điện thoại</th>
-                                <th>Địa chỉ</th>
-                                <th>Hình ảnh</th>
+                                <th>Phản hồi</th>
                                 <th>Chỉnh sửa</th>
                             </tr>
                             @foreach (var item in Model)
                             {
                                 stt = stt + 1;
                                 <tr>
-                                    <td>@stt</td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.HOTEN)
+                                        @Html.DisplayFor(modelItem => item.PHANHOIID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.KHACHHANG.HOTEN)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.EMAIL)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.SDT)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DIACHI)
-                                    </td>
-                                  
-                                    <td>
-                                        <img width="50px" src="@Url.Content(item.HINH)" alt="">
+                                        @Html.DisplayFor(modelItem => item.PHANHOI1)
                                     </td>
                                     <td class="td-edit">
-                                        @Html.ActionLink(" ", "Edit", new { id = item.KHACHHANGID },
-                                                              new { @class = "td-edit-button_edit fas fa-solid fa-pen" })
-                                        @Html.ActionLink(" ", "Delete", new { id = item.KHACHHANGID },
+                                        @Html.ActionLink(" ", "Delete", new { id = item.PHANHOIID },
                                                          new { @class = "td-edit-button_delete fas fa-solid fa-trash" })
                                     </td>
                                 </tr>
@@ -74,13 +64,13 @@
             </div>
             <div class="col">
                 <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 pagelist">
-                    @using (Html.BeginForm("Taikhoan", "TaikhoanUser", FormMethod.Get))
+                    @using (Html.BeginForm("NhanVien", "NhanVien", FormMethod.Get))
                     {
                         <p>
                             Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
                         </p>
                     }
-                    @Html.PagedListPager(Model, page => Url.Action("Taikhoan", new { page, size = ViewBag.currentSize }))
+                    @Html.PagedListPager(Model, page => Url.Action("NhanVien", new { page, size = ViewBag.currentSize }))
                 </div>
 
 
@@ -88,3 +78,4 @@
         </div>
     </div>
 </div>
+

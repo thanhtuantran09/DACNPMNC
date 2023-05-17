@@ -1,0 +1,4 @@
+﻿@model CNPMNC.Models.CHUCVU
+
+@Html.DropDownListFor(model => model.CHUCVUID, new SelectList(Model.ListCate.OrderBy(model => model.TENCHUCVU), "CHUCVUID", "TENCHUCVU"),
+    "--Chọn chức vụ--", new { @class = "input-qlsp-create", @type = "text", @tabindex = "0", @required = true })

@@ -211,7 +211,19 @@
                                     <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Taikhoan" ? "active-menu" : "")">
                                         <a href="@Url.Action("Taikhoan", "TaikhoanUser")">
                                             <i class='fas fa-solid fa-address-card icon'></i>
-                                            <span class="text nav-text">Quản lý tài khoản User</span>
+                                            <span class="text nav-text">Khách hàng</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "NhanVien" ? "active-menu" : "")">
+                                        <a href="@Url.Action("NhanVien", "NhanVien")">
+                                            <i class='fas fa-solid fa-users icon'></i>
+                                            <span class="text nav-text">Nhân viên</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "PhanHoi" ? "active-menu" : "")">
+                                        <a href="@Url.Action("PhanHoi", "Phanhoi")">
+                                            <i class='fas fa-solid fa-comments icon'></i>
+                                            <span class="text nav-text">Phản hồi của khách hàng</span>
                                         </a>
                                     </li>
 
@@ -234,12 +246,6 @@
                             </div>
 
                             <div class="bottom-content">
-                                <li class="">
-                                    <a href="@Url.Action("Dangnhap", "Dangnhap")">
-                                        <i class='bx bx-log-out icon'></i>
-                                        <span class="text nav-text">Đăng xuất</span>
-                                    </a>
-                                </li>
 
                                 <li class="mode">
                                     <div class="sun-moon">
@@ -252,6 +258,13 @@
                                         <span class="switch"></span>
                                     </div>
                                 </li>
+                                <li class="">
+                                    <a href="@Url.Action("Dangxuat", "Dangnhap")">
+                                        <i class='bx bx-log-out icon'></i>
+                                        <span class="text nav-text">Đăng xuất</span>
+                                    </a>
+                                </li>
+
 
                             </div>
                         </div>
