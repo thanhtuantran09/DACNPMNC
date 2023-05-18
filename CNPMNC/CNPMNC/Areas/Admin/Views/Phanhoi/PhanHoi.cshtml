@@ -30,6 +30,7 @@
                                 <th>Mã phản hồi</th>
                                 <th>Họ và tên</th>
                                 <th>Email</th>
+                                <th>Số điện thoại</th>
                                 <th>Phản hồi</th>
                                 <th>Chỉnh sửa</th>
                             </tr>
@@ -45,6 +46,9 @@
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.EMAIL)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SDT)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.PHANHOI1)

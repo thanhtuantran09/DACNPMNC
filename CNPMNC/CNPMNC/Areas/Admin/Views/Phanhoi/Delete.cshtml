@@ -1,0 +1,57 @@
+﻿@model CNPMNC.Models.PHANHOI
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
+}
+
+<h2 class="title-delete">Xóa thông tin</h2>
+
+<h3 class="title-delete_ask">Bạn có chắc muốn xóa thông tin này?</h3>
+<div class="delete-form">
+    <h4>Thông tin phản hồi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACHHANGID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelItem => Model.KHACHHANG.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PHANHOI1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHANHOI1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="delete-form_btn-delete" /> |
+            @Html.ActionLink("Trở về", "PhanHoi", "Phanhoi", new { @class = "delete-form_btn-back" })
+        </div>
+    }
+</div>

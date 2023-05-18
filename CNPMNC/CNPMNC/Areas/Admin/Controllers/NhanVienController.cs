@@ -137,7 +137,6 @@ namespace CNPMNC.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/Hang/Delete/5
         public ActionResult Delete(int id)
         {
             var deleting = db.ADMINs.Find(id);

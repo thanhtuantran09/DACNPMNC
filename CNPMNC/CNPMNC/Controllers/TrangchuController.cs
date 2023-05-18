@@ -69,6 +69,7 @@ namespace CNPMNC.Controllers
             }
             return View(dienthoai);
         }
+
         [HttpPost]
         public ActionResult AddReview(int id, string review)
         {

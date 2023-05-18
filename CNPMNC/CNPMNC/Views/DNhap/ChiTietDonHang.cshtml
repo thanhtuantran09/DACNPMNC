@@ -52,10 +52,10 @@
                                 <div class="history-order__product-price">
                                     <p>
                                         @*@{
-                                            var dongia = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == item.DIENTHOAIID);
-                                            var tendongia = dongia != null ? string.Format("{0:0,0 đ}", dongia.GIAGIAM) : "";
-                                        }
-                                        Đơn giá: @tendongia*@
+                                var dongia = db.DIENTHOAIs.FirstOrDefault(dt => dt.DIENTHOAIID == item.DIENTHOAIID);
+                                var tendongia = dongia != null ? string.Format("{0:0,0 đ}", dongia.GIAGIAM) : "";
+                            }
+                            Đơn giá: @tendongia*@
                                     </p>
                                     <p>Tổng tiền: @string.Format("{0:0,0 đ}", item.TONGTIEN)</p>
 
@@ -75,8 +75,9 @@
 
                     <div style="margin-top: 13.4px;">
                         <a href="@Url.Action("LichSuDonHang", "DNhap")" class="back-to-index">Quay lại</a>
-                    </div>
 
+                    </div>
+                   
                 </div>
 
 

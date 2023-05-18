@@ -80,5 +80,30 @@ namespace CNPMNC.Areas.Admin.Controllers
             // Người dùng không có quyền truy cập, chuyển hướng đến trang lỗi hoặc xử lý khác
             return RedirectToAction("Khongcoquyen", "Dienthoai");
         }
+        public ActionResult Delete(int id)
+        {
+            var deleting = db.PHANHOIs.Find(id);
+
+            return View(deleting);
+        }
+
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                var deleting = db.PHANHOIs.Find(id);
+                db.PHANHOIs.Remove(deleting);
+                db.SaveChanges();
+                return RedirectToAction("PhanHoi");
+            }
+            catch
+            {
+                return Content("Thông tin này đã được sử dụng!");
+            }
+        }
     }
 }

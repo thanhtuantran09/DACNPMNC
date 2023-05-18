@@ -375,6 +375,7 @@
     <Content Include="Areas\Admin\Views\NhanVien\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Phanhoi\PhanHoi.cshtml" />
+    <Content Include="Areas\Admin\Views\Phanhoi\Delete.cshtml" />
     <None Include="Scripts\jquery-3.6.4.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.4.js" />
     <Content Include="Scripts\jquery-3.6.4.min.js" />
@@ -424,6 +425,8 @@
     <Content Include="Views\Trangchu\BanChay.cshtml" />
     <Content Include="Views\Trangchu\Lienhe.cshtml" />
     <Content Include="Views\Trangchu\Search.cshtml" />
+    <Content Include="Views\DNhap\Khongduochuy.cshtml" />
+    <Content Include="Views\DNhap\Huydonhang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

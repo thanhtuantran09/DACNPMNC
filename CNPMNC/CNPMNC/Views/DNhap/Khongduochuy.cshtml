@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Khongduochuy";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+<style>
+    .history-order__date {
+        font-size: 1.5rem;
+        margin-bottom: 13.4px;
+    }
+</style>
+
+<div class="app__container">
+    <div class="grid wide">
+
+
+        <div class="row sm-gutter app__content">
+
+            <div class="col l-12 m-12 c-12">
+
+                <div class="home-product" style="background-color: snow; padding: 15px 15px;">
+
+                    <h1 style="color:red">Đơn hàng của bạn không thể hủy!</h1>
+                </div>
+                <div style="margin-top: 13.4px;">
+                    <a href="@Url.Action("LichSuDonHang", "DNhap")" class="back-to-index">Quay lại</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

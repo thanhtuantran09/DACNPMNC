@@ -158,5 +158,35 @@ namespace CNPMNC.Controllers
             ViewBag.DonHang = donHang;
             return View(chiTietDonHangs);
         }
+        public ActionResult Khongduochuy()
+        {
+            // Thực hiện các logic xử lý hoặc trả về view tương ứng
+            return View();
+        }
+     
+        public ActionResult Huydonhang(int id)
+        {
+            var donHang = db.DONHANGs.SingleOrDefault(dh => dh.DONHANGID == id);
+
+            // Kiểm tra nếu TRANGTHAIID là 5 hoặc 6, không cho phép hủy đơn hàng
+            if (donHang.TRANGTHAIID == 5 || donHang.TRANGTHAIID == 6)
+            {
+                // Redirect hoặc hiển thị thông báo lỗi cho khách hàng
+                return RedirectToAction("Khongduochuy", "Dnhap");
+            }
+
+            // Kiểm tra nếu TRANGTHAIID là từ 1 đến 4, chuyển TRANGTHAIID thành 7
+            if (donHang.TRANGTHAIID >= 1 && donHang.TRANGTHAIID <= 4)
+            {
+                donHang.TRANGTHAIID = 7;
+                db.SaveChanges();
+            }
+
+            var chiTietDonHangs = db.CTDONHANGs.Where(ct => ct.DONHANGID == id).ToList();
+            ViewBag.DonHang = donHang;
+
+            return View(chiTietDonHangs);
+
+        }
     }
 }

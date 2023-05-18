@@ -184,9 +184,15 @@
                                                 <td>@donHang.DONHANGID</td>
                                                 <td>  @string.Format("{0:dd/MM/yyyy HH:mm:ss}", donHang.NGAYTAO)</td>
                                                 <td> @string.Format("{0:0,0 đ}", donHang.THANHTIEN) </td>
-                                                <td  style="color:@(donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="COD"?"#32CD32":donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="Thẻ ngân hàng"?"#DC143C":"")">@(donHang.PTTHANHTOAN==null?"":donHang.PTTHANHTOAN.TENPT)</td>
+                                                <td style="color:@(donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="COD"?"#32CD32":donHang.PTTHANHTOAN!=null && donHang.PTTHANHTOAN.TENPT=="Thẻ ngân hàng"?"#DC143C":"")">@(donHang.PTTHANHTOAN==null?"":donHang.PTTHANHTOAN.TENPT)</td>
                                                 <td style="color:@(donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Đặt hàng thành công"?"#32CD32":donHang.TRANGTHAIDH!=null && donHang.TRANGTHAIDH.TENTT=="Hủy đơn"?"#DC143C":"")"> @(donHang.TRANGTHAIDH==null?"":donHang.TRANGTHAIDH.TENTT)</td>
-                                                <td><a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID })" class="back-to-index">Xem chi tiết</a></td>
+                                                <td>
+                                                    <a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID })" class="back-to-index">Xem chi tiết</a>
+
+                                                    <a href="@Url.Action("Huydonhang", "DNhap", new { id = donHang.DONHANGID })" class="back-to-index">Hủy dơn</a>
+                                                   
+                                                </td>
+                                               
                                             </tr>
                                         }
                                     </table>
