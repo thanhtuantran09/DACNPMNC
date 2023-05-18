@@ -189,11 +189,28 @@
                                                 <td>
                                                     <a href="@Url.Action("ChiTietDonHang", "DNhap", new { id = donHang.DONHANGID })" class="back-to-index">Xem chi tiết</a>
 
-                                                    <a href="@Url.Action("Huydonhang", "DNhap", new { id = donHang.DONHANGID })" class="back-to-index">Hủy dơn</a>
-                                                   
+                                                    @*<a href="@Url.Action("Huydonhang", "DNhap", new { id = donHang.DONHANGID })" class="back-to-index">Hủy dơn</a>*@
+                                                    <label for="button-show" class="back-to-index" style="font-size:1.4rem;">Hủy đơn</label>
+                                                    <input type="checkbox" class="button-show-cancel-order" id="button-show">
+                                                    <label for="button-show" class="overlay3"></label>
+                                                    <div class="cancel">
+                                                        <label for="button-show" class="cancel-close">
+                                                            <i class="fas fa-times"></i>
+                                                        </label>
+                                                        <div class="cancel-main">
+                                                            
+                                                            <div class="cancel-main-content">
+                                                                <h3 class="cancel-main-label" style="margin-bottom: 20px;">Bạn có chắc là muốn hủy đơn hàng này!!!</h3>
+                                                                <a href="@Url.Action("Huydonhang", "DNhap", new { id = donHang.DONHANGID })" class="cancel-button">Hủy đơn</a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </td>
-                                               
+
                                             </tr>
+                                            
                                         }
                                     </table>
                                 </div>
