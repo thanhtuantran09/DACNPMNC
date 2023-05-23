@@ -48,7 +48,7 @@
                 <div class="home-product-title-contents-sp" style="margin-top: 25px;">
                     <div class="home-product-input-create-sp">
                         @Html.LabelFor(model => model.PHANTRAMGIAM, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.PHANTRAMGIAM, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập tên điện thoại...", @tabindex = "0", @required = true } })
+                        @Html.EditorFor(model => model.PHANTRAMGIAM, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập phần trăm giảm...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.PHANTRAMGIAM, "", new { @class = "text-danger" })
                         <p style="color:red;text-align:center">
                             @if (ViewBag.error != null)

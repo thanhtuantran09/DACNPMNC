@@ -14,33 +14,33 @@
             <!-- Product items -->
             <div class="home-product-title" style="height: 550px;">
                 <div class="home-product-title-label">
-                    <h2 class="home-product-title-label__heading">Thêm mới điện thoại</h2>
+                    <h2 class="home-product-title-label__heading">Thêm mới thông số kỹ thuật cho điện thoại</h2>
                 </div>
                 
                 <div class="home-product-title-contents-sp" style="margin-top: 25px;">
                     <div class="home-product-input-create-sp">
-                        @Html.LabelFor(model => model.DIENTHOAIID, htmlAttributes: new { @for = "input" })
+                        <label for="input">Chọn điện thoại</label>
                         @{Html.RenderAction("SelectCateDT", "TSKT"); }
 
                         @Html.ValidationMessageFor(model => model.DIENTHOAIID, "", new { @class = "text-danger" })
                     </div>
                     <div class="home-product-input-create-sp">
-                        @Html.LabelFor(model => model.MANHINH, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.MANHINH, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        <label for="input">Màn hình</label>
+                        @Html.EditorFor(model => model.MANHINH, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập màn hình...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.MANHINH, "", new { @class = "text-danger" })
-                       
+
                     </div>
                     <div class="home-product-input-create-sp">
-                        @Html.LabelFor(model => model.DOPHANGIAI, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.DOPHANGIAI, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập giá bán...", @tabindex = "0", @required = true } })
+                        <label for="input">Độ phân giải</label>
+                        @Html.EditorFor(model => model.DOPHANGIAI, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập dộ phân giải...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.DOPHANGIAI, "", new { @class = "text-danger" })
-                      
+
                     </div>
                 </div>
                 <div class="home-product-title-contents-sp" style="margin-top: 25px;">
                     <div class="home-product-input-create-sp">
-                        @Html.LabelFor(model => model.CAMERA, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.CAMERA, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập tên điện thoại...", @tabindex = "0", @required = true } })
+                        <label for="input">Camera</label>
+                        @Html.EditorFor(model => model.CAMERA, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập camera...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.CAMERA, "", new { @class = "text-danger" })
                         <p style="color:red;text-align:center">
                             @if (ViewBag.error != null)
@@ -48,42 +48,42 @@
                         </p>
                     </div>
                     <div class="home-product-input-create-sp">
-                        @Html.LabelFor(model => model.HEDH, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.HEDH, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        <label for="input">Hệ điều hành</label>
+                        @Html.EditorFor(model => model.HEDH, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập hệ điều hành...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.HEDH, "", new { @class = "text-danger" })
                     </div>
                     <div class="home-product-input-create-sp ">
-                        @Html.LabelFor(model => model.CHIPXULY, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.CHIPXULY, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        <label for="input">Chip xử lý</label>
+                        @Html.EditorFor(model => model.CHIPXULY, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập chip xử lý...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.CHIPXULY, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="home-product-title-contents-sp" style="margin-top: 25px;">
                     <div class="home-product-input-create-sp ">
-                        @Html.LabelFor(model => model.ROM, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.ROM, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        <label for="input">Rom</label>
+                        @Html.EditorFor(model => model.ROM, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập Rom...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.ROM, "", new { @class = "text-danger" })
                     </div>
                     <div class="home-product-input-create-sp ">
-                        @Html.LabelFor(model => model.RAM, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.RAM, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        <label for="input">Ram</label>
+                        @Html.EditorFor(model => model.RAM, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập Ram...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.RAM, "", new { @class = "text-danger" })
                     </div>
                     <div class="home-product-input-create-sp ">
-                        @Html.LabelFor(model => model.MANGDIDONG, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.MANGDIDONG, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        <label for="input">Mạng di động</label>
+                        @Html.EditorFor(model => model.MANGDIDONG, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập mạng di động...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.MANGDIDONG, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="home-product-title-contents-sp" style="margin-top: 25px;">
                     <div class="home-product-input-create-sp ">
-                        @Html.LabelFor(model => model.SOKESIM, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.SOKESIM, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        <label for="input">Số khe sim</label>
+                        @Html.EditorFor(model => model.SOKESIM, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số khe sim...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.SOKESIM, "", new { @class = "text-danger" })
                     </div>
                     <div class="home-product-input-create-sp ">
-                        @Html.LabelFor(model => model.PIN, htmlAttributes: new { @for = "input" })
-                        @Html.EditorFor(model => model.PIN, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập số lượng tồn...", @tabindex = "0", @required = true } })
+                        <label for="input">Dung lượng pin</label>
+                        @Html.EditorFor(model => model.PIN, new { htmlAttributes = new { @class = "input-qlsp-create", @type = "text", @placeholder = "Nhập dung lượng pin...", @tabindex = "0", @required = true } })
                         @Html.ValidationMessageFor(model => model.PIN, "", new { @class = "text-danger" })
                     </div>
                     <div class="home-product-input-create-sp" style="width: 250px;">
