@@ -25,7 +25,9 @@
                 <div class="home-product" style="background-color: snow; padding: 15px 15px;">
 
                     <h1>Đơn hàng số: @ViewBag.DonHang.DONHANGID</h1>
-                    <p class="history-order__date">Ngày đặt hàng: @string.Format("{0:dd/MM/yyyy HH:mm:ss}", ViewBag.DonHang.NGAYTAO)</p>
+                    <p class="history-order__date"><b>Người nhận:</b> @ViewBag.DonHang.TENKH </p>
+                    <p class="history-order__date"><b>Địa chỉ:</b> @ViewBag.DonHang.DIACHI </p>
+                    <p class="history-order__date"><b>Ngày đặt hàng:</b> @string.Format("{0:dd/MM/yyyy HH:mm:ss}", ViewBag.DonHang.NGAYTAO)</p>
                     <div class="history-order">
                         @foreach (var item in Model)
                         {
@@ -77,7 +79,7 @@
                         <a href="@Url.Action("LichSuDonHang", "DNhap")" class="back-to-index">Quay lại</a>
 
                     </div>
-                   
+
                 </div>
 
 

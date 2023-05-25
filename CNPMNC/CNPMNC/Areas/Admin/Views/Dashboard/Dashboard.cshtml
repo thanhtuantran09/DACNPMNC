@@ -5,6 +5,17 @@
     Layout = "~/Areas/Admin/Views/Shared/Admin.cshtml";
 }
 
+<style>
+    .dashboard-items__detail {
+        color: blue;
+        font-size: 1.2rem;
+        width: fit-content;
+    }
+    .dashboard-items__detail:hover {
+        color: lightblue;
+    }
+</style>
+
 <div class="home-product">
     <div class="row sm-gutter">
         <!-- Product items -->
@@ -13,17 +24,17 @@
                 <div class="dashboard-items">
                     <h2 class="dashboard-items__title">Khách hàng</h2>
                     <p class="dashboard-items__total">@Model.TotalUsers</p>
-                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                    <a href="@Url.Action("Taikhoan","TaikhoanUser")" class="dashboard-items__detail">Xem chi tiết</a>
                 </div>
                 <div class="dashboard-items">
-                    <h2 class="dashboard-items__title">Tổng đơn hàng chờ thanh toán</h2>
+                    <h2 class="dashboard-items__title">Tổng đơn hàng mới chờ xử lý</h2>
                     <p class="dashboard-items__total">@Model.TotalNewOrders</p>
-                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                    <a href="@Url.Action("Donhang","Donhang")" class="dashboard-items__detail">Xem chi tiết</a>
                 </div>
                 <div class="dashboard-items">
                     <h2 class="dashboard-items__title">Tổng sản phẩm</h2>
                     <p class="dashboard-items__total">@Model.TotalProducts</p>
-                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                    <a href="@Url.Action("Dienthoai","Dienthoai")" class="dashboard-items__detail">Xem chi tiết</a>
                 </div>
             </div>
             <div class="dashboard-group">
@@ -33,14 +44,14 @@
                     <p class="dashboard-items__detail">Xem chi tiết</p>
                 </div>
                 <div class="dashboard-items">
-                    <h2 class="dashboard-items__title">Tổng đơn hàng đã thanh toán</h2>
+                    <h2 class="dashboard-items__title">Tổng đơn hàng đã giao thành công</h2>
                     <p class="dashboard-items__total">@Model.TotalOrders</p>
-                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                    <a href="@Url.Action("Donhang","Donhang")" class="dashboard-items__detail">Xem chi tiết</a>
                 </div>
                 <div class="dashboard-items">
-                    <h2 class="dashboard-items__title">Tài khoản Admin</h2>
+                    <h2 class="dashboard-items__title">Tài khoản nhân viên</h2>
                     <p class="dashboard-items__total">@Model.TotalAdmin</p>
-                    <p class="dashboard-items__detail">Xem chi tiết</p>
+                    <a href="@Url.Action("NhanVien","NhanVien")" class="dashboard-items__detail">Xem chi tiết</a>
                 </div>
             </div>
             <div class="dashboard-group" style="justify-content: flex-start; margin: 0 20px;">

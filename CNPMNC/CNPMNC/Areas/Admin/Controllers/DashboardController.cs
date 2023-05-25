@@ -23,9 +23,9 @@ namespace CNPMNC.Areas.Admin.Controllers
             model.TotalUsers = db.KHACHHANGs.Count();
             model.TotalAdmin = db.ADMINs.Count();
             model.TotalNewOrders = db.DONHANGs.Where(x => x.TRANGTHAIID == 1).Count();
-            model.TotalOrders = db.DONHANGs.Where(x => x.TRANGTHAIID == 2).Count();
+            model.TotalOrders = db.DONHANGs.Where(x => x.TRANGTHAIID == 6).Count();
             model.TotalProducts = db.DIENTHOAIs.Count();
-            model.TotalRevenue = db.DONHANGs.Where(x => x.TRANGTHAIID == 2)
+            model.TotalRevenue = db.DONHANGs.Where(x => x.TRANGTHAIID == 6)
                                      .Sum(x => (decimal?)x.THANHTIEN) ?? 0;
 
             return View(model);

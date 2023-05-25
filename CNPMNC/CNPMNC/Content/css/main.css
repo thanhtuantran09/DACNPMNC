@@ -389,6 +389,7 @@
     display: none;
     transition: all ease-in-out 0.5s;
     opacity: 0;
+    height: 70%;
 }
 
 .channel-entrance-link-menu-list::before {
@@ -1088,7 +1089,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    padding: 8px 20px;
+    padding: 28px 20px;
     transition: right linear 0.1s;
     right: 0;
     
